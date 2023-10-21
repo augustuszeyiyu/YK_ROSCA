@@ -1,0 +1,68 @@
+{
+  "private": true,
+  "name": "ya-roska_www",
+  "version": "0.0.1",
+  "description": "YK_ROSCA a small R.O.S.C.A. programe development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/augustuszeyiyu/YK_ROSCA.git"
+  },
+  "keywords": [],
+  "author": "AugustusYu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/augustuszeyiyu/YK_ROSCA/issues"
+  },
+  "homepage": "https://github.com/augustuszeyiyu/YK_ROSCA#readme",
+  "dependencies": {
+    "@fastify/cookie": "^8.3.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/multipart": "^7.7.0",
+    "@fastify/static": "^6.11.2",
+    "@fastify/swagger": "^8.10.1",
+    "@fastify/swagger-ui": "^1.9.3",
+    "@types/node": "^20.3.2",
+    "@types/pg": "^8.10.2",
+    "beson": "^3.1.5",
+    "bignumber.js": "^9.0.1",
+    "clipargs": "^2.1.1",
+    "colors": "^1.4.0",
+    "copyfiles": "^2.4.1",
+    "ejstmpl": "^0.9.1",
+    "extes": "^4.2.1",
+    "fastify": "^4.18.0",
+    "fastify-multer": "^2.0.3",
+    "i": "^0.3.7",
+    "jsonwebtoken": "^9.0.0",
+    "npm": "^10.2.0",
+    "open": "^9.1.0",
+    "path": "^0.12.7",
+    "pg": "^8.11.1",
+    "pg-cursor": "^2.10.1",
+    "pgdelegate": "^0.6.9",
+    "phook": "^1.2.3",
+    "reroot": "^1.5.1",
+    "shared-storage": "github:JCloudYu/shared-storage#c45e6611deccd28b1cf77421a7e948b486dda8f0",
+    "svg-captcha": "^1.4.0",
+    "taiwan-bank-data": "^1.6.32023930",
+    "taiwan-id-validator": "^1.5.0",
+    "trimid": "^4.1.0",
+    "updator": "^0.9.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-run": "^1.7.1",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "mocha": "^9.1.1",
+    "typescript": "^4.8.4"
+  }
+}
+
