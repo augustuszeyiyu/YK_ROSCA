@@ -5,7 +5,18 @@
   "description": "YK_ROSCA a small R.O.S.C.A. programe development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "npm run clear_all",
+    "build": "npm run _compile && npm run _copyres && npm run _pack",
+    "postbuild": "npm run _prep_test && npm run _clear_pack && npm run _uglify",
+    "clear_all": "npm run _clear_pack && npm run _clear_build",
+    "_compile": "tsc",
+    "_pack": "rollup --config ./rollup.config.js",
+    "_copyres": "copyfiles -e ./tsconfig.json -e ./rollup.config.js -e ./package.json -e ./package-lock.json -e \"./**/*.ts\" -e \"./_build/**/*\" -e \"./_dist/**/*\" -e \"./node_modules/**/*\" \"./**/*\" ./_dist",
+    "_prep_test": "cd ./_dist && copyfiles ./index/* ../_build && copyfiles ./index/**/* ../_build && copyfiles ./index/**/**/* ../_build && find ../_build/index -name \"*.d.ts\" -exec rm {} \\;",
+    "_uglify": "terser -c -m -o ./_build/index/script.min.js -- ./_build/index/script.js",
+    "_clear_pack": "rm -rf ./_dist",
+    "_clear_build": "rm -rf ./_build"
   },
   "repository": {
     "type": "git",
@@ -25,6 +36,9 @@
     "@fastify/static": "^6.11.2",
     "@fastify/swagger": "^8.10.1",
     "@fastify/swagger-ui": "^1.9.3",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@types/js-cookie": "^3.0.2",
     "@types/node": "^20.3.2",
     "@types/pg": "^8.10.2",
     "beson": "^3.1.5",
@@ -46,11 +60,14 @@
     "pgdelegate": "^0.6.9",
     "phook": "^1.2.3",
     "reroot": "^1.5.1",
+    "rollup-plugin-dts": "^4.1.0",
     "shared-storage": "github:JCloudYu/shared-storage#c45e6611deccd28b1cf77421a7e948b486dda8f0",
     "svg-captcha": "^1.4.0",
     "taiwan-bank-data": "^1.6.32023930",
     "taiwan-id-validator": "^1.5.0",
+    "terser": "^5.10.0",
     "trimid": "^4.1.0",
+    "typescript": "^4.5.5",
     "updator": "^0.9.0"
   },
   "devDependencies": {
@@ -62,7 +79,7 @@
     "gulp-run": "^1.7.1",
     "gulp-typescript": "^6.0.0-alpha.1",
     "mocha": "^9.1.1",
+    "rollup": "^2.79.1",
     "typescript": "^4.8.4"
   }
 }
-
