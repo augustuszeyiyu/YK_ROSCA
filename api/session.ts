@@ -51,6 +51,22 @@ export default class SessionControl {
 			msg:	"You're not logged in!",
 		});
 	}
+	static async GetCaptcha() {
+		return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
+			method:'GET', 
+		})
+		.then(ProcRemoteResponse)
+		.then(async(resp)=>{
+			//@ts-ignore
+			const body:{image:string} = await resp.json();
+
+			console.log('GetCaptcha', body);
+		
+
+			return Object.assign({}, {img:body.image});
+		});
+	}
+
 	static async Login():Promise<SessionInfo>;
 	// static async Login(option:{uid:string, password:string; }):Promise<SessionInfo>;
 	static async Login(option:{uid:string, password:string; captcha:string;}):Promise<SessionInfo>;

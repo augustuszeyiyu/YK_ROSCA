@@ -38,7 +38,9 @@
 
 	const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
 
-
+	const result = await ROSKA_FORM.Session.GetCaptcha();
+	console.log('ROSKA_FORM.Session.GetCaptcha', result);
+	
 
 	// REGION: [ Login from access_token ]
 	const access_token = Cookies.get(COOKIE_ACCESS_TOKEN);
