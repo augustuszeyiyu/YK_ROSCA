@@ -36,12 +36,17 @@
 	}
 
 
-	const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
+    const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
+    const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
+    // console.log('html Elment insert',captcha_getin_result.img);
+    accessor.captcha_getin.innerHTML= captcha_getin_result.img;
 
-	const result = await ROSKA_FORM.Session.GetCaptcha();
-	console.log('ROSKA_FORM.Session.GetCaptcha', result);
-	
+    accessor.account.placeholder='A112345555';
+    accessor.password.placeholder='Abcd1234';
 
+    // console.log('html Elment',accessor.captcha_getin);
+    // console.log('ROSKA_FORM.Session.GetCaptcha', captcha_getin_result);
+    // REGION: [ Login from access_token ]
 	// REGION: [ Login from access_token ]
 	const access_token = Cookies.get(COOKIE_ACCESS_TOKEN);
 	if (access_token) {
@@ -65,8 +70,7 @@
 	accessor.btn_login.onclick = async () => {
 		const uid = accessor.account.value;
 		const password = accessor.password.value;
-		// const captcha = accessor.captcha.value;
-		const captcha = '';
+		const captcha = accessor.captcha.value;
 		if (!uid || !password) {
 			alert('請輸入帳號密碼登入！');
 			return;

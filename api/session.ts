@@ -178,16 +178,16 @@ export default class SessionControl {
 
 
 
-		// return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
-		// 	method:'POST',
-		// 	headers: {"Content-Type": "application/json"},
-		// 	body: JSON.stringify({ email:account, password:password, captcha:captcha })
-		// })
-		
 		return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
-			method:'GET',
-			headers: {nid:account, password:password, captcha:captcha },
+			method:'POST',
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({ nid:account, password:password, captcha:captcha })
 		})
+		
+		// return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
+		// 	method:'GET',
+		// 	headers: {nid:account, password:password, captcha:captcha },
+		// })
 		.then(ProcRemoteResponse)
 		.then(async(resp)=>{
 			const result:{
