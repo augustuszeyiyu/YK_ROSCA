@@ -12,7 +12,7 @@ type RuntimeStorage = {
 };
 
 // type TypeLoginObjAccount = {account:string, password:string; totp?:string;};
-type TypeLoginObjAccount = {uid:string, password:string; captcha:string;};
+type TypeLoginObjAccount = {nid:string, password:string; captcha:string;};
 // type TypeLoginObjAuthCode = {auth_code:string, totp?:string;};
 type TypeLoginObjAccessToken = {access_token:string;};
 type TypeLoginObj = TypeLoginObjAccount  | TypeLoginObjAccessToken;
@@ -68,8 +68,8 @@ export default class SessionControl {
 	}
 
 	static async Login():Promise<SessionInfo>;
-	// static async Login(option:{uid:string, password:string; }):Promise<SessionInfo>;
-	static async Login(option:{uid:string, password:string; captcha:string;}):Promise<SessionInfo>;
+	// static async Login(option:{nid:string, password:string; }):Promise<SessionInfo>;
+	static async Login(option:{nid:string, password:string; captcha:string;}):Promise<SessionInfo>;
 	// static async Login(option:{auth_code:string}):Promise<SessionInfo>;
 	// static async Login(option:{auth_code:string, captcha:string}):Promise<SessionInfo>;
 	static async Login(option:{access_token:string}):Promise<SessionInfo>;	
@@ -121,9 +121,7 @@ export default class SessionControl {
 			throw new Error("Input options must be an object!");
 		}
 
-
-
-		account = (param1 as TypeLoginObjAccount).uid;
+		account = (param1 as TypeLoginObjAccount).nid;
 		password = (param1 as TypeLoginObjAccount).password;
 		// auth_code = (param1 as TypeLoginObjAuthCode).auth_code;
 		access_token = (param1 as TypeLoginObjAccessToken).access_token;

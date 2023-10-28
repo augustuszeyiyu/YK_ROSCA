@@ -1,0 +1,45 @@
+.user-view { width:100%; height:100%; overflow:hidden; display:grid; grid-template-rows:1fr; }
+	.user-view .grid { border:1px solid #000; display:grid; grid-template-rows:auto 1fr; overflow:hidden; height:100%; }
+		.user-view .grid-title { padding:1rem; font-size:1.3rem; font-weight:bolder; }
+		.user-view .grid-content { padding:0 1rem 1rem; overflow:auto; }
+		.user-view .grid-content.table {
+			padding:0; display:grid; font-size:0.9rem; overflow:auto;
+			border-top:1px solid #000; grid-auto-rows:max-content;
+		}
+			.user-view .grid-content.table .tbody { overflow:auto; }
+				
+	
+	.user-view .table .tbody {}
+		.user-view .table .row {
+			padding:5px; position:relative; display:grid; grid-template-columns:1fr;
+			border-top:1px solid #000; align-items:center;
+		}
+		.user-view .table .row:first-child {border-top:none;}
+		.user-view .table .row:last-child {border-bottom:1px solid #000;}
+		.user-view .table .row.selectable { cursor:pointer; }
+		.user-view .table .row.none-selectable { cursor:not-allowed; background:#EEE; }
+		.user-view .table .row.proc-error { cursor:not-allowed; background:#FDD; }
+		.user-view .table .row.selected { background:rgba(252, 199, 38, .3); }
+		
+		.user-view .table .row .time {
+			padding:2px 10px; position:absolute; bottom:0; right:0; font-size:0.85em; font-weight:bolder;
+			background:#1973A3; color:#FFF; border-top-left-radius:5px; border-top:1px solid #000; border-left:1px solid #000;
+		}
+		.user-view .table .row .time.expired { background:#A31919; }
+		
+		
+		.user-view .table .row .field { display:grid; grid-template-columns:auto 1fr; }
+			.user-view .table .row label { display:block; margin-right:10px; }
+			
+	.user-view .table .tfoot {}
+		.user-view .table .tfoot button { cursor:pointer; width:100%; padding:10px 0; font-size:1.2em; font-weight:bolder; border:none; background:#4EA319; color:#FFF; }
+
+
+.user-view { display:grid; grid-template-columns:0.7fr 2fr; }
+	.user-view .user-list { overflow:auto; }
+	.user-view .field { display:grid; grid-template-columns:15rem 1fr; grid-column-gap:1rem; align-items:center; }
+		.user-view .field > div:first-child { text-align:right; }
+		.user-view .field .flex { display:flex; }
+
+	.user-view .user-info > div.field { margin-bottom:0.5rem; }
+	.user-view .user-info > div.field:last-child { margin-bottom:0; }

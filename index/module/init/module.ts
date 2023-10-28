@@ -41,13 +41,13 @@
     // console.log('html Elment insert',captcha_getin_result.img);
     accessor.captcha_getin.innerHTML= captcha_getin_result.img;
 
-    accessor.account.placeholder='A112345555';
-    accessor.password.placeholder='Abcd1234';
+    accessor.account.value='A112345555';
+    accessor.password.value='Abcd1234';
 
     // console.log('html Elment',accessor.captcha_getin);
     // console.log('ROSKA_FORM.Session.GetCaptcha', captcha_getin_result);
     // REGION: [ Login from access_token ]
-	// REGION: [ Login from access_token ]
+
 	const access_token = Cookies.get(COOKIE_ACCESS_TOKEN);
 	if (access_token) {
 		try {
@@ -68,10 +68,10 @@
 	// ENDREGION
 	// REGION: [ Login from account and password ]
 	accessor.btn_login.onclick = async () => {
-		const uid = accessor.account.value;
+		const nid = accessor.account.value;
 		const password = accessor.password.value;
 		const captcha = accessor.captcha.value;
-		if (!uid || !password) {
+		if (!nid || !password) {
 			alert('請輸入帳號密碼登入！');
 			return;
 		}
@@ -84,19 +84,20 @@
 
 		try {
 			loading_overlay.Show();
-			let result = await ROSKA_FORM.Session.Login({ uid, password, captcha }).catch((e: Error) => e);
+			let result = await ROSKA_FORM.Session.Login({ nid, password, captcha }).catch((e: Error) => e);
 
 			if (result instanceof Error) {
 				// @ts-ignore
 				switch (result.code) {
 					case ROSKA_FORM.ErrorMap.LoginError.TOTP_REQUIRE.code: {
-						const totp = prompt('請輸入 Google Authenticator 驗證碼');
+						const totp = prompt('請輸入 奇奇怪怪 Authenticator 驗證碼');
+						
 						if (!totp) {
-							alert('請輸入 Google Authenticator 驗證碼！');
+							alert('請輸入 奇奇怪怪 Authenticator 驗證碼！');
 							return;
 						}
 
-						result = await ROSKA_FORM.Session.Login({ uid, password, captcha });
+						result = await ROSKA_FORM.Session.Login({ nid, password, captcha });
 					}
 						break;
 					default:
@@ -151,14 +152,15 @@
 
 		const modules: typeof window.modules = window.modules = [];
 		const module_names = [
-			'dashboard',
-			'sysvar',
-			'user',
-			'topup',
-			'withdraw',
-			'maintenance',
-			'serial',
-			'collect'
+			'register',
+			// 'dashboard',
+			// 'sysvar',
+			// 'user',
+			// 'topup',
+			// 'withdraw',
+			// 'maintenance',
+			// 'serial',
+			// 'collect'
 		];
 		const paths: {
 			path: string;

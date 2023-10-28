@@ -10,9 +10,11 @@ import * as DataTypeSysvar from "./api/data-type/sysvar.js";
 // import * as DataTypeMaintenance from "./api/data-type/maintenance.js";
 // import * as DataTypeSerial from "./api/data-type/serial.js";
 // import * as DataTypeRemit from "./api/data-type/remit.js";
+import * as DataTypeRegister from "./api/data-type/register.js";
 
 import * as ApiSystem from "./api/system.js";
 import * as ApiUser from "./api/user.js";
+import * as Apiregister from "./api/register.js";
 // import * as ApiTransaction from "./api/transaction.js";
 // import * as ApiMaintenance from "./api/maintenance.js";
 // import * as ApiSerial from "./api/serial.js";
@@ -25,7 +27,8 @@ type BaseType = {
 	Tools: typeof Tools;
 	PageController: typeof PageController;
 	ErrorMap: typeof ErrorMap;
-	// DataType: 
+	 DataType: 
+		typeof DataTypeRegister
     //     typeof DataTypeRoska
 		// typeof DataTypeTrading 
 		// & typeof DataTypeUserShareRatios 
@@ -40,8 +43,9 @@ const Base:BaseType = {
 	Tools,
 	PageController,
 	ErrorMap,
-	// DataType: Object.assign(
-    //     DataTypeRoska
+	DataType: Object.assign(
+		DataTypeRegister
+    	// DataTypeRoska
 		// DataTypeTrading, 
 		// DataTypeUserShareRatios, 
 		// DataTypeSysvar, 
@@ -49,10 +53,11 @@ const Base:BaseType = {
 		// DataTypeMaintenance, 
 		// DataTypeSerial,
 		// DataTypeRemit,
-	// )
+	)
 };
 const Exported = Object.assign(
 	Base,
+	Apiregister,
 	// ApiSystem,
 	// ApiUser,
 	// ApiTransaction,
@@ -67,7 +72,8 @@ const Exported = Object.assign(
 
 
 type ROSKA_FORM_Class = 
-	typeof Base 
+	typeof Base
+	& typeof Apiregister
 	// & typeof ApiSystem 
 	// & typeof ApiUser 
 	// & typeof ApiTransaction 
