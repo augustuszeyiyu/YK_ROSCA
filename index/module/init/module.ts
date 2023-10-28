@@ -13,39 +13,25 @@
 	const viewport = window.viewport;
 	const accessor = window.login_overlay;
 	const loading_overlay = window.loading_overlay;
-	// const a=1,b =2;
-	// const c = await window.restest(a,b){
-	// 	return a+b;
-	// }
 	{
 		const [{ element: layout }] = await window.resources([
 			{ type: 'html', path: './module/init/module.html' },
 			{ type: 'css', path: './module/init/module.css' }
 		]);
 		
-		accessor.element.innerHTML = layout.innerHTML;
-	    // const Login_captcha= document.querySelector('.Login_captcha_getin');         
-        // const Login_captcha_input = document.querySelector('.Login_captcha'); 
-        // Login_captcha_input.placeholder='testcaptcha';
-        console.log(accessor.captcha);
-		
+		accessor.element.innerHTML = layout.innerHTML;	
 		accessor.relink();
-		layout.remove();
-
-		
+		layout.remove();	
 	}
 
 
     const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
     const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
-    // console.log('html Elment insert',captcha_getin_result.img);
     accessor.captcha_getin.innerHTML= captcha_getin_result.img;
 
     accessor.account.value='A112345555';
     accessor.password.value='Abcd1234';
 
-    // console.log('html Elment',accessor.captcha_getin);
-    // console.log('ROSKA_FORM.Session.GetCaptcha', captcha_getin_result);
     // REGION: [ Login from access_token ]
 
 	const access_token = Cookies.get(COOKIE_ACCESS_TOKEN);
@@ -154,13 +140,6 @@
 		const module_names = [
 			'register',
 			// 'dashboard',
-			// 'sysvar',
-			// 'user',
-			// 'topup',
-			// 'withdraw',
-			// 'maintenance',
-			// 'serial',
-			// 'collect'
 		];
 		const paths: {
 			path: string;

@@ -123,37 +123,8 @@ export default class SessionControl {
 
 		account = (param1 as TypeLoginObjAccount).nid;
 		password = (param1 as TypeLoginObjAccount).password;
-		// auth_code = (param1 as TypeLoginObjAuthCode).auth_code;
 		access_token = (param1 as TypeLoginObjAccessToken).access_token;
 		captcha = (param1 as TypeLoginObjAccount).captcha;
-
-		if(auth_code !== undefined) {
-			const params = new URLSearchParams();
-			params.set('t', auth_code);
-			if(captcha !== undefined) params.set('captcha', captcha);
-
-			return fetch(`${SessionControl.endpoint_url}/api/auth/token?${params}`, {method:'GET'})
-			.then(ProcRemoteResponse)
-			.then(async(resp)=>{
-				const result:{
-					access_token:string;
-					refresh_token:string;
-					expired_time: epoch;
-					login_time: epoch;
-				} = await resp.json();
-
-				_RUNTIME.session_info = {
-					access_token: result.access_token,
-					refresh_token: result.refresh_token,
-					expired_time: result.expired_time,
-					login_time: result.login_time,
-				};
-
-				return Object.assign({}, _RUNTIME.session_info);
-			});
-		}
-
-
 
 		if(access_token !== undefined) {
 			return fetch(`${SessionControl.endpoint_url}/api/auth/session`, {
@@ -180,13 +151,7 @@ export default class SessionControl {
 			method:'POST',
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({ nid:account, password:password, captcha:captcha })
-		})
-		
-		// return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
-		// 	method:'GET',
-		// 	headers: {nid:account, password:password, captcha:captcha },
-		// })
-		.then(ProcRemoteResponse)
+		})		.then(ProcRemoteResponse)
 		.then(async(resp)=>{
 			const result:{
 				access_token:string;

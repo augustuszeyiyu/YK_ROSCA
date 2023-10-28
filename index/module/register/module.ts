@@ -16,13 +16,14 @@
 
 	const modules = window.modules;
 	const viewport = window.viewport;	
-	const view = viewport.maintenance_view;
+	const view = viewport.register_view;
 	const loading_overlay = window.loading_overlay;
 
 	modules.push({
 		init: async function(){
 			const [{element: layout}] = await window.resources([
-				{type: 'html', path: './module/maintenance/module.html'},
+				{ type: 'html', path: './module/register/module.html'},
+				{ type: 'css', path: './module/register/module.css' }
 			]);
 
 			view.element.innerHTML = layout.innerHTML;
