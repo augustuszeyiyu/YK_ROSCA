@@ -59,10 +59,7 @@ export default class SessionControl {
 		.then(async(resp)=>{
 			//@ts-ignore
 			const body:{image:string} = await resp.json();
-
-			console.log('GetCaptcha', body);
-		
-
+			// console.log('GetCaptcha', body);
 			return Object.assign({}, {img:body.image});
 		});
 	}

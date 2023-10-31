@@ -4,7 +4,7 @@
 
 	// REGION: [ Initialization ]
 	const WEBSITE_URL = window.WEBSITE_URL;
-	console.log(`[${TAG}] Website url:`, WEBSITE_URL);
+	// console.log(`[${TAG}] Website url:`, WEBSITE_URL);
 	ROSKA_FORM.Session.Init(WEBSITE_URL);
 
 	const { resolve, promise } = ROSKA_FORM.Tools.FlattenPromise<void>();

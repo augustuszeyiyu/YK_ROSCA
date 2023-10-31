@@ -1,22 +1,27 @@
-<div class="area-left" style="overflow:hidden;">
+<div class="" style="overflow:hidden;">
 		<label class="grid-title">使用者帳號註冊</label>
-		<div class="field"><div>帳號(身份證字號)</div><input elm-export="nid" elm-export-accessor></input></div>
-		<div class="field"><div>密碼</div><input elm-export="password"></input></div>
-		<div class="field"><div>姓名</div><input elm-export="name"></input></div>
-		<div class="field"><div>性別</div><input elm-export="gender"></input></div>
-		<div class="field"><div>生日(yyyy/mm/dd)</div><input elm-export="birth_date"></input></div>
-		<div class="field"><div>地址</div><input elm-export="address"></input></div>
-		<div class="field"><div>Line_ID</div><input elm-export="line_id"></input></div>
-		<div class="field"><div>住家電話</div><input elm-export="contact_home_number"></input></div>
-		<div class="field"><div>手機號碼</div><input elm-export="contact_mobile_number"></input></div>
-		<div class="field"><div>銀行代號</div><input elm-export="bank_code"></input></div>
-		<div class="field"><div>分行代號</div><input elm-export="branch_code"></input></div>
-		<div class="field"><div>帳戶姓名</div><input elm-export="bank_account_name"></input></div>
-		<div class="field"><div>帳戶號碼</div><input elm-export="bank_account_number"></input></div>
-		<div class="field"><div>緊急聯絡人(身分證字號)</div><input elm-export="emergency_nid"></input></div>
-		<div class="field"><div>緊急聯絡人姓名</div><input elm-export="emergency_contact"></input></div>
-		<div class="field"><div>緊急聯絡人電話</div><input elm-export="emergency_contact_number"></input></div>
-		<div class="field"><div>緊急聯絡人關係</div><input elm-export="emergency_contact_relation"></input></div>
-		<div class="field"><div>推薦人帳號</div><input elm-export="referrer_uid"></input></div>
-		<div class="field"><div>服務志工帳號</div><input elm-export="	volunteer_uid"></input></div>
+		<div class="" elm-export="input_data" elm-export-accessor>
+			<div class="field"><div>帳號(身份證字號)</div><input elm-export="nid" elm-export-accessor></div>
+			<div class="field"><div>密碼</div><input elm-export="password"></div>
+			<div class="field"><div>姓名</div><input elm-export="name"></div>
+			<div class="field"><div>性別</div><input elm-export="gender"></div>
+			<div class="field"><div>生日(yyyy/mm/dd)</div><input elm-export="birth_date"></div>
+			<div class="field"><div>地址</div><input elm-export="address"></div>
+			<div class="field"><div>Line_ID</div><input elm-export="line_id"></div>
+			<div class="field"><div>住家電話</div><input elm-export="contact_home_number"></div>
+			<div class="field"><div>手機號碼</div><input elm-export="contact_mobile_number"></div>
+			<div class="field"><div>銀行代號</div><input elm-export="bank_code"></div>
+			<div class="field"><div>分行代號</div><input elm-export="branch_code"></div>
+			<div class="field"><div>帳戶姓名</div><input elm-export="bank_account_name"></div>
+			<div class="field"><div>帳戶號碼</div><input elm-export="bank_account_number"></div>
+			<div class="field"><div>緊急聯絡人(身分證字號)</div><input elm-export="emergency_nid"></div>
+			<div class="field"><div>緊急聯絡人姓名</div><input elm-export="emergency_contact"></div>
+			<div class="field"><div>緊急聯絡人電話</div><input elm-export="emergency_contact_number"></div>
+			<div class="field"><div>緊急聯絡人關係</div><input elm-export="emergency_contact_relation"></div>
+			<div class="field"><div>推薦人帳號</div><input elm-export="referrer_nid"></div>
+			<div class="field"><div>服務志工帳號</div><input elm-export="volunteer_nid"></div>
+		</div>
 </div>
+		<div style="margin-top:1rem;">
+			<button elm-export="btn_save" style="min-width:150px;" elm-bind-event="bubble::click::register_user">註冊</button>
+		</div>

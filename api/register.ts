@@ -31,7 +31,7 @@ type UserInfo = {
 }
 export async function Do_Register_User(User_Data:UserInfo):Promise<Register_User> {
 	SessionControl.CheckLogin();
-	return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
+	return fetch(`${SessionControl.endpoint_url}/api/register`, {
 		method:'POST',
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify({User_Data})
