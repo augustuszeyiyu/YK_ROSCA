@@ -27,7 +27,7 @@ type BaseType = {
 	Tools: typeof Tools;
 	PageController: typeof PageController;
 	ErrorMap: typeof ErrorMap;
-	 DataType: 
+	DataType: 
 		typeof DataTypeRegister
     //     typeof DataTypeRoska
 		// typeof DataTypeTrading 

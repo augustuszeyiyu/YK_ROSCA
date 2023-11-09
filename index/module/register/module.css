@@ -43,3 +43,12 @@
 
 	.user-view .user-info > div.field { margin-bottom:0.5rem; }
 	.user-view .user-info > div.field:last-child { margin-bottom:0; }
+
+	.user-view .inner_module { background-color: #F0F0F0;}
+
+@media screen and (max-width:760px) {
+	.datainner_module .data_collection {}
+
+	.input_symbol {	width: 24px; height: 24px; padding-top: 1.25px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; justify-content: center; align-items: center; display: flex}
+	.input_symbol .symbol_icon { width: 18px; height: 20.75px; background: #797979 }
+}
