@@ -71,6 +71,28 @@ import { User } from "../../../api/data-type/register";
 	view
 	.on('register_user',async(_e:any)=>{
 		do_register_user();
+	}) 
+	.on('open_tab_member',(e:any)=>{
+		// accessor.member_content.addClass="active"
+		const accessor = view.input_data;
+		console.log(accessor.member_content);
+		accessor.member_content.style.display="flex"
+		accessor.recommendation_info.style.display="none"
+		accessor.bank_info_content.style.display="none"
+	})
+	.on('open_tab_recommand',(e:any)=>{
+		const accessor = view.input_data;
+		console.log(accessor.recommendation_info);
+		accessor.member_content.style.display="none"
+		accessor.recommendation_info.style.display="flex"
+		accessor.bank_info_content.style.display="none"
+	})
+	.on('open_tab_bankinfo',(e:any)=>{
+		const accessor = view.input_data;
+		console.log(accessor.bank_info_content);
+		accessor.member_content.style.display="none"
+		accessor.recommendation_info.style.display="none"
+		accessor.bank_info_content.style.display="flex"
 	});
 
 	async function do_register_user(){
@@ -106,10 +128,7 @@ import { User } from "../../../api/data-type/register";
         };
 		console.log("check02",Register_input_Data);
 		try{
-			let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data).catch((e: Error) => e);
-			console.log("check03",result);
-
-
+			let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
 		}catch (e: any) {
 			alert(`拳頭硬硬的(${e.message})`);
 			console.error(`[${TAG}]`, e);

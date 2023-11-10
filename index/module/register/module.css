@@ -46,9 +46,12 @@
 
 	.user-view .inner_module { background-color: #F0F0F0;}
 
-@media screen and (max-width:760px) {
+@media screen and (max-width:960px) {
 	.datainner_module .data_collection {}
+	.input_tab { height: 80%; display: flex; flex-direction: column; margin-top: 56px; overflow: scroll;}
+		.input_tab .input_value {width: 364px; padding: 16px; left: 16px; position: relative; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex; margin: 6px 0; }
+		.input_tab .input_value .input_symbol {	width: 24px; height: 24px; padding-top: 1.25px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; justify-content: center; align-items: center; display: flex}
+		.input_tab .input_value .input_symbol .symbol_icon { width: 18px; height: 20.75px; background: #797979 }
 
-	.input_symbol {	width: 24px; height: 24px; padding-top: 1.25px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; justify-content: center; align-items: center; display: flex}
-	.input_symbol .symbol_icon { width: 18px; height: 20.75px; background: #797979 }
+		.input_tab .input_value .input_zone{text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word}
 }

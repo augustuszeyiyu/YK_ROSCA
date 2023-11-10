@@ -1,9 +1,9 @@
 <div class="inner_module" style="overflow:hidden;">
-		<label class="grid-title">使用者帳號註冊</label>
-		<div class="data_collection" elm-export="input_data" elm-export-accessor>
+	<label class="grid-title">使用者帳號註冊</label>
+	<!-- <div class="data_collection" >
 			<div class="field"><div>帳號(身份證字號)</div><input elm-export="nid"></div>
 			<div class="field"><div>密碼</div><input elm-export="password"></div>
-			<div class="field"><div>姓名</div><input elm-export="name"></div>
+			<div class="field"><div>姓名</div><input elm-export="name" placeholder=""></div>
 			<div class="field"><div>性別</div><input elm-export="gender"></div>
 			<div class="field"><div>生日(yyyy/mm/dd)</div><input elm-export="birth_date"></div>
 			<div class="field"><div>地址</div><input elm-export="address"></div>
@@ -20,14 +20,14 @@
 			<div class="field"><div>緊急聯絡人關係</div><input elm-export="emergency_contact_relation"></div>
 			<div class="field"><div>推薦人帳號</div><input elm-export="referrer_nid"></div>
 			<div class="field"><div>服務志工帳號</div><input elm-export="volunteer_nid"></div>
-		</div>
-</div>
-		<div style="margin-top:1rem;">
+	</div>
+-->
+	<!-- <div style="margin-top:1rem;">
 			<button elm-export="btn_save" style="min-width:150px;" elm-bind-event="bubble::click::register_user">註冊</button>
-		</div>
+	</div>  -->
 
 
-		<div style="width: 428px; height: 926px; position: relative; background: #F0F0EF">
+	<div style="width: 428px; height: 926px; position: relative; background: #F0F0EF;" elm-export="input_data" elm-export-accessor>
 			<!--  -->
 			<div style="width: 428px; padding-top: 8px; padding-bottom: 35px; left: 0px; top: 843px; position: absolute; background: rgba(250, 249, 246, 0.75); box-shadow: 0px -0.33000001311302185px 0px rgba(0, 0, 0, 0.30); backdrop-filter: blur(50px); justify-content: center; align-items: center; display: inline-flex">
 			  <div style="flex: 1 1 0; align-self: stretch; padding-left: 24px; padding-right: 24px; justify-content: space-between; align-items: flex-start; display: inline-flex">
@@ -53,80 +53,136 @@
 				<div style="text-align: center; color: #F4F4F4; font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 24px; word-wrap: break-word">確認上傳</div>
 			  </div>
 
-			  
+			<div >
+				<div class="input_tab" elm-export="member_content">
 
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 206px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-				<div class="input_symbol">
-				  <div class="symbol_icon"></div>
-				</div>
-				<div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">性別</div>
-			  </div>
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 344px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-				<div class="input_symbol">
-				  <div class="symbol_icon"></div>
-				</div>
-				<div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">連絡電話</div>
-			  </div>
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 275px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: space-between; align-items: center; display: inline-flex">
-				<div style="justify-content: flex-start; align-items: center; gap: 12px; display: flex">
-				  <div style="width: 24px; height: 24px; justify-content: center; align-items: center; display: flex">
-					<div style="width: 24px; height: 24px; position: relative">
-					  <div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute"></div>
-					  <div style="width: 24px; height: 24px; padding-top: 1.25px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+					<div class="input_value" >
+						<div class="input_symbol">
 						<div class="symbol_icon"></div>
-					  </div>
+						</div>
+						<div class="input_zone"><input elm-export="name" placeholder="會員姓名"></div>
 					</div>
-				  </div>
-				  <div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">出生日期</div>
+					<div class="input_value" >
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone"><input elm-export="nid" placeholder="帳號(身份證字號)"></div>
+					</div>
+					<div class="input_value" >
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">密碼<input elm-export="password"></div>
+					</div>
+					<div class="input_value">
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">性別<input elm-export="gender"></div>
+					</div>
+					<div class="input_value">
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">連絡電話<input elm-export="contact_home_number"></div>
+					</div>
+					<div class="input_value">
+						<div style="justify-content: flex-start; align-items: center; gap: 12px; display: flex">
+						<div style="width: 24px; height: 24px; justify-content: center; align-items: center; display: flex">
+							<div style="width: 24px; height: 24px; position: relative">
+							<div style="width: 24px; height: 24px; left: 0px; top: 0px; position: absolute"></div>
+							<div style="width: 24px; height: 24px; padding-top: 1.25px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+								<div class="symbol_icon"></div>
+							</div>
+							</div>
+						</div>
+						<div class="input_zone">出生日期</div>
+						</div>
+						<div style="width: 24px; height: 24px; padding-left: 6.25px; padding-right: 6.25px; justify-content: center; align-items: center; display: flex">
+						<div style="width: 11.50px; height: 5.50px; background: #28303F"><input elm-export="birth_date"></div>
+						</div>
+					</div>
+					<div class="input_value">
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">緊急聯絡人<input elm-export="emergency_contact"></div>
+					</div>
+					<div class="input_value">
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">緊急聯絡人身分證字號<input elm-export="emergency_nid"></div>
+					</div>
+					<div class="input_value" >
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">緊急聯絡人聯絡電話<input elm-export="emergency_contact_number"></div>
+					</div>
 				</div>
-				<div style="width: 24px; height: 24px; padding-left: 6.25px; padding-right: 6.25px; justify-content: center; align-items: center; display: flex">
-				  <div style="width: 11.50px; height: 5.50px; background: #28303F"></div>
+
+				<div class="input_tab" elm-export="recommendation_info">
+					123
+					<div class="field"><div>帳號(身份證字號)</div></div>
+					<div class="field"><div>密碼</div></div>
+					<!-- <div class="field"><div>姓名</div></div> -->
+					<!-- <div class="field"><div>性別</div></div> -->
+					<!-- <div class="field"><div>生日(yyyy/mm/dd)</div></div> -->
+					<div class="field"><div>地址</div><input elm-export="address"></div>
+					<div class="field"><div>Line_ID</div><input elm-export="line_id"></div>
+					<!-- <div class="field"><div>住家電話</div></div> -->
+					<div class="field"><div>手機號碼</div><input elm-export="contact_mobile_number"></div>
+					<!-- <div class="field"><div>銀行代號</div><input elm-export="bank_code"></div>
+					<div class="field"><div>分行代號</div><input elm-export="branch_code"></div> -->
+					<div class="field"><div>帳戶姓名</div><input elm-export="bank_account_name"></div>
+					<!-- <div class="field"><div>帳戶號碼</div><input elm-export="bank_account_number"></div> -->
+					<!-- <div class="field"><div>緊急聯絡人(身分證字號)</div></div>
+					<div class="field"><div>緊急聯絡人姓名</div></div> -->
+					<!-- <div class="field"><div>緊急聯絡人電話</div></div> -->
+					<div class="field"><div>緊急聯絡人關係</div><input elm-export="emergency_contact_relation"></div>
+					<div class="field"><div>推薦人帳號</div><input elm-export="referrer_nid"></div>
+					<div class="field"><div>服務志工帳號</div><input elm-export="volunteer_nid"></div>
 				</div>
-			  </div>
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 137px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-				<div class="input_symbol">
-				  <div class="symbol_icon"></div>
+
+				<div class="input_tab" elm-export="bank_info_content">
+					<div class="input_value" >
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">銀行代號<input elm-export="bank_code"></div>
+					</div>
+					<div class="input_value" >
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">分行代號<input elm-export="branch_code"></div>
+					</div>
+					<div class="input_value" >
+						<div class="input_symbol">
+						<div class="symbol_icon"></div>
+						</div>
+						<div class="input_zone">帳戶號碼<input elm-export="bank_account_number"></div>
+					</div>
 				</div>
-				<div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">身分證字號</div>
-			  </div>
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 413px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-				<div class="input_symbol">
-				  <div class="symbol_icon"></div>
-				</div>
-				<div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">緊急聯絡人</div>
-			  </div>
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 482px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-				<div class="input_symbol">
-				  <div class="symbol_icon"></div>
-				</div>
-				<div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">緊急聯絡人身分證字號</div>
-			  </div>
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 551px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-				<div class="input_symbol">
-				  <div class="symbol_icon"></div>
-				</div>
-				<div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">緊急聯絡人聯絡電話</div>
-			  </div>
-			  <div style="width: 364px; padding: 16px; left: 16px; top: 68px; position: absolute; border-radius: 9px; border: 1px #C6C6C8 solid; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
-				<div class="input_symbol">
-				  <div class="symbol_icon"></div>
-				</div>
-				<div style="text-align: center; color: rgba(27, 18, 18, 0.25); font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">會員姓名</div>
-			  </div>
+			</div>
 			  <!--  -->
+
+
 			  <div style="width: 364px; padding: 2px; left: 16px; top: 24px; position: absolute; background: rgba(35.06, 35.06, 35.06, 0.12); border-radius: 9px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex">
-				<div style="flex: 1 1 0; align-self: stretch; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; background: white; box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.04); border-radius: 7px; border: 0.50px rgba(0, 0, 0, 0.04) solid; justify-content: flex-start; align-items: center; display: flex">
-				  <div style="flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 13px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word">會員內容</div>
-				</div>
-				<div style="width: 1px; height: 12px; opacity: 0.30; border-radius: 0.50px"></div>
-				<div style="flex: 1 1 0; align-self: stretch; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; justify-content: flex-start; align-items: center; display: flex">
-				  <div style="flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 13px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word">推薦資訊</div>
-				</div>
-				<div style="width: 1px; height: 12px; background: #C6C6C8; border-radius: 0.50px"></div>
-				<div style="flex: 1 1 0; align-self: stretch; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; justify-content: flex-start; align-items: center; display: flex">
-				  <div style="flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 13px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word">銀行資訊</div>
-				</div>
+					<div style="flex: 1 1 0; align-self: stretch; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; background: white; box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.04); border-radius: 7px; border: 0.50px rgba(0, 0, 0, 0.04) solid; justify-content: flex-start; align-items: center; display: flex">
+					<div style="flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 13px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word" elm-export="btn_open_tab_member" elm-bind-event="bubble::click::open_tab_member">會員內容</div>
+					</div>
+					<div style="width: 1px; height: 12px; opacity: 0.30; border-radius: 0.50px"></div>
+					<div style="flex: 1 1 0; align-self: stretch; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; justify-content: flex-start; align-items: center; display: flex">
+					<div style="flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 13px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word" elm-export="btn_open_tab_recommand" elm-bind-event="bubble::click::open_tab_recommand">推薦資訊</div>
+					</div>
+					<div style="width: 1px; height: 12px; background: #C6C6C8; border-radius: 0.50px"></div>
+					<div style="flex: 1 1 0; align-self: stretch; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; justify-content: flex-start; align-items: center; display: flex">
+					<div style="flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 13px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word" elm-export="btn_open_tab_bankinfo" elm-bind-event="bubble::click::open_tab_bankinfo">銀行資訊</div>
+					</div>
 			  </div>
+
 			</div>
 			<!--  -->
 			<div style="height: 110px; padding-bottom: 12px; left: 0px; top: 0px; position: absolute; background: #FAF9F6; border-bottom: 0.33px rgba(0, 0, 0, 0.30) solid; backdrop-filter: blur(50px); flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
@@ -145,7 +201,7 @@
 				  </div>
 				</div>
 			  </div>
-			  <div style="width: 428px; height: 44px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
+			  <!-- <div style="width: 428px; height: 44px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
 				<div style="width: 63px; padding-left: 16px; justify-content: flex-start; align-items: center; gap: 10px; display: inline-flex"></div>
 				<div style="width: 42.59px; padding-top: 10px; padding-bottom: 10px; padding-right: 16px; justify-content: flex-end; align-items: center; gap: 16px; display: inline-flex">
 				  <div style="width: 24px; height: 24px; position: relative">
@@ -158,6 +214,8 @@
 				  <div style="text-align: center; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word">歡迎回來,</div>
 				  <div style="text-align: center; color: #1B1212; font-size: 16px; font-family: Plus Jakarta Sans; font-weight: 600; line-height: 22.40px; word-wrap: break-word">余則易</div>
 				</div>
-			  </div>
+			  </div> -->
 			</div>
-		  </div>
+	</div>
+
+</div>		  
