@@ -1,8 +1,39 @@
-
-import { User } from "../../../api/data-type/register";
 (async () => {
 	// console.log(register);
-
+	
+	// Rrgion for TypeScript
+	type User = {
+		uid?: uniqid,
+		nid: string,
+		name: string,
+		gender?: 'M'|'F',
+		birth_date: string,
+		address: string,
+		line_id?: string,
+		contact_home_number: string,
+		contact_mobile_number: string,
+		role?: number,
+		bank_code: string,
+		branch_code: string,
+		bank_account_name: string,
+		bank_account_number: string,
+		emergency_nid: uniqid,
+		emergency_contact: string,
+		emergency_contact_number: string,
+		emergency_contact_relation: string,
+		relative_path?: string,
+		referrer_uid?: uniqid,
+		referrer_path?: string,
+		volunteer_uid?: uniqid,
+		volunteer_path?: string,
+		revoked?: boolean,
+		password: string,
+		update_time?: number,
+		create_time?: number,
+		[key:string]:any,
+	};
+	
+	// Rrgion for TypeScript
 	const TAG = 'register';
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};

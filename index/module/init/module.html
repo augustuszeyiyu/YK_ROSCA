@@ -1,5 +1,31 @@
-<input class="Login_account" elm-export="account" type="text" placeholder="輸入帳號">
-<input class="Login_password" elm-export="password" type="password" placeholder="輸入密碼">
-<input class="Login_captcha" elm-export="captcha" type="text" placeholder="輸入認證碼">
-<div class="Login_captcha_getin" elm-export="captcha_getin" type="img"></div>
-<button class="Login_button" elm-export="btn_login">登入</button>
+<div style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: column; margin-bottom: 4.5rem;"> 
+        <p style="color: #d6d6d6; margin: 0px; font-weight: 600;">歡迎蒞臨</p> 
+        <h1 style="color: azure; align-self: center;">永康合會</h1> 
+        <div style="color: azure; margin: 0 0 0.75rem 0; font-size: 1.3rem; font-weight: 800; line-height: 1.5rem;">
+            <span style="color: #a4bf43;">E</span>
+            <span style="color: #eece51;">S</span>
+            <span style="color: #63b8b3;">G</span> 
+            <div style="width: 1.5rem; height:1.3rem; vertical-align: bottom; justify-content: center; align-items: center; display: inline-flex; margin-left: 2px;">
+                <div style="background: #1973A3; height: 3px; width:8px;"></div>
+            </div>
+            <span style="color: rgb(245,145,56,0.85); font-size: 1.2rem;" >永康合會</span> 
+            <!-- <span style="color: rgb(153,156,241,0.75)>永康和會</span> -->
+        </div> 
+        <p style="align-self: center; margin: 0px; font-size: 1.1rem;">
+            <span style="color: #a4bf43;">環境保護（E，Environmental）</span><br>
+            <span style="color: #eece51;">社會責任（S，Social）</span><br>
+            <span style="color: #63b8b3;">公司治理（G，governance）</span>
+        </p> 
+    </div>
+    <div class="init_container" style="display: flex; flex-direction: column ;justify-content: center;">
+        <div> <input class="Login_account" elm-export="account" type="text" placeholder="請輸入帳號"></div>
+        <div> <input class="Login_password" elm-export="password" type="password" placeholder="請輸入密碼"></div>
+        <div> <input class="Login_captcha" elm-export="captcha" type="text" placeholder="請輸入認證碼"></div>
+        <div> <div style="display: flex; justify-content: flex-end;" class="Login_captcha_getin" elm-export="captcha_getin" type="img"></div></div>
+        <div class="init_btn_rigion" style="display: flex; justify-content: space-between;"> 
+            <button class="Login_button" elm-export="btn_login">登入</button>
+            <button class="register_button" elm-export="btn_register">註冊</button>
+        </div>
+    </div>
+</div>

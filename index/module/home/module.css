@@ -1,4 +1,4 @@
-.user-view { width:100%; height:100%; overflow:hidden; display:grid; grid-template-rows:1fr; }
+/* .user-view { width:100%; height:100%; overflow:hidden; display:grid; grid-template-rows:1fr; }
 	.user-view .grid { border:1px solid #000; display:grid; grid-template-rows:auto 1fr; overflow:hidden; height:100%; }
 		.user-view .grid-title { padding:1rem; font-size:1.3rem; font-weight:bolder; }
 		.user-view .grid-content { padding:0 1rem 1rem; overflow:auto; }
@@ -42,4 +42,4 @@
 		.user-view .field .flex { display:flex; }
 
 	.user-view .user-info > div.field { margin-bottom:0.5rem; }
-	.user-view .user-info > div.field:last-child { margin-bottom:0; }
+	.user-view .user-info > div.field:last-child { margin-bottom:0; } */

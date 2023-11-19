@@ -42,6 +42,16 @@
 			elm_page.emit('view-state', {state:'show', category});
 			elm_page.classList.remove('hide');
 			tab_page.classList.add('active');
+
+            if (page_id !== 'home_view') {
+                viewport.viewport_container.classList.remove('hide');
+                viewport.tabbar.classList.add('hide');
+                continue;
+            }
+            if (page_id == 'home_view') {
+                viewport.viewport_container.classList.add('hide');
+                viewport.tabbar.classList.remove('hide');
+            }
 		}
 	});
 	// ENDREGION

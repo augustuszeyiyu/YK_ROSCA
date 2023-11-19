@@ -18,12 +18,33 @@
 	</head>
 	<body>
 		<div elm-export="viewport" elm-export-accessor class="main hide">
-			<div elm-export="tabbar" class="navigator tabbars">
-				<div elm-bind-event="click::change-page" data-page="home_view" class="active"><span class="glyph-fontawesome-gear"></span><p>首頁</p></div>
-				<div elm-bind-event="click::change-page" data-page="register_view"><span class="glyph-fontawesome-gear"></span><p>註冊</p></div>
-				<div elm-bind-event="click::change-page" data-page="register_view"><span class="glyph-fontawesome-gear"></span><p>我的標會</p></div>
-				<div elm-bind-event="click::change-page" data-page="register_view"><span class="glyph-fontawesome-gear"></span><p>最近一期得標會組</p></div>
-				<div elm-bind-event="click::change-page" data-page="register_view"><span class="glyph-fontawesome-gear"></span><p>新會組</p></div>
+			<div elm-export="tabbar" class="navigator tabbars home_view_layout">
+				<div elm-bind-event="click::change-page" data-page="home_view" class="hide"><span class="glyph-fontawesome-gear"></span><p>首頁</p></div>
+
+				<div elm-bind-event="click::change-page" data-page="register_view">
+					<span class="glyph-fontawesome-gear"></span>
+					<p>註冊</p>				
+				</div>
+				<div elm-bind-event="click::change-page" data-page="register_view">
+					<span class="glyph-fontawesome-gear"></span>
+					<p>本期應繳金額</p>
+					<p class="more-info">更多資訊>></p>
+				</div>
+				<div elm-bind-event="click::change-page" data-page="register_view">
+					<span class="glyph-fontawesome-gear"></span>
+					<p>最近一期得標會組</p>
+					<p class="more-info">更多資訊>></p>
+				</div>
+				<div elm-bind-event="click::change-page" data-page="register_view">
+					<span class="glyph-fontawesome-gear"></span>
+					<p>我要下標-進行中的會組</p>
+					<p class="more-info">更多資訊>></p>
+				</div>
+				<div elm-bind-event="click::change-page" data-page="register_view">
+					<span class="glyph-fontawesome-gear"></span>
+					<p>我要跟會-新會組</p>
+					<p class="more-info">更多資訊>></p>
+				</div>
 				<!-- <div elm-bind-event="click::change-page" data-page="dashboard_view" class="active"><span class="glyph-fontawesome-windows"></span></div>
 				<div elm-bind-event="click::change-page" data-page="sysvar_view"><span class="glyph-fontawesome-gear"></span></div>
 				<div elm-bind-event="click::change-page" data-page="user_view"><span class="glyph-fontawesome-users"></span></div>
@@ -36,7 +57,7 @@
 				<div elm-bind-event="click::change-page" data-page="maintenance_view"><span class="glyph-fontawesome-bullhorn"></span></div>
 				<div elm-bind-event="click::change-page" data-page="serial_view"><span class="glyph-fontawesome-list"></span></div> -->
 			</div>
-			<div class="viewport">
+			<div class="viewport hide " elm-export="viewport_container ">
 				<div elm-export="home_view" elm-export-accessor class="dashboard-view"></div>
 				<div elm-export="register_view" elm-export-accessor class="dashboard-view"></div>
 
