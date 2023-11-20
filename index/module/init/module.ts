@@ -139,6 +139,7 @@
 		const modules: typeof window.modules = window.modules = [];
 		const module_names = [
 			'register',
+			'roska_last'
 			// 'dashboard',
 		];
 		const paths: {
