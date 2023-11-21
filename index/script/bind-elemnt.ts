@@ -7,6 +7,7 @@
 	window.head 	= head_accessor;
 	window.viewport = viewport;
 	window.login_overlay = main_accessor.login_overlay;
+	window.register_overlay = main_accessor.register_overlay;
 	window.loading_overlay = new ROSKA_FORM.PageController({viewport: main_accessor.loading_overlay});
 	// ENDREGION
 

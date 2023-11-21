@@ -49,7 +49,7 @@
 					<p>我要下標-進行中的會組</p>
 					<p class="more-info">更多資訊>></p>
 				</div>
-				<div elm-bind-event="click::change-page" data-page="roska_last_view">
+				<div elm-bind-event="click::change-page" data-page="roska_new_view">
 					<span class="glyph-fontawesome-gear"></span>
 					<p>我要跟會-新會組</p>
 					<p class="more-info">更多資訊>></p>
@@ -70,6 +70,7 @@
 				<div elm-export="home_view" elm-export-accessor class="dashboard-view"></div>
 				<div elm-export="register_view" elm-export-accessor class="dashboard-view"></div>
 				<div elm-export="roska_last_view" elm-export-accessor class="dashboard-view"></div>
+				<div elm-export="roska_new_view" elm-export-accessor class="dashboard-view"></div>
 
 				<!-- <div elm-export="dashboard_view" elm-export-accessor class="dashboard-view"></div>
 				<div elm-export="sysvar_view" elm-export-accessor class="sysvar-view"></div>
@@ -80,6 +81,10 @@
 				<div elm-export="maintenance_view" elm-export-accessor class="user-view"></div>
 				<div elm-export="serial_view" elm-export-accessor class="user-view"></div> -->
 			</div>
+		</div>
+		<div elm-export="register_overlay" elm-export-accessor class="overlay">
+
+			
 		</div>
 		<div elm-export="login_overlay" elm-export-accessor class="overlay"></div>
 		<div elm-export="loading_overlay" elm-export-accessor class="overlay hide">

@@ -23,7 +23,16 @@
 		accessor.relink();
 		layout.remove();	
 	}
-
+	const register_overlay = window.register_overlay;
+    {
+        const [{ element: layout }] = await window.resources([
+            { type: 'html', path: './module/register/module.html' },
+            { type: 'css', path: './module/register/module.css' }
+        ]);
+        register_overlay.element.innerHTML = layout.innerHTML;
+        register_overlay.relink();
+        layout.remove();
+    }
 
     const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
     const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
@@ -129,6 +138,14 @@
 	}
 
 
+	const PageRegister = new ROSKA_FORM.PageController({ viewport: register_overlay.element });
+    console.log(accessor.btn_register.innerHTML);
+    accessor.btn_register.onclick = (e:any) => {
+        console.log('ji3vu;3g;4hknji3');
+        register_overlay.classList.remove('hide');
+        accessor.classList.add('hide');
+    }
+
 
 	// REGION: [ Wait authorization, load modules and landing to main page ]
 	{
@@ -139,7 +156,8 @@
 		const modules: typeof window.modules = window.modules = [];
 		const module_names = [
 			'register',
-			'roska_last'
+			'roska_last',
+			'roska_new',
 			// 'dashboard',
 		];
 		const paths: {

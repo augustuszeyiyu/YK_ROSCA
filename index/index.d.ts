@@ -7,6 +7,7 @@ declare global {
 		viewport:any;
 		login_overlay:any;
 		loading_overlay:any;
+		register_overlay:any;
 
 		modules:{
 			init:()=>Promise<void>

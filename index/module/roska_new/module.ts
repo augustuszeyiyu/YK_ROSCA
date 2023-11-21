@@ -34,7 +34,7 @@
 	};
 	
 	// Rrgion for TypeScript
-	const TAG = 'roska_last';
+	const TAG = 'roska_new';
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
@@ -66,8 +66,8 @@
 	modules.push({
 		init: async function(){
 			const [{element: layout}] = await window.resources([
-				{ type: 'html', path: './module/roska_last/module.html'},
-				{ type: 'css', path: './module/roska_last/module.css' }
+				{ type: 'html', path: './module/roska_new/module.html'},
+				{ type: 'css', path: './module/roska_new/module.css' }
 			]);
 
 			view.element.innerHTML = layout.innerHTML;
