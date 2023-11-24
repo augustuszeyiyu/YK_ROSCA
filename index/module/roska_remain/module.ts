@@ -60,14 +60,14 @@
 
 	const modules = window.modules;
 	const viewport = window.viewport;	
-	const view = viewport.roska_new_view;
+	const view = viewport.roska_remain_view;
 	const loading_overlay = window.loading_overlay;
 
 	modules.push({
 		init: async function(){
 			const [{element: layout}] = await window.resources([
-				{ type: 'html', path: './module/roska_new/module.html'},
-				{ type: 'css', path: './module/roska_new/module.css' }
+				{ type: 'html', path: './module/roska_remain/module.html'},
+				{ type: 'css', path: './module/roska_remain/module.css' }
 			]);
 
 			view.element.innerHTML = layout.innerHTML;

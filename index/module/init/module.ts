@@ -1,4 +1,38 @@
 (async () => {
+
+	// Rrgion for TypeScript //
+		type User = {
+			uid?: uniqid,
+			nid: string,
+			name: string,
+			gender?: 'M'|'F',
+			birth_date: string,
+			address: string,
+			line_id?: string,
+			contact_home_number: string,
+			contact_mobile_number: string,
+			role?: number,
+			bank_code: string,
+			branch_code: string,
+			bank_account_name: string,
+			bank_account_number: string,
+			emergency_nid: uniqid,
+			emergency_contact: string,
+			emergency_contact_number: string,
+			emergency_contact_relation: string,
+			relative_path?: string,
+			referrer_uid?: uniqid,
+			referrer_path?: string,
+			volunteer_uid?: uniqid,
+			volunteer_path?: string,
+			revoked?: boolean,
+			password: string,
+			update_time?: number,
+			create_time?: number,
+			[key:string]:any,
+		};
+
+
 	const TAG = 'init';
 	const COOKIE_ACCESS_TOKEN = 'ROSKA_FORM_admin_access_token';
 
@@ -117,6 +151,121 @@
 			loading_overlay.Hide();
 		}
 	};
+
+    //region register & page controler//
+
+	// const PageRegister = new ROSKA_FORM.PageController({ viewport: register_overlay.element });
+    // console.log(accessor.btn_register.innerHTML);
+    accessor.btn_register.onclick = (e:any) => {
+        register_overlay.classList.remove('hide');
+        accessor.classList.add('hide');
+    }
+
+    const view = register_overlay;
+    view
+    .on('register_user', async (_e:any) => {
+        console.log('134');
+        do_register_user();
+    })
+        .on('home_view',(e:any)=>{
+            console.log('1456');
+            register_overlay.classList.add('hide');
+            accessor.classList.remove('hide');
+    })
+        .on('open_tab_member', (e:any) => {
+        // accessor.member_content.addClass="active"
+        const accessor = view.input_data;
+            // console.log(accessor.member_content);
+        accessor.member_content.style.display = "flex";
+        accessor.recommendation_info.style.display = "none";
+        accessor.bank_info_content.style.display = "none";
+        accessor.btn_open_tab_member.classList.add('active');
+        accessor.btn_open_tab_recommand.classList.remove('active');
+        accessor.btn_open_tab_bankinfo.classList.remove('active');
+    })
+        .on('open_tab_recommand', (e:any) => {
+        const accessor = view.input_data;
+            // console.log(accessor.recommendation_info);
+        accessor.member_content.style.display = "none";
+        accessor.recommendation_info.style.display = "flex";
+        accessor.bank_info_content.style.display = "none";
+        accessor.btn_open_tab_member.classList.remove('active');
+        accessor.btn_open_tab_recommand.classList.add('active');
+        accessor.btn_open_tab_bankinfo.classList.remove('active');
+    })
+        .on('open_tab_bankinfo', (e:any) => {
+        const accessor = view.input_data;
+        //  console.log(accessor.bank_info_content);
+        accessor.member_content.style.display = "none";
+        accessor.recommendation_info.style.display = "none";
+        accessor.bank_info_content.style.display = "flex";
+        accessor.btn_open_tab_member.classList.remove('active');
+        accessor.btn_open_tab_recommand.classList.remove('active');
+        accessor.btn_open_tab_bankinfo.classList.add('active');
+    })
+        .on('load_test_register_userinfo', (e:any) => {
+        // Develope Help rigion
+        const accessor = view.input_data;
+        accessor.nid.value = 'F123456777';
+        accessor.name.value = '姓名';
+        accessor.password.value = 'A1234567';
+        accessor.gender.value = 'M';
+        accessor.birth_date.value = '1984-01-17';
+        accessor.address.value = '新北市汐止區連興街116號';
+        accessor.line_id.value = '';
+        accessor.contact_home_number.value = "0226481872";
+        accessor.contact_mobile_number.value = "0921136362";
+        accessor.bank_code.value;
+        accessor.branch_code.value;
+        accessor.bank_account_number.value;
+        accessor.emergency_nid.value = "A1234567890";
+        accessor.emergency_contact.value = "Cheny";
+        accessor.emergency_contact_number.value = "0226481872";
+        accessor.emergency_contact_relation.value;
+        // accessor.referrer_nid.value;
+        // accessor.volunteer_nid.value;
+        accessor.relink();
+    });
+    async function do_register_user() {
+        // User_Infoa: UserInfo)
+        const accessor = view.input_data;
+        const Register_input_Data: User = {
+            nid: '',
+            name: '',
+            gender: 'M',
+            birth_date: '',
+            address: '',
+            line_id: '',
+            contact_home_number: '',
+            contact_mobile_number: '',
+            // role: {type:'number'},
+            bank_code: '',
+            branch_code: '',
+            bank_account_name: '',
+            bank_account_number: '',
+            emergency_nid: '',
+            emergency_contact: '',
+            emergency_contact_number: '',
+            emergency_contact_relation: '',
+            // referrer_nid: undefined,
+            // volunteer_nid: undefined,
+            password: '',
+        };
+        for (const key in Register_input_Data) {
+            if (accessor[key]) {
+                Register_input_Data[key] = accessor[key].value;
+            }
+        };
+        console.log("check02", Register_input_Data);
+        try {
+            let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
+        }
+        catch (e:any) {
+            alert(`拳頭硬硬的(${e.message})`);
+            console.error(`[${TAG}]`, e);
+        }
+    };
+
 	// ENDREGION
 	{
 		viewport
@@ -136,15 +285,6 @@
 			}
 		};
 	}
-
-
-	const PageRegister = new ROSKA_FORM.PageController({ viewport: register_overlay.element });
-    console.log(accessor.btn_register.innerHTML);
-    accessor.btn_register.onclick = (e:any) => {
-        console.log('ji3vu;3g;4hknji3');
-        register_overlay.classList.remove('hide');
-        accessor.classList.add('hide');
-    }
 
 
 	// REGION: [ Wait authorization, load modules and landing to main page ]
