@@ -87,7 +87,7 @@
 			PageLogin.Hide();
 		}
 		catch (e: any) {
-			alert(`登入失敗！(${e.message})`);
+			// alert(`登入失敗！(${e.message})`);
 			console.error(`[${TAG}]`, e);
 		}
 		finally {
@@ -271,9 +271,11 @@
 
 
     async function do_logout(){
-        console.log('ck02');
         try { 
             let result = await ROSKA_FORM.Session.Logout();
+            if( result === false){
+                window.location.reload();
+            }
         }
         catch (e:any) {
             alert(`登出失敗(${e.message})`);
@@ -284,11 +286,9 @@
     {   
         viewport
             .on('logout', async(_e:any)=>{
-                console.log('ck01');
                 do_logout();
             })
     }
-
 
 	// ENDREGION
 	{
