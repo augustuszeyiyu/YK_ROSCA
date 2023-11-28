@@ -261,7 +261,7 @@
             let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
         }
         catch (e:any) {
-            alert(`拳頭硬硬的(${e.message})`);
+            alert(`註冊失敗(${e.message})`);
             console.error(`[${TAG}]`, e);
         }
     };
