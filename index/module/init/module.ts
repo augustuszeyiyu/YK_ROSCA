@@ -264,7 +264,31 @@
             alert(`註冊失敗(${e.message})`);
             console.error(`[${TAG}]`, e);
         }
+        // finally{
+        //     alert(`恭喜您已註冊成功 ${Register_input_Data.name}`);
+        // }
     };
+
+
+    async function do_logout(){
+        console.log('ck02');
+        try { 
+            let result = await ROSKA_FORM.Session.Logout();
+        }
+        catch (e:any) {
+            alert(`登出失敗(${e.message})`);
+            console.error(`[${TAG}]`, e);
+        }
+    };
+
+    {   
+        viewport
+            .on('logout', async(_e:any)=>{
+                console.log('ck01');
+                do_logout();
+            })
+    }
+
 
 	// ENDREGION
 	{

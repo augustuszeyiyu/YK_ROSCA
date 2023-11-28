@@ -22,8 +22,9 @@
 			
 			<div elm-export="tabbar" class="navigator tabbars home_view_layout" >			
 				<div style="height:240px; width: 100%; margin: 0; padding: 0; background-image: url(./external/img/logo-panal.png); background-position: 50% 60%; background-size: cover;">
-					<div style=" background-color: #1c79c5; height: 2rem; width: 100%;">
-						<p style=" margin: 0; line-height: 2rem;">永康合會</p>
+					<div style=" background-color: #1c79c5; height: 2rem; width: 100%; display: inline-flex; justify-content: space-between;">
+						<div style="padding: 0 2rem;"><p style=" margin: 0; line-height: 2rem;">永康合會</p></div>
+						<div elm-export="btn_logout" elm-bind-event="bubble::click::logout" elm-export-accessor style="align-items: center; display: flex; padding: 0 2rem;">登出<samp class="glyph-fontawesome-sign-out"></samp></div>
 					</div>										
 				</div>
 
