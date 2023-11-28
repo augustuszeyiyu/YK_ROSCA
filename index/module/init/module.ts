@@ -296,8 +296,10 @@
 		const modules: typeof window.modules = window.modules = [];
 		const module_names = [
 			'register',
+			'roska_pay',
 			'roska_last',
 			'roska_new',
+			'roska_remain',
 			// 'dashboard',
 		];
 		const paths: {
