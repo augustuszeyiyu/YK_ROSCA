@@ -1,8 +1,7 @@
 ( async()=>{
 
     
-	const TAG = 'init';
-	const COOKIE_ACCESS_TOKEN = 'ROSKA_FORM_admin_access_token';
+	const TAG = 'home';
 
 	// REGION: [ Initialization ]
 	const WEBSITE_URL = window.WEBSITE_URL;
