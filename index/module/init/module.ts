@@ -274,6 +274,11 @@
         console.log('ck02');
         try { 
             let result = await ROSKA_FORM.Session.Logout();
+			console.log('logout api', result);
+
+			if (result === false) {
+				window.location.reload();
+			}
         }
         catch (e:any) {
             alert(`登出失敗(${e.message})`);
