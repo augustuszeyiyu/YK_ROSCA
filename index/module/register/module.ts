@@ -1,6 +1,4 @@
 (async () => {
-	// console.log(register);
-	
 	// Rrgion for TypeScript
 	type User = {
 		uid?: uniqid,
@@ -33,7 +31,6 @@
 		[key:string]:any,
 	};
 	
-	// Rrgion for TypeScript
 	const TAG = 'register';
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};
@@ -45,18 +42,6 @@
 		query:{},
 		cursor:null
 	};
-
-	// type User =  typeof ROSKA_FORM.DataType;;
-
-	// const testtest={} as User 
-	// const Register_input_Data = {} as ROSKA_FORM.DataType.Rigister_UserInfo;
-
-	// type Register_input_Data_type = {[key:string]:{type:'M'|'F'|'number'|'string'|uniqid}};
-	// const Register_input_Data= {} as User;
-
-	// const Register_input_Data:Interface ,UserInfo = {};
-
-
 
 	const modules = window.modules;
 	const viewport = window.viewport;	
