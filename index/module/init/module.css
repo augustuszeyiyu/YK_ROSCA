@@ -20,6 +20,11 @@ html,body {margin:0; width:100%; height:100%;}
 	
 	.main > .viewport { border:1px solid #000; width: 100%; height: 100%; overflow-y: auto; }
 
+
+	.inner_module{
+		overflow:hidden;
+	}
+
 @media screen and (max-width:960px) {
 	.main > .navigator.home_view_layout {
 		background:#f8f3e8;

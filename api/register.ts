@@ -1,6 +1,6 @@
 import SessionControl from "./session.js";
 import {BuildQueryOrderString, ProcRemoteResponse} from "../lib/tools.js";
-import {User_Register, User} from "./data-type/register.js"
+import {User_Register, User} from "./data-type/users.js"
 // import { HTExAPIVendorPrefix, HTExAPIVendorExceptBinance, HTSymbols, HTMarkets, HTExAPIVendors } from "./data-type/trading.js";
 
 type Register_User ={
@@ -8,7 +8,7 @@ type Register_User ={
 		create_time?: DataQueryOrder,
 	}
 }
-export async function Do_Register_User_Info(User_Data:User) {
+export async function Do_Register_User_Info(User_Data:User_Register) {
 	console.log("check input data",User_Data);
 	// SessionControl.CheckLogin();
 	
