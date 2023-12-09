@@ -127,7 +127,7 @@
 		// User_Infoa: UserInfo)
 
         const accessor = view.input_data;
-		const Register_input_Data: User= {
+		const Register_input_Data: typeof ROSKA_FORM.Do_Register_User_Info.prototype= {
             nid: '',
             name: '',
             gender: 'M',

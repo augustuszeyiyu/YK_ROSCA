@@ -46,7 +46,7 @@
 
 	.user-view .inner_module { background-color: #F0F0F0;}
 
-@media screen and (max-width:960px) {
+/* @media screen and (max-width:960px) { */
 	.datainner_module .data_collection {width: 364px; padding: 2px; left: 16px; top: 24px; position: absolute; background: rgba(35.06, 35.06, 35.06, 0.12); border-radius: 9px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex}
 
 	/* .btn_save_container{ background: #D4467F;} */
@@ -68,4 +68,4 @@
 	.input_tab_controller .input_tab_btn_container .input_tab_inner_btn {flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 0.9rem; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word}
 
 	.input_tab_controller .active { background: white; box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.04); border-radius: 7px; border: 0.50px rgba(0, 0, 0, 0.04) solid;}
-}
+/* } */
