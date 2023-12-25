@@ -65,7 +65,7 @@
 
 	.input_tab_controller {width: 360px; padding: 2px; left: 16px; top: 24px; position: absolute; background: rgba(35.06, 35.06, 35.06, 0.12); border-radius: 9px; overflow: hidden; justify-content: center; align-items: center; display: inline-flex }
 	.input_tab_controller .input_tab_btn_container {flex: 1 1 0; align-self: stretch; padding-left: 10px; padding-right: 10px; padding-top: 3px; padding-bottom: 3px; justify-content: flex-start; align-items: center; display: flex}
-	.input_tab_controller .input_tab_btn_container .input_tab_inner_btn {flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 0.9rem; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word}
+	.input_tab_controller .input_tab_btn_container .input_tab_inner_btn {flex: 1 1 0; height: 18px; text-align: center; color: #1B1212; font-size: 0.9rem; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 15.60px; word-wrap: break-word; cursor: pointer;}
 
 	.input_tab_controller .active { background: white; box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.04); border-radius: 7px; border: 0.50px rgba(0, 0, 0, 0.04) solid;}
 /* } */

@@ -72,9 +72,11 @@
     accessor.captcha_getin.innerHTML= captcha_getin_result.img;
  
 	
-	accessor.account.value='A112345555';
-    accessor.password.value='Abcd1234';
+	// accessor.account.value='A112345555';
+    // accessor.password.value='Abcd1234';
 
+	accessor.account.value='A1123456002';
+    accessor.password.value='A1234567';
     // REGION: [ Login from access_token ]
 
 	const access_token = Cookies.get(COOKIE_ACCESS_TOKEN);
@@ -147,11 +149,6 @@
 	};
 
     /**region register & page controler**/
-
-	// const PageRegister = new ROSKA_FORM.PageController({ viewport: register_overlay.element });
-    // console.log(accessor.btn_register.innerHTML);
-
-	
     accessor.btn_register.onclick = (e:any) => {
         register_overlay.classList.remove('hide');
         accessor.classList.add('hide');
@@ -160,11 +157,9 @@
     const view = register_overlay;
     view
     .on('register_user', async (_e:any) => {
-        console.log('134');
         do_register_user();
     })
         .on('home_view',(e:any)=>{
-            console.log('1456');
             register_overlay.classList.add('hide');
             accessor.classList.remove('hide');
     })
@@ -252,11 +247,11 @@
                 Register_input_Data[key] = accessor[key].value;
             }
         };
-        console.log("check02", Register_input_Data);
+        // console.log("check02", Register_input_Data);
         try {
             let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
         }
-        catch (e:any) {
+        catch (e:any) {	
             alert(`註冊失敗(${e.message})`);
             console.error(`[${TAG}]`, e);
         }

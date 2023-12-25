@@ -49,6 +49,7 @@
                 viewport.tabbar.classList.add('hide');
                 continue;
             }
+				
             if (page_id == 'home_view') {
                 viewport.viewport_container.classList.add('hide');
                 viewport.tabbar.classList.remove('hide');

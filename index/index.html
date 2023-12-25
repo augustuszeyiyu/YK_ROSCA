@@ -6,6 +6,8 @@
 
 		<link rel="stylesheet" type="text/css" href="https://res.purimize.com/lib/glyphicons/glyphicon-fontawesome/glyphicon.css">
 
+		<!-- <link rel="stylesheet" type="text/css" href="./external/glyphicon.css"> -->
+
 		<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 		<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 		<script src="https://cdn.jsdelivr.net/gh/JCloudYu/whelm-js@1.4.7/whelmjs.min.js"></script>
@@ -18,18 +20,18 @@
 	</head>
 	<body>
 		<div elm-export="viewport" elm-export-accessor class="main hide">
-
+			<div class="nav-head">
+				<div class="top-banner">
+					<div style="padding: 0 2rem;"><p style=" margin: 0; line-height: 2rem;">永康合會</p></div>
+					<div elm-export="btn_logout" elm-bind-event="bubble::click::logout" elm-export-accessor style="align-items: center; display: flex; padding: 0 2rem;">登出<samp class="glyph-fontawesome-sign-out"></samp></div>
+				</div>										
+			</div>
 			
 			<div elm-export="tabbar" class="navigator tabbars home_view_layout" >			
-				<div style="height:240px; width: 100%; margin: 0; padding: 0; background-image: url(./external/img/logo-panal.png); background-position: 50% 60%; background-size: cover;">
-					<div style=" background-color: #1c79c5; height: 2rem; width: 100%; display: inline-flex; justify-content: space-between;">
-						<div style="padding: 0 2rem;"><p style=" margin: 0; line-height: 2rem;">永康合會</p></div>
-						<div elm-export="btn_logout" elm-bind-event="bubble::click::logout" elm-export-accessor style="align-items: center; display: flex; padding: 0 2rem;">登出<samp class="glyph-fontawesome-sign-out"></samp></div>
-					</div>										
-				</div>
+
 
 				<div elm-bind-event="click::change-page" data-page="home_view" class="hide"><span class="glyph-fontawesome-gear"></span><p>首頁</p></div>
-
+				<div></div>
 				<!-- <div elm-bind-event="click::change-page" data-page="register_view">
 					<span class="glyph-fontawesome-gear"></span>
 					<p>註冊</p>	

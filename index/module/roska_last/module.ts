@@ -76,108 +76,71 @@
 		}
 	});
 
-	// view
-	// .on('register_user',async(_e:any)=>{
-	// 	do_register_user();
-	// }) 
-	// .on('open_tab_member',(e:any)=>{
-	// 	// accessor.member_content.addClass="active"
-	// 	const accessor = view.input_data;
-	// 	console.log(accessor.member_content);
-	// 	accessor.member_content.style.display="flex";
-	// 	accessor.recommendation_info.style.display="none";
-	// 	accessor.bank_info_content.style.display="none";
+	view
+	.on('view-state', (e:any) => {
+		if (e.state !== "show")
+			return;
+		loading_overlay.Show();
+		list_new_group_serial()
+			.catch((e:any) => {
+			console.error(e);
+			// alert(`載入失敗！(${e.message})`);
+			window.HandleUnauthorizedAccess(e);
+			})
+			.finally(() => {
+			loading_overlay.Hide();
+			});
+		ResetPage();
+	});
 
-	// 	accessor.btn_open_tab_member.classList.add('active');
-	// 	accessor.btn_open_tab_recommand.classList.remove('active');
-	// 	accessor.btn_open_tab_bankinfo.classList.remove('active');
-	// })
-	// .on('open_tab_recommand',(e:any)=>{
-	// 	const accessor = view.input_data;
-	// 	console.log(accessor.recommendation_info);
-	// 	accessor.member_content.style.display="none";
-	// 	accessor.recommendation_info.style.display="flex";
-	// 	accessor.bank_info_content.style.display="none";
 
-	// 	accessor.btn_open_tab_member.classList.remove('active');
-	// 	accessor.btn_open_tab_recommand.classList.add('active');
-	// 	accessor.btn_open_tab_bankinfo.classList.remove('active');
-	// })
-	// .on('open_tab_bankinfo',(e:any)=>{
-	// 	const accessor = view.input_data;
-	// 	console.log(accessor.bank_info_content);
-	// 	accessor.member_content.style.display="none";
-	// 	accessor.recommendation_info.style.display="none";
-	// 	accessor.bank_info_content.style.display="flex";
+	
+    async function list_new_group_serial() {
+        console.log('123');
+        const list_data = await ROSKA_FORM.Get_new_list();
+        // const { region_list: list, total_records,tmpl_item  } = view.list_container;
+        const region_list = view.list_container.region_card_list;
+        const tmpl_item = view.list_container.tmpl_card;
+        var count = 1;
+        console.log(list_data[0]);
+        const records = list_data;
+        for(const record of records) {
+			count += 1;
+        	const elm = tmpl_item.duplicate();
+			elm.element.dataset.id = record.sid;
 
-	// 	accessor.btn_open_tab_member.classList.remove('active');
-	// 	accessor.btn_open_tab_recommand.classList.remove('active');
-	// 	accessor.btn_open_tab_bankinfo.classList.add('active');
-	// })     
-	// .on('load_test_register_userinfo',(e:any)=>{
-	// 	// Develope Help rigion
-	// 	const accessor = view.input_data;
-	// 	accessor.nid.value = 'F123456777';
-	// 	accessor.name.value = '崊老師';
-	// 	accessor.password.value = 'A1234567';
-	// 	accessor.gender.value = 'M';
-	// 	accessor.birth_date.value = '1984-01-17';
-	// 	accessor.address.value = '新北市汐止區連興街116號';
-	// 	accessor.line_id.value = '';
-	// 	accessor.contact_home_number.value = "0226481872";
-	// 	accessor.contact_mobile_number.value = "0921136362";
-	// 	accessor.bank_code.value;
-	// 	accessor.branch_code.value;
-	// 	accessor.bank_account_number.value;
-	// 	accessor.emergency_nid.value = "A1234567890";
-	// 	accessor.emergency_contact.value = "Cheny";
-	// 	accessor.emergency_contact_number.value = "0226481872";
-	// 	accessor.emergency_contact_relation.value;
-	// 	// accessor.referrer_nid.value;
-	// 	// accessor.volunteer_nid.value;
-	// 	accessor.relink();
-	// });
+            elm.gruou_sid.textContent = record.sid;
+            elm.period.textContent = "共" + record.cycles + "期";
+            elm.bid_status.textContent = '開標日期';
+            elm.bid_status.style = "color:green;";
+            elm.period_date.textContent = record.bid_start_time.slice(0, 10);
 
-	// async function do_register_user(){
-	// 	// User_Infoa: UserInfo)
+            elm.des_g_name.innerHTML = "基本會款";
+            elm.name_in_group.textContent = '新會組';
+            elm.name_in_group.style = "color:green; font-weight:600;";
+            elm.count_in_group.innerHTML = "NT 5000";
 
-    //     const accessor = view.input_data;
-	// 	const Register_input_Data: User= {
-    //         nid: '',
-    //         name: '',
-    //         gender: 'M',
-    //         birth_date: '',
-    //         address: '',
-    //         line_id: '',
-    //         contact_home_number: '',
-    //         contact_mobile_number: '',
-    //         // role: {type:'number'},
-    //         bank_code: '',
-    //         branch_code: '',
-    //         bank_account_name: '',
-    //         bank_account_number: '',
-    //         emergency_nid: '',
-    //         emergency_contact: '',
-    //         emergency_contact_number: '',
-    //         emergency_contact_relation: '',
-    //         // referrer_nid: undefined,
-    //         // volunteer_nid: undefined,
-	// 		password: '',
-	// 	}
-    //     for (const key in Register_input_Data) {          
-    //         if(accessor[key]){
-    //             Register_input_Data[key]=accessor[key].value;
-	// 		}
-    //     };
-	// 	console.log("check02",Register_input_Data);
-	// 	try{
-	// 		let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
-	// 	}catch (e: any) {
-	// 		alert(`拳頭硬硬的(${e.message})`);
-	// 		console.error(`[${TAG}]`, e);
-	// 	}
-		
-	// }
+			elm.period_01.innerHTML = "&emsp;";
+            elm.duration.textContent = "共" + record.cycles + "期";
+
+			elm.bid_amount.textContent = '新會組';
+			elm.name_in_group.textContent = '新會組';
+
+			elm.bid_amount.innerHTML = "NT 1,000";
+			elm.max_bid_amount.innerHTML ="最高標金";
+
+        // 	elm.create_time.textContent = record.create_time.slice(0 , 10)+" "+record.create_time.slice(11 , -5);
+        // 	elm.count.textContent = count;
+        
+        // 	elm.sid.textContent= record.sid;
+      		region_list.appendChild(elm.element);
+        }
+
+		// for ( var i = 2, j = 1; j < 10; i == 9 ? i = (++j/j) + 1 : i++) {
+        //     console.log("%d*%d=%d %c", i, j, i * j, i == 9 ? '\n' : ' ');
+		// }
+
+    }
 
 
 	function ResetPage(){

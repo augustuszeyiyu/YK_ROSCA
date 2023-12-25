@@ -4,12 +4,12 @@ import {ErrorMap} from "./api/error-map/error-map.js";
 import * as Tools from "./lib/tools.js";
 
 
-import * as DataTypeSysvar from "./api/data-type/sysvar.js";
 import * as DataTypeRegister from "./api/data-type/register.js";
 import * as DataTypeUsers from "./api/data-type/users.js";
+import * as DataTypeGroups from "./api/data-type/groups.js"
+ 
 
-// import * as ApiSystem from "./api/system.js";
-// import * as ApiUser from "./api/user.js";
+import * as ApiGroups from "./api/groups.js";
 import * as Apiregister from "./api/register.js";
 
 
@@ -22,15 +22,8 @@ type BaseType = {
 	ErrorMap: typeof ErrorMap;
 	DataType: 
 		typeof DataTypeRegister
-		// &typeof DataTypeUsers
-    //     typeof DataTypeRoska
-		// typeof DataTypeTrading 
-		// & typeof DataTypeUserShareRatios 
-		// & typeof DataTypeSysvar 
-		// & typeof DataTypeTransaction 
-		// & typeof DataTypeMaintenance
-		// & typeof DataTypeSerial
-		// & typeof DataTypeRemit;
+		&typeof DataTypeUsers
+  		&typeof DataTypeGroups
 };
 const Base:BaseType = {
 	Session: SessionControl,
@@ -39,42 +32,19 @@ const Base:BaseType = {
 	ErrorMap,
 	DataType: Object.assign(
 		DataTypeRegister,
-		// DataTypeUsers,
-    	// DataTypeRoska
-		// DataTypeTrading, 
-		// DataTypeUserShareRatios, 
-		// DataTypeSysvar, 
-		// DataTypeTransaction, 
-		// DataTypeMaintenance, 
-		// DataTypeSerial,
-		// DataTypeRemit,
+		DataTypeGroups,
 	)
 };
 const Exported = Object.assign(
 	Base,
 	Apiregister,
-	// ApiSystem,
-	// ApiUser,
-	// ApiTransaction,
-	// ApiMaintenance,
-	// ApiSerial,
-	// ApiRemit
+	ApiGroups,
 );
-
-
-
-
-
 
 type ROSKA_FORM_Class = 
 	typeof Base
 	& typeof Apiregister
-	// & typeof ApiSystem 
-	// & typeof ApiUser 
-	// & typeof ApiTransaction 
-	// & typeof ApiMaintenance
-	// & typeof ApiSerial
-	// & typeof ApiRemit
+	& typeof ApiGroups
 ;
 
 declare global { var ROSKA_FORM:ROSKA_FORM_Class; }

@@ -45,3 +45,5 @@ declare global {
 	type APIResponse<SuccessType=any> = SuccessType|APIErrorResponse;
 }
 // ENDREGION
+
+
