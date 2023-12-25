@@ -184,15 +184,15 @@
 		STATE.cursor = null;
 		STATE.query = {};
 
-		{
-			const accessor = view;
-			accessor.region_list.innerHTML = '';
-		}
+		// {
+		// 	const accessor = view;
+		// 	accessor.region_list.innerHTML = '';
+		// }
 
-		{
-			const accessor = view.region_info;
-			accessor.element.addClass('hide');
-		}
+		// {
+		// 	const accessor = view.region_info;
+		// 	accessor.element.addClass('hide');
+		// }
 	}
 
 

@@ -149,13 +149,14 @@
 
 		{
 			const accessor = view;
-			accessor.region_list.innerHTML = '';
+			accessor.list_container.region_card_list.innerHTML = '';
+			// accessor.region_card_list.innerHTML = '';
 		}
 
-		{
-			const accessor = view.region_info;
-			accessor.element.addClass('hide');
-		}
+		// {
+		// 	const accessor = view.region_info;
+		// 	accessor.element.addClass('hide');
+		// }
 	}
 
 
