@@ -67,9 +67,17 @@
         register_overlay.relink();
         layout.remove();
     }
-    const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
-    const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
-    accessor.captcha_getin.innerHTML= captcha_getin_result.img;
+	const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
+	await get_cap();
+	async function get_cap() {		
+		const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
+		accessor.captcha_getin.innerHTML= captcha_getin_result.img;
+	}
+    // const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
+    // const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
+    // accessor.captcha_getin.innerHTML= captcha_getin_result.img;
+
+
  
 	
 	// accessor.account.value='A112345555';
