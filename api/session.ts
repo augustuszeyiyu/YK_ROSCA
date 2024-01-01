@@ -53,7 +53,8 @@ export default class SessionControl {
 	}
 	static async GetCaptcha() {
 		return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
-			method:'GET',  credentials:'include', mode: 'cors',
+			method:'GET',  credentials:'omit', mode: 'cors',
+			headers: {"Content-Type": "application/json"},		
 		})
 		.then(ProcRemoteResponse)
 		.then(async(resp)=>{
