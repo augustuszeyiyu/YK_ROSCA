@@ -11,6 +11,7 @@ html,body {margin:0; width:100%; height:100%;}
 	grid-template-columns:150px 1fr; grid-template-rows:1fr;
 	overflow: scroll; scrollbar-gutter:both-edges;
 }
+/*
 	.main > .navigator { background:#A40202; color:#FFF; border:2px solid #000; border-right:0; overflow: scroll; scrollbar-gutter:both-edges; }
 	.main > .navigator.production { background: #02a478;}
 		.main .tabbars > div:first-child { margin-top: 1em; }
@@ -18,7 +19,7 @@ html,body {margin:0; width:100%; height:100%;}
 		.main .tabbars > div { padding:1em 0; width:100%; text-align:center; cursor: pointer; user-select: none; }
 		.main .tabbars > div > span ,p{pointer-events: none;}
 		.main .tabbars .active { background: rgb(255, 255, 255, 0.1); }
-	
+*/	
 
 	.main .nav-head{ height:240px; width: 100%; margin: 0; padding: 0; color: #FFF; background-image: url(../../external/img/logo-panal.png); background-position: 50% 60%; background-size: cover; }
 	.main .nav-head .top-banner{ background-color: #1c79c5; height: 2rem; width: 100%; display: inline-flex; justify-content: space-between;  cursor: pointer; user-select: none;}
