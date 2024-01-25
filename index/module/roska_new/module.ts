@@ -75,22 +75,24 @@
         	const elm = tmpl_item.duplicate();
 			elm.element.dataset.id = record.sid;
 
+			// elm.top_left_text.textContent
+
             elm.gruou_sid.textContent = record.sid;
             elm.period.textContent = "共" + record.cycles + "期";
             elm.bid_status.textContent = '開標日期';
-            elm.bid_status.style = "color:green;";
+            elm.bid_status.style = "color:gray; font-size:14px ; font-weight: 400px;";
             elm.period_date.textContent = record.bid_start_time.slice(0, 10);
 
             elm.des_g_name.innerHTML = "基本會款";
-            elm.name_in_group.textContent = '新會組';
+            elm.name_in_group.textContent = '新會組'+ ROSKA_FORM.Tools.pad_zero(count ,3) ;
             elm.name_in_group.style = "color:green; font-weight:600;";
             elm.count_in_group.innerHTML = "NT 5000";
 
 			elm.period_01.innerHTML = "&emsp;";
             elm.duration.textContent = "共" + record.cycles + "期";
 
-			elm.bid_amount.textContent = '新會組';
-			elm.name_in_group.textContent = '新會組';
+			// elm.bid_amount.textContent = '新會組';
+			// elm.name_in_group.textContent = '新會組';
 
 			elm.bid_amount.innerHTML = "NT 1,000";
 			elm.max_bid_amount.innerHTML ="最高標金";

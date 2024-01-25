@@ -10,7 +10,7 @@ type Register_User ={
 }
 export async function Do_Register_User_Info(User_Data:User_Register) {
 	// SessionControl.CheckLogin();
-	
+	console.log(SessionControl.endpoint_url);
 	return fetch(`${SessionControl.endpoint_url}/api/register`, {
 		method:'POST',
 		headers: {"Content-Type": "application/json"},

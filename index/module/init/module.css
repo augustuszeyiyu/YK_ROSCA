@@ -11,15 +11,15 @@ html,body {margin:0; width:100%; height:100%;}
 	grid-template-columns:150px 1fr; grid-template-rows:1fr;
 	overflow: scroll; scrollbar-gutter:both-edges;
 }
-/*
-	.main > .navigator { background:#A40202; color:#FFF; border:2px solid #000; border-right:0; overflow: scroll; scrollbar-gutter:both-edges; }
+	/* .main > .navigator { background:#A40202;} */
+	.main > .navigator { color:#FFF; border:2px solid #000; border-right:0; overflow: scroll; scrollbar-gutter:both-edges; }
 	.main > .navigator.production { background: #02a478;}
 		.main .tabbars > div:first-child { margin-top: 1em; }
 		.main .tabbars > div:last-child { margin-bottom: 1em; }
 		.main .tabbars > div { padding:1em 0; width:100%; text-align:center; cursor: pointer; user-select: none; }
 		.main .tabbars > div > span ,p{pointer-events: none;}
 		.main .tabbars .active { background: rgb(255, 255, 255, 0.1); }
-*/	
+
 
 	.main .nav-head{ height:240px; width: 100%; margin: 0; padding: 0; color: #FFF; background-image: url(../../external/img/logo-panal.png); background-position: 50% 60%; background-size: cover; }
 	.main .nav-head .top-banner{ background-color: #1c79c5; height: 2rem; width: 100%; display: inline-flex; justify-content: space-between;  cursor: pointer; user-select: none;}
@@ -34,7 +34,8 @@ html,body {margin:0; width:100%; height:100%;}
 		justify-content: center;
 	}
 
-@media screen and (max-width:960px) {
+@media screen and (max-width:960px){}
+
 	.main > .navigator.home_view_layout {
 		background:#f8f3e8;
 		/* background:#28aab3; */
@@ -64,7 +65,7 @@ html,body {margin:0; width:100%; height:100%;}
 	}
 
 		.main > .navigator.home_view_layout .more-info { font-size: 12px; }
-}
+
 .overlay {
 	position: fixed;
 	width: 100%;
@@ -92,8 +93,10 @@ html,body {margin:0; width:100%; height:100%;}
 		margin: 0.5rem 0;	
 	}
 	.overlay .init_container input{
-		line-height: 1.2rem;
-		font-size: 1rem;
+		/* line-height: 1.2rem;
+		font-size: 1rem; */
+		line-height: 2rem;
+		font-size: 1.75rem;
 		width: 100%;
 	}
 	.overlay .init_container .init_btn_rigion > button{
@@ -107,3 +110,11 @@ html,body {margin:0; width:100%; height:100%;}
 		.overlay .init_container .init_btn_rigion > :nth-child(2){
 			background-color: #a4bf43;
 		}
+
+		
+.login_module { display: flex; flex-direction: column; font-size: 2.4rem; }
+	.login_module .YK_Info { display: flex; flex-direction: column; margin-bottom: 4.5rem; }
+	.login_module .p_wellcom { color: azure; margin: 0px; font-weight: 600; align-self: center; }
+	.login_module .yk_title { color: azure; align-self: center; }
+	.login_module .yk_info_top { margin: 0 0 0.75rem 0; font-size: 1.4rem; font-weight: 800; line-height: 1.5rem; align-self: center; }
+		.login_module .yk_info_top .p_dividing { width: 1.5rem; height:1.3rem; vertical-align: bottom; justify-content: center; align-items: center; display: inline-flex; margin-left: 2px; }

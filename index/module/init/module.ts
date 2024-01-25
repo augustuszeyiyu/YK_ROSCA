@@ -251,7 +251,19 @@
             password: '',
         };
         for (const key in Register_input_Data) {
-            if (accessor[key]) {
+            if (key === 'contact_home_number' && accessor[key]) {
+                const value = accessor[key].value.replace(/-/g, '');
+                Register_input_Data[key] = value;
+            } 
+            else if (key === 'contact_mobile_number' && accessor[key]) {
+                const value = accessor[key].value.replace(/-/g, '');
+                Register_input_Data[key] = value;
+            } 
+            else if (key === 'emergency_contact_number' && accessor[key]) {
+                const value = accessor[key].value.replace(/-/g, '');
+                Register_input_Data[key] = value;
+            } 
+            else if (accessor[key]) {
                 Register_input_Data[key] = accessor[key].value;
             }
         };

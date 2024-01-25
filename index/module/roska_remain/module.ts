@@ -1,39 +1,4 @@
 (async () => {
-	// console.log(register);
-	
-	// Rrgion for TypeScript
-	type User = {
-		uid?: uniqid,
-		nid: string,
-		name: string,
-		gender?: 'M'|'F',
-		birth_date: string,
-		address: string,
-		line_id?: string,
-		contact_home_number: string,
-		contact_mobile_number: string,
-		role?: number,
-		bank_code: string,
-		branch_code: string,
-		bank_account_name: string,
-		bank_account_number: string,
-		emergency_nid: uniqid,
-		emergency_contact: string,
-		emergency_contact_number: string,
-		emergency_contact_relation: string,
-		relative_path?: string,
-		referrer_uid?: uniqid,
-		referrer_path?: string,
-		volunteer_uid?: uniqid,
-		volunteer_path?: string,
-		revoked?: boolean,
-		password: string,
-		update_time?: number,
-		create_time?: number,
-		[key:string]:any,
-	};
-	
-	// Rrgion for TypeScript
 	const TAG = 'roska_new';
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};
@@ -117,16 +82,21 @@
             elm.bid_status.style = "color:green;";
             elm.period_date.textContent = record.bid_start_time.slice(0, 10);
 
-            elm.des_g_name.innerHTML = "基本會款";
-            elm.name_in_group.textContent = '新會組';
-            elm.name_in_group.style = "color:green; font-weight:600;";
+            elm.des_g_name.innerHTML = "會組內名稱";
+            elm.name_in_group.textContent = record.mid;
+			if(!record.mid){
+				elm.name_in_group.style = "color:green; font-weight:600;";
+			}
+			else{
+				elm.name_in_group.style = "color:green; font-weight:600;";
+			}
+
+            
             elm.count_in_group.innerHTML = "NT 5000";
 
 			elm.period_01.innerHTML = "&emsp;";
             elm.duration.textContent = "共" + record.cycles + "期";
 
-			elm.bid_amount.textContent = '新會組';
-			elm.name_in_group.textContent = '新會組';
 
 			elm.bid_amount.innerHTML = "NT 1,000";
 			elm.max_bid_amount.innerHTML ="最高標金";

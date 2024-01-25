@@ -30,6 +30,7 @@ export interface User {
 }
 
 
+
 export interface Rigister_UserInfo  {
     nid: User['nid'],
     name: User['name'],
