@@ -1,38 +1,5 @@
 (async () => {
 
-	// Rrgion for TypeScript //
-		// type User = {
-		// 	uid?: uniqid,
-		// 	nid: string,
-		// 	name: string,
-		// 	gender?: 'M'|'F',
-		// 	birth_date: string,
-		// 	address: string,
-		// 	line_id?: string,
-		// 	contact_home_number: string,
-		// 	contact_mobile_number: string,
-		// 	role?: number,
-		// 	bank_code: string,
-		// 	branch_code: string,
-		// 	bank_account_name: string,
-		// 	bank_account_number: string,
-		// 	emergency_nid: uniqid,
-		// 	emergency_contact: string,
-		// 	emergency_contact_number: string,
-		// 	emergency_contact_relation: string,
-		// 	relative_path?: string,
-		// 	referrer_uid?: uniqid,
-		// 	referrer_path?: string,
-		// 	volunteer_uid?: uniqid,
-		// 	volunteer_path?: string,
-		// 	revoked?: boolean,
-		// 	password: string,
-		// 	update_time?: number,
-		// 	create_time?: number,
-		// 	[key:string]:any,
-		// };
-
-
 	const TAG = 'init';
 	const COOKIE_ACCESS_TOKEN = 'ROSKA_FORM_admin_access_token';
 
@@ -77,13 +44,8 @@
     // const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
     // accessor.captcha_getin.innerHTML= captcha_getin_result.img;
 
-
- 
-	
-	// accessor.account.value='A112345555';
-    // accessor.password.value='Abcd1234';
-
-	accessor.account.value='A1123456002';
+	// accessor.account.value='A1123456002';
+	accessor.account.value='0988888888';
     accessor.password.value='A1234567';
     // REGION: [ Login from access_token ]
 
@@ -107,10 +69,10 @@
 	// ENDREGION
 	// REGION: [ Login from account and password ]
 	accessor.btn_login.onclick = async () => {
-		const nid = accessor.account.value;
+		const account = accessor.account.value;
 		const password = accessor.password.value;
 		const captcha = accessor.captcha.value;
-		if (!nid || !password) {
+		if (!account || !password) {
 			alert('請輸入帳號密碼登入！');
 			return;
 		}
@@ -121,7 +83,7 @@
 
 		try {
 			loading_overlay.Show();
-			let result = await ROSKA_FORM.Session.Login({ nid, password, captcha }).catch((e: Error) => e);
+			let result = await ROSKA_FORM.Session.Login({ account, password, captcha }).catch((e: Error) => e);
 
 			if (result instanceof Error) {
 				// @ts-ignore
@@ -134,7 +96,7 @@
 							return;
 						}
 
-						result = await ROSKA_FORM.Session.Login({ nid, password, captcha });
+						result = await ROSKA_FORM.Session.Login({ account, password, captcha });
 					}
 						break;
 					default:
@@ -165,6 +127,7 @@
     const view = register_overlay;
     view
     .on('register_user', async (_e:any) => {
+		if(!confirm('是否確定上傳資料？')) return;
         do_register_user();
     })
         .on('home_view',(e:any)=>{
@@ -221,8 +184,8 @@
         accessor.emergency_contact.value = "Cheny";
         accessor.emergency_contact_number.value = "0226481872";
         accessor.emergency_contact_relation.value;
-        // accessor.referrer_nid.value;
-        // accessor.volunteer_nid.value;
+        accessor.referrer_nid.value;
+        accessor.volunteer_nid.value;
         accessor.relink();
     });
     async function do_register_user() {
@@ -237,7 +200,6 @@
             line_id: '',
             contact_home_number: '',
             contact_mobile_number: '',
-            // role: {type:'number'},
             bank_code: '',
             branch_code: '',
             bank_account_name: '',
@@ -246,9 +208,10 @@
             emergency_contact: '',
             emergency_contact_number: '',
             emergency_contact_relation: '',
+			password: '',
             // referrer_nid: undefined,
             // volunteer_nid: undefined,
-            password: '',
+            
         };
         for (const key in Register_input_Data) {
             if (key === 'contact_home_number' && accessor[key]) {
@@ -267,17 +230,20 @@
                 Register_input_Data[key] = accessor[key].value;
             }
         };
-        // console.log("check02", Register_input_Data);
+        console.log("check02");
+		console.log(Register_input_Data);
         try {
+			
             let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
         }
         catch (e:any) {	
             alert(`註冊失敗(${e.message})`);
             console.error(`[${TAG}]`, e);
+			return;	
         }
-        // finally{
-        //     alert(`恭喜您已註冊成功 ${Register_input_Data.name}`);
-        // }
+        finally{
+            // alert(`恭喜您已註冊成功 ${Register_input_Data.name}`);
+        }
     };
 
 

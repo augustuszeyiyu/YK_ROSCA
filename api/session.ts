@@ -12,7 +12,7 @@ type RuntimeStorage = {
 };
 
 // type TypeLoginObjAccount = {account:string, password:string; totp?:string;};
-type TypeLoginObjAccount = {nid:string, password:string; captcha:string;};
+type TypeLoginObjAccount = {account:string, password:string; captcha:string;};
 // type TypeLoginObjAuthCode = {auth_code:string, totp?:string;};
 type TypeLoginObjAccessToken = {access_token:string;};
 type TypeLoginObj = TypeLoginObjAccount  | TypeLoginObjAccessToken;
@@ -67,7 +67,7 @@ export default class SessionControl {
 
 	static async Login():Promise<SessionInfo>;
 	// static async Login(option:{nid:string, password:string; }):Promise<SessionInfo>;
-	static async Login(option:{nid:string, password:string; captcha:string;}):Promise<SessionInfo>;
+	static async Login(option:{account:string, password:string; captcha:string;}):Promise<SessionInfo>;
 	// static async Login(option:{auth_code:string}):Promise<SessionInfo>;
 	// static async Login(option:{auth_code:string, captcha:string}):Promise<SessionInfo>;
 	static async Login(option:{access_token:string}):Promise<SessionInfo>;	
@@ -119,7 +119,7 @@ export default class SessionControl {
 			throw new Error("Input options must be an object!");
 		}
 
-		account = (param1 as TypeLoginObjAccount).nid;
+		account = (param1 as TypeLoginObjAccount).account;
 		password = (param1 as TypeLoginObjAccount).password;
 		access_token = (param1 as TypeLoginObjAccessToken).access_token;
 		captcha = (param1 as TypeLoginObjAccount).captcha;
@@ -148,7 +148,7 @@ export default class SessionControl {
 		return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
 			method:'POST',
 			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({ nid:account, password:password, captcha:captcha })
+			body: JSON.stringify({ mobile_number:account, password:password, captcha:captcha })
 		})		.then(ProcRemoteResponse)
 		.then(async(resp)=>{
 			const result:{
