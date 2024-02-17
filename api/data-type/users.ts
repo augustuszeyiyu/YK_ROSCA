@@ -55,7 +55,7 @@ export interface Rigister_UserInfo  {
 
 
 export type User_Register = Omit<User, 'relative_path'|'referrer_uid'|'referrer_path'|'volunteer_uid'|'volunteer_path'|'role'|'update_time'|'create_time'>&{
-    referrer_nid:User['nid'], volunteer_nid:User['nid']
+    referrer_mobile_number:User['nid'], volunteer_mobile_number:User['nid']
 };
 
 

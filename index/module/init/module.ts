@@ -184,8 +184,8 @@
         accessor.emergency_contact.value = "Cheny";
         accessor.emergency_contact_number.value = "0226481872";
         accessor.emergency_contact_relation.value;
-        accessor.referrer_nid.value;
-        accessor.volunteer_nid.value;
+        accessor.referrer_mobile_number.value;
+        accessor.volunteer_mobile_number.value;
         accessor.relink();
     });
     async function do_register_user() {
@@ -209,8 +209,10 @@
             emergency_contact_number: '',
             emergency_contact_relation: '',
 			password: '',
-            // referrer_nid: undefined,
-            // volunteer_nid: undefined,
+            referrer_mobile_number: undefined,
+            volunteer_mobile_number: undefined,
+            // referrer_mobile_number: undefined,
+            // volunteer_mobile_number: undefined,
             
         };
         for (const key in Register_input_Data) {
@@ -226,6 +228,19 @@
                 const value = accessor[key].value.replace(/-/g, '');
                 Register_input_Data[key] = value;
             } 
+            else if (key === 'referrer_mobile_number' && accessor[key]){
+                if (accessor[key]){
+                    Register_input_Data[key] = accessor[key].value === '' ? undefined : accessor[key].value;
+                }
+            }
+            else if (key === 'volunteer_mobile_number' && accessor[key]){
+                if(accessor[key].value ===''){
+                    Register_input_Data[key] = undefined;
+                }
+                else {
+                    Register_input_Data[key] = accessor[key].value;
+                }
+            }
             else if (accessor[key]) {
                 Register_input_Data[key] = accessor[key].value;
             }
