@@ -211,8 +211,6 @@
 			password: '',
             referrer_mobile_number: undefined,
             volunteer_mobile_number: undefined,
-            // referrer_mobile_number: undefined,
-            // volunteer_mobile_number: undefined,
             
         };
         for (const key in Register_input_Data) {
@@ -249,14 +247,17 @@
 		console.log(Register_input_Data);
         try {
 			
-            let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
+            var result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
+            alert('註冊成功');
         }
         catch (e:any) {	
+            console.log(e);
             alert(`註冊失敗(${e.message})`);
             console.error(`[${TAG}]`, e);
 			return;	
         }
         finally{
+
             // alert(`恭喜您已註冊成功 ${Register_input_Data.name}`);
         }
     };

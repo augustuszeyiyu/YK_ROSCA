@@ -133,8 +133,8 @@
 	// 	accessor.emergency_contact.value = "Cheny";
 	// 	accessor.emergency_contact_number.value = "0226481872";
 	// 	accessor.emergency_contact_relation.value;
-	// 	// accessor.referrer_nid.value;
-	// 	// accessor.volunteer_nid.value;
+	// referrer_mobile_number: undefined,
+	// volunteer_mobile_number: undefined,
 	// 	accessor.relink();
 	// });
 
@@ -160,8 +160,8 @@
     //         emergency_contact: '',
     //         emergency_contact_number: '',
     //         emergency_contact_relation: '',
-    //         // referrer_nid: undefined,
-    //         // volunteer_nid: undefined,
+    //         referrer_mobile_number: undefined,
+    //          volunteer_mobile_number: undefined,
 	// 		password: '',
 	// 	}
     //     for (const key in Register_input_Data) {          

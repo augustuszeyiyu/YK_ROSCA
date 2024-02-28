@@ -118,3 +118,13 @@ html,body {margin:0; width:100%; height:100%;}
 	.login_module .yk_title { color: azure; align-self: center; }
 	.login_module .yk_info_top { margin: 0 0 0.75rem 0; font-size: 1.4rem; font-weight: 800; line-height: 1.5rem; align-self: center; }
 		.login_module .yk_info_top .p_dividing { width: 1.5rem; height:1.3rem; vertical-align: bottom; justify-content: center; align-items: center; display: inline-flex; margin-left: 2px; }
+
+
+	/* @media screen and (max-width:960px){
+
+		.login_module { width: 100%; height: 100%;}
+		.login_module .init_container{
+			width: 80%;
+		}
+	
+	} */
