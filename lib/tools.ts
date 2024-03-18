@@ -102,8 +102,9 @@ export class ROSKA_FORMRemoteError extends Error {
 export async function ProcRemoteResponse(resp:Response, whitelist:number[]=[]):Promise<Response> {
 	const white_list:number[] = [200];
 	for(const num of whitelist) if ( num >= 200 && num <300 ) white_list.push(num);
-	if ( white_list.indexOf(resp.status) >= 0 ) return resp;
-
+	if ( white_list.indexOf(resp.status) >= 0 ) {
+		return resp; 	
+	};
 
 	
 	const raw_content = await resp.text();

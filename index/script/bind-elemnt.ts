@@ -21,7 +21,6 @@
 		// ISSUE: Force to set category to avoid wrong page changes in the same page
 		const target_category 	= tabbar.dataset.category;
 		const tab_pages 	= document.querySelectorAll<HTMLElement>('.tabbars [data-page]');
-
 		for(const tab_page of tab_pages) {
 			const page_id = tab_page.dataset.page;
 			const category = tab_page.dataset.category;
@@ -44,16 +43,17 @@
 			elm_page.classList.remove('hide');
 			tab_page.classList.add('active');
 
-            if (page_id !== 'home_view') {
+		
+           if (page_id !== 'home_view') {
                 viewport.viewport_container.classList.remove('hide');
                 viewport.tabbar.classList.add('hide');
                 continue;
-            }
-				
-            if (page_id == 'home_view') {
+            }				
+            else if (page_id == 'home_view') {
                 viewport.viewport_container.classList.add('hide');
                 viewport.tabbar.classList.remove('hide');
             }
+
 		}
 	});
 	// ENDREGION

@@ -40,13 +40,10 @@
 		const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
 		accessor.captcha_getin.innerHTML= captcha_getin_result.img;
 	}
-    // const PageLogin = new ROSKA_FORM.PageController({ viewport: accessor.element });
-    // const captcha_getin_result = await ROSKA_FORM.Session.GetCaptcha();
-    // accessor.captcha_getin.innerHTML= captcha_getin_result.img;
-
-	// accessor.account.value='A1123456002';
-	accessor.account.value='0988888888';
+    // REGION : [ dev helper]
+	accessor.account.value='0966286789';
     accessor.password.value='A1234567';
+
     // REGION: [ Login from access_token ]
 
 	const access_token = Cookies.get(COOKIE_ACCESS_TOKEN);
@@ -126,9 +123,9 @@
 
     const view = register_overlay;
     view
-    .on('register_user', async (_e:any) => {
-		if(!confirm('是否確定上傳資料？')) return;
-        do_register_user();
+        .on('register_user', async (_e:any) => {
+            if(!confirm('是否確定上傳資料？')) return;
+            do_register_user();
     })
         .on('home_view',(e:any)=>{
             register_overlay.classList.add('hide');
@@ -308,7 +305,13 @@
 	{
 		await window.WaitAuthorization();
 
-
+        const user_info = await ROSKA_FORM.Get_user_info();
+        view.btn_user_name;
+        viewport.btn_user_name.innerHTML = '';
+        viewport.btn_user_name.innerHTML = user_info.name;
+        console.log(user_info);
+        console.log(view.element);
+        console.log(viewport.element);
 
 		const modules: typeof window.modules = window.modules = [];
 		const module_names = [
@@ -317,6 +320,7 @@
 			'roska_last',
 			'roska_new',
 			'roska_remain',
+            'roska_user',
 			// 'dashboard',
 		];
 		const paths: {
