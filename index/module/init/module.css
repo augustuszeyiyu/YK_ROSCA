@@ -101,18 +101,21 @@ html,body {margin:0; width:100%; height:100%;}
 		margin: 2rem 10%;
 		font-weight: 800;
 	}
-	.main > .navigator.home_view_layout > :nth-child(3){
+	.main > .navigator.home_view_layout > :nth-child(2){
 		background-color: #715799 ;
 	}
-	.main > .navigator.home_view_layout > :nth-child(4){
+	.main > .navigator.home_view_layout > :nth-child(3){
 		background-color: #F59138;
 	}
-	.main > .navigator.home_view_layout > :nth-child(5){
+	.main > .navigator.home_view_layout > :nth-child(4){
 		background-color: #71b578;
 	}
-	.main > .navigator.home_view_layout > :nth-child(6){
+	.main > .navigator.home_view_layout > :nth-child(5){
 		background-color: #ac90bb;
 	}
+	.main > .navigator.home_view_layout > :nth-child(6){
+		background-color: #2B5CE2;
+	}	
 	.main > .navigator.home_view_layout > :last-child{
 		background-color: #2B5CE2 ;
 	}
@@ -203,3 +206,65 @@ html,body {margin:0; width:100%; height:100%;}
 		margin: 0 0;
 	}	
 }
+
+
+
+.Card-region{ display: flex; flex-direction: column;}
+	.Card-region .Card{ display: flex; flex-direction: column; justify-content: space-between; align-items: center; width:calc(100% - 1rem); height: 211px; margin: 0.5rem; padding: 0.5rem; position: relative; box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10); cursor: pointer;}
+	@media screen and (max-width:960px){
+		.Card-region .Card{width:calc(100% - 2rem); margin: 1rem;}	
+	}
+	/* .Card-region .Card.new_serial:hover::after{ left: 0; width: 100%; color: red; font-weight: 800; content: '我要下標';} */
+	.Card-region .Card:hover .Mask{ background: #c3c4c7; opacity:1;}
+	.Card-region .Card:hover .Mask p{ display:inline-flex;}
+	.Card-region .Card .Mask p{ display: none; color: red; font-weight: 800; margin-top: 2rem;}
+	.Card-region .Card > div ,p ,span { pointer-events: none;}
+		.Card-region .Card .Mask{ width: 100%; height: 211px; left: 0px; top: 0px; position: absolute; background: #FAF9F6; border-radius: 9px; transition:all 1s; display: flex; justify-content: center;}
+		.Card-region .Card .upper_division{ width: 80%; height: 1px; position: relative; background: rgba(35.06, 35.06, 35.06, 0.12) }
+		.Card-region .Card .under_division{ width: 80%; height: 1px; position: relative; background: rgba(35.06, 35.06, 35.06, 0.12) }
+
+		.Card-region .Card .Card_contain_top{ width: 100%; position: relative; justify-content: space-between; align-items: flex-end; gap: 45px; display: inline-flex }
+			.Card-region .Card .Card_contain_top .left{ height: 24px; margin: 0 0.5rem; justify-content: flex-start; align-items: center; display: inline-flex}
+			.Card-region .Card .Card_contain_top .left .RoscaGroupIcon{ width: 100%; align-self: stretch; justify-content: center; align-items: center; display: inline-flex}
+
+			.Card-region .Card .Card_contain_top .right{ align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-end; display: inline-flex}
+			.Card-region .Card .Card_contain_top .right .text-top{ text-align: right; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+			.Card-region .Card .Card_contain_top .right .text-bottom{ width: 100%; height: 19px; text-align: right; color: #1B1212; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+			 
+
+		.Card-region .Card .Card_contain_middle{ width: 100%; height: 54px; position: relative; display: inline-flex; justify-content: space-between;}
+			.Card-region .Card .Card_contain_middle .middle_left {flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex}
+				.Card-region .Card .Card_contain_middle .middle_left .period {color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+				.Card-region .Card .Card_contain_middle .middle_left .bid_status { font-size: 16px; font-family: Poppins; font-weight: 600; line-height: 24px; word-wrap: break-word}
+				.Card-region .Card .Card_contain_middle .middle_left .period_date { color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+			
+			
+			.Card-region .Card .Card_contain_middle .middle_right {flex-direction: column; justify-content: center; align-items: flex-end; display: inline-flex}
+				.Card-region .Card .Card_contain_middle .middle_right .des_g_name {text-align: right; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+				.Card-region .Card .Card_contain_middle .middle_right .name_in_group {text-align: right; color: #1B1212; font-size: 20px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word}
+				.Card-region .Card .Card_contain_middle .middle_right .count_in_group {text-align: right; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+
+			.Card-region .Card .Card_contain_middle .middle_center {flex-direction: column; justify-content: flex-start; align-items: center; display: inline-flex}
+				.Card-region .Card .Card_contain_middle .middle_center .period{text-align: center; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+				.Card-region .Card .Card_contain_middle .middle_center .icon_item {justify-content: flex-start; align-items: center; gap: 4px; display: inline-flex}
+					.Card-region .Card .Card_contain_middle .middle_center .icon_item .Union {width: 4rem; height: 2px; background: rgba(27, 18, 18, 0.25)}
+				.Card-region .Card .Card_contain_middle .middle_center .duration{text-align: center; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+		
+		
+		.Card-region .Card .Card_contain_bottom { width: 100%; position: relative; justify-content: space-between; align-items: center; display: inline-flex;}
+			.Card-region .Card .Card_contain_bottom .left {width: 168px; height: 35px; position: relative}
+				.Card-region .Card .Card_contain_bottom .left .bid_title{ left: 0px; top: 22px; position: absolute; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word}
+				.Card-region .Card .Card_contain_bottom .left .ValidationApproval{ width: 24px; height: 24px; padding: 2px; left: 0px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex;}
+					.Card-region .Card .Card_contain_bottom .left .ValidationApproval .Elements{width: 20px; height: 20px; position: relative}
+			
+			.Card-region .Card .Card_contain_bottom .right {justify-content: center; align-items: flex-start; gap: 8px; display: flex }
+				.Card-region .Card .Card_contain_bottom .right .info_container { flex-direction: column; justify-content: center; align-items: flex-end; display: inline-flex }
+					.Card-region .Card .Card_contain_bottom .right .info_container .bid_amount { text-align: right; color: #1B1212; font-size: 20px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word}
+					.Card-region .Card .Card_contain_bottom .right .info_container .info_title { display: flex; gap:0.5rem ; align-items: center;}
+					.Card-region .Card .Card_contain_bottom .right .info_container .info_title > p { text-align: right; margin: 0; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; word-wrap: break-word ;vertical-align: baseline;}
+					.Card-region .Card .Card_contain_bottom .right .info_container .info_title > span {color: gray; font-size: 1rem; vertical-align: baseline;}
+
+	.inner_module .bage-bottom{ width:100%; background: rgba(250, 249, 246, 0.75); box-shadow: 0px -0.33000001311302185px 0px rgba(0, 0, 0, 0.30); backdrop-filter: blur(50px); justify-content: center; align-items: center; display: inline-flex;}
+		.inner_module .bage-bottom .back_home{ padding: 1rem 0;flex-direction: column; justify-content: center; align-items: center; gap: 2px; display: flex; }
+		.inner_module .bage-bottom .back_home .icon_item { pointer-events: none; width: 24px; height: 24px; padding: 2px; justify-content: center; align-items: center; display: inline-flex;}
+		.inner_module .bage-bottom .back_home .lable { pointer-events: none; text-align: center; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word;}

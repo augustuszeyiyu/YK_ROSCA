@@ -77,14 +77,12 @@
 			<div elm-export="region_card_list"></div>
 			<template>
 				<div class="Card" elm-export="tmpl_card" elm-export-tmpl >
-					<div class="Mask"></div>
-					<div class="upper_division"></div>
-					<div class="under_division"></div>
-					
+					<div class="Mask"><p >參加會組</p></div>				
 					<div class="Card_contain_top">
 						<div class="left">
 							<div class="RoscaGroupIcon">
 								<span class="glyph-fontawesome-yen" style="color: #6d6d64;"></span>
+								<div elm-export="top_left_text"></div>
 							</div>
 						</div>
 						<div class="right" >
@@ -92,18 +90,12 @@
 							<div elm-export="gruou_sid" class="text-bottom">YA-035-221102</div>
 						</div>
 					</div>
+					<div class="upper_division"></div>
 					<div class="Card_contain_middle">
 						<div class="middle_left">
 							<div elm-export="period" class="period">第20期</div>
 							<div elm-export="bid_status" class="bid_status" style="color: #FF0000;">已得標</div>
 							<div elm-export="period_date" class="period_date">2023年01月</div>
-							<!-- <div style="color: #04BA00; font-size: 20px; font-family: Poppins; line-height: 24px; word-wrap: break-word">未得標</div>
-							<div style="color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word">去投標</div> -->
-						</div>
-						<div class="middle_right">
-							<div elm-export="des_g_name" class="des_g_name" >組別內姓名</div>
-							<div elm-export="name_in_group" class="name_in_group">余則易02</div>
-							<div elm-export="count_in_group" class="count_in_group">共2組</div>
 						</div>
 						<div class="middle_center">
 							<div elm-export="period_01"  class="period">第20期</div>
@@ -114,7 +106,14 @@
 							</div>
 							<div elm-export="duration"  class="duration">共25期</div>
 						</div>
+						<div class="middle_right">
+							<div elm-export="des_g_name" class="des_g_name" >組別內姓名</div>
+							<div elm-export="name_in_group" class="name_in_group">余則易02</div>
+							<div elm-export="count_in_group" class="count_in_group">共2組</div>
+						</div>
+						
 					</div>
+					<div class="under_division"></div>
 					<div class="Card_contain_bottom">
 						<div class="left">
 							<div class="bid_title">投標訊息</div>
@@ -131,8 +130,7 @@
 									<p elm-export="max_bid_amount">下標金額</p>
 									<span class="glyph-fontawesome-info-circle"></span>
 								</div>
-							</div>
-								<!-- <div class="IconInterfaceSolidInformationCircle" style="width: 2rem; height: 2rem; padding: 1.67px; justify-content: center; align-items: center; display: flex"></div> -->
+							</div>								
 						</div>
 					</div>
 
@@ -141,15 +139,6 @@
 
 		</div>
 		<!-- Card end-->
-<!-- 
-		<div style="width:100%; background: rgba(250, 249, 246, 0.75); box-shadow: 0px -0.33000001311302185px 0px rgba(0, 0, 0, 0.30); backdrop-filter: blur(50px); justify-content: center; align-items: center; display: inline-flex">
-			<div style="padding: 1rem 0;flex-direction: column; justify-content: center; align-items: center; gap: 2px; display: flex">
-				<div style="width: 24px; height: 24px; padding: 2px; justify-content: center; align-items: center; display: inline-flex">
-					<span elm-export="btn_home" elm-bind-event="bubble::click::change-page" data-page="home_view" class="glyph-fontawesome-home" style="font-size: 2rem; color: #797979"></span>
-				</div>
-				<div style="text-align: center; color: #797979; font-size: 10px; font-family: Plus Jakarta Sans; font-weight: 500; line-height: 15px; word-wrap: break-word">Home</div>
-			</div>
-		</div> -->
 		<div class="bage-bottom">
 			<div class="back_home" elm-export="btn_home" elm-bind-event="bubble::click::change-page" data-page="home_view">
 				<div class="icon_item">
