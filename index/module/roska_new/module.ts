@@ -67,7 +67,7 @@
         // const { region_list: list, total_records,tmpl_item  } = view.list_container;
         const region_list = view.list_container.region_card_list;
         const tmpl_item = view.list_container.tmpl_card;
-        var count = 1;
+        var count = 0;
         console.log(list_data[0]);
         const records = list_data;
         for(const record of records) {
@@ -83,10 +83,10 @@
             elm.bid_status.style = "color:gray; font-size:14px ; font-weight: 400px;";
             elm.period_date.textContent = record.bid_start_time.slice(0, 10);
 
-            elm.des_g_name.innerHTML = "基本會款";
-            elm.name_in_group.textContent = '新會組'+ ROSKA_FORM.Tools.pad_zero(count ,3) ;
+            elm.des_g_name.innerHTML = "新會組";
+            elm.name_in_group.textContent = ROSKA_FORM.Tools.pad_zero(count ,3) ;
             elm.name_in_group.style = "color:green; font-weight:600;";
-            elm.count_in_group.innerHTML = "NT 5000";
+            elm.count_in_group.innerHTML = "基本會款 NT" + record.basic_unit_amount;
 
 			elm.period_01.innerHTML = "&emsp;";
             elm.duration.textContent = "共" + record.cycles + "期";

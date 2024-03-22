@@ -63,7 +63,7 @@ html,body {margin:0; width:100%; height:100%;}
 	overflow: scroll; scrollbar-gutter:both-edges;
 }
 	/* .main > .navigator { background:#A40202; border:2px solid #000; border-right:0;} */
-	.main > .navigator { color:#FFF; overflow: scroll;  scrollbar-gutter:both-edges; }
+	.main > .navigator { color:#FFF; overflow: scroll; scrollbar-gutter:both-edges; }
 	.main > .navigator.production { background: #02a478;}
 		.main .tabbars > div:first-child { margin-top: 1em; }
 		.main .tabbars > div:last-child { margin-bottom: 1em; }
@@ -141,9 +141,14 @@ html,body {margin:0; width:100%; height:100%;}
 	.overlay .message-box {
 		color: #FFFFFF;
 	}
-
+	
 	.overlay .init_container > div{
-		margin: 0.5rem 0;	
+		margin: 0.25rem 0;	
+	}
+	@media screen and (min-width:768px){
+		.overlay .init_container > div{
+			margin: 0.5rem 0;	
+		}
 	}
 	.overlay .init_container input{
 		/* line-height: 1.2rem;
@@ -166,6 +171,25 @@ html,body {margin:0; width:100%; height:100%;}
 
 		
 .login_module { display: flex; flex-direction: column; font-size: 1.8rem; justify-content: center;}
+	.login_module .YK_Info { display: flex; flex-direction: column; margin-bottom: 4.5rem; margin-bottom: 0;}
+		.login_module .YK_Info > p { padding: 0.5rem 0; }
+		.login_module .YK_Info > p > span { line-height: 1.25rem;}
+	.login_module .p_wellcom { color: azure; margin: 0.5rem; font-weight: 600; font-size: 1.5rem; align-self: center; }
+	.login_module .yk_title { color: azure; align-self: center; font-size: 3rem; font-weight: 800; padding: 0.5rem 0;}
+	.login_module .yk_info_top { margin:0; font-size: 1.4rem; font-weight: 800; line-height: 1.5rem; align-self: center; }
+		.login_module .yk_info_top .p_dividing { width: 1.5rem; height:1.3rem; vertical-align: bottom; justify-content: center; align-items: center; display: inline-flex; margin-left: 2px; }
+		
+	.login_module .init_container{
+		width: 80%;
+		margin: 0 10%;
+	}
+	/* .login_module { padding: 0.025%;} */
+
+
+@media screen and (min-width:768px){
+
+
+	.login_module { display: flex; flex-direction: column; font-size: 1.8rem; justify-content: center;}
 	.login_module .YK_Info { display: flex; flex-direction: column; margin-bottom: 4.5rem; }
 		.login_module .YK_Info > p { padding: 0.5rem 0;}
 		.login_module .YK_Info > p > span { line-height: 2.25rem;}
@@ -174,16 +198,8 @@ html,body {margin:0; width:100%; height:100%;}
 	.login_module .yk_info_top { margin: 0 0 0.75rem 0; font-size: 1.4rem; font-weight: 800; line-height: 1.5rem; align-self: center; }
 		.login_module .yk_info_top .p_dividing { width: 1.5rem; height:1.3rem; vertical-align: bottom; justify-content: center; align-items: center; display: inline-flex; margin-left: 2px; }
 
-
-@media screen and (max-width:960px){
-
-	.login_module { padding: 0.025%;}
 	.login_module .init_container{
-		width: 80%;
-		margin: 0 10%;
-	}
-	.login_module .YK_Info {
-		margin-bottom: 0;
-	}
-
+		width: 100%;
+		margin: 0 0;
+	}	
 }

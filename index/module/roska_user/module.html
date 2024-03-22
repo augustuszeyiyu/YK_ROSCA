@@ -8,18 +8,18 @@
 	</div>  -->
 
 
-	<div class="input-data-form" elm-export="input_data" elm-export-accessor>
+	<div class="input-data-form ruska-user" elm-export="input_data" elm-export-accessor>
 			<div class="top-banner">
 				<div class="title-justifier">
-					<div class="top-title">永康合會</div>
+					<div class="top-title">會員資訊</div>
 				</div>
 			</div>
 
 			<div class="input-container">
-				<div class="container-background" style="background: #F0F0EF;"></div>
-				<div class="container-background" style=" background: #FAF9F6;"></div>
+				<!-- <div class="container-background" style="background: #F0F0EF;"></div>
+				<div class="container-background" style=" background: #FAF9F6;"></div> -->
 
-				<div  class="input_tab_controller" >
+				<!-- <div  class="input_tab_controller" >
 					<div class="input_tab_btn_container ">
 						<div class="input_tab_inner_btn active" elm-export="btn_open_tab_member" elm-bind-event="bubble::click::open_tab_member">會員內容</div>
 					</div>
@@ -33,7 +33,7 @@
 					<div class="input_tab_btn_container" >
 						<div class="input_tab_inner_btn" elm-export="btn_open_tab_bankinfo" elm-bind-event="bubble::click::open_tab_bankinfo">銀行資訊</div>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="input-tab-container">
 					<div class="input_tab" elm-export="member_content">
@@ -170,8 +170,16 @@
 					</div>
 				</div>		 				  	
 			</div>
-			<div class="btn_save_container" elm-export="btn_save" elm-bind-event="bubble::click::register_user" style=" cursor: pointer;">
-				<div class="btn_save"  style="pointer-events: none;">確認上傳</div>
+			<div class="user_btn_save_container" >
+				<div class="btn-panel hide" elm-export="btn_save" elm-bind-event="bubble::click::register_user" style=" cursor: pointer; "> 
+					<div class="btn_save"  style="pointer-events: none;">確認上傳</div>
+				</div>
+				<div class="btn-panel" elm-export="btn_save" elm-bind-event="bubble::click::register_user" style=" cursor: pointer;"> 
+					<div class="btn_save"  style="pointer-events: none;">修改資訊</div>
+				</div>
+				<div class="btn-panel hide" elm-export="btn_save" elm-bind-event="bubble::click::register_user" style=" cursor: pointer;"> 
+					<div class="btn_save"  style="pointer-events: none;">確認上傳</div>
+				</div>
 			</div>
 			<div class="back-to-home-cntainer">
 				<div class="home-btn-container">

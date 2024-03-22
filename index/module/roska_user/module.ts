@@ -1,16 +1,16 @@
 (async () => {
-	// Rrgion for TypeScript
+	//Rrgion for TypeScript
 	// type User = {
-	// 	uid?: uniqid,
+	// 	// uid?: uniqid,
 	// 	nid: string,
 	// 	name: string,
 	// 	gender?: 'M'|'F',
 	// 	birth_date: string,
 	// 	address: string,
-	// 	line_id?: string,
+	// 	// line_id?: string,
 	// 	contact_home_number: string,
 	// 	contact_mobile_number: string,
-	// 	role?: number,
+	// 	// role?: number,
 	// 	bank_code: string,
 	// 	branch_code: string,
 	// 	bank_account_name: string,
@@ -24,11 +24,11 @@
 	// 	referrer_path?: string,
 	// 	volunteer_uid?: uniqid,
 	// 	volunteer_path?: string,
-	// 	revoked?: boolean,
+	// 	// revoked?: boolean,
 	// 	password: string,
 	// 	update_time?: number,
 	// 	create_time?: number,
-	// 	[key:string]:any,
+	// 	// [key:string]:any,
 	// };
 	
 	const TAG = 'roska_user';
@@ -60,7 +60,54 @@
 			layout.remove();
 		}
 	});
-
+	{
+		const accessor = view.input_data;
+        const user_info = await ROSKA_FORM.Get_user_info();
+		const user_info_inputdata = {
+            nid: '',
+            name: '',
+            gender: 'M',
+            birth_date: '',
+            address: '',
+            line_id: '',
+            contact_home_number: '',
+            contact_mobile_number: '',
+            bank_code: '',
+            branch_code: '',
+            bank_account_name: '',
+            bank_account_number: '',
+            emergency_nid: '',
+            emergency_contact: '',
+            emergency_contact_number: '',
+            emergency_contact_relation: '',
+            referrer_mobile_number: undefined,
+            volunteer_mobile_number: undefined,
+			password: '',
+			// update_time?: number,
+			// create_time?: number,
+		} ;
+        for (var key in user_info_inputdata){ 
+            // console.log(key);
+            // console.log(user_info_inputdata[key]);
+            // console.log(user_info[key]);
+            if(user_info[key] === undefined){
+                continue
+            }
+            else if(user_info[key] === ''){
+                continue;
+            }
+            else if(user_info[key] ==" "){
+                continue;
+            }
+            else if( key=='birth_date'){
+                view.input_data[key].value = user_info[key].slice(0 , 10);
+                continue;
+            }
+            else {
+                view.input_data[key].value = user_info[key];
+            };
+        }
+	}
 	// view
 	// .on('register_user',async(_e:any)=>{
 	// 	do_register_user();
