@@ -60,7 +60,7 @@ html,body {margin:0; width:100%; height:100%;}
 	overflow: hidden;
 	/* display: grid; */
 	grid-template-columns:150px 1fr; grid-template-rows:1fr;
-	overflow: scroll; scrollbar-gutter:both-edges;
+	/* overflow: scroll; scrollbar-gutter:both-edges; */
 }
 	/* .main > .navigator { background:#A40202; border:2px solid #000; border-right:0;} */
 	.main > .navigator { color:#FFF; overflow: scroll; scrollbar-gutter:both-edges; }
@@ -78,7 +78,7 @@ html,body {margin:0; width:100%; height:100%;}
 	.main .nav-head .top-banner{ background-color: #1c79c5; height: 2rem; width: 100%; display: inline-flex; justify-content: space-between;  cursor: pointer; user-select: none;}
 		.main .nav-head .top-banner> div > span ,p{pointer-events: none;}
 	
-	.main > .viewport { border:1px solid #000; width: 100%; height: 100%; overflow-y: auto; }
+	.main > .viewport { border:1px solid #000; width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;}
 
 
 	.inner_module{
