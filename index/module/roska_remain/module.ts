@@ -72,7 +72,7 @@
         // console.log(list_data[0]);
         const records = list_data;
         for(const record of records) {
-			count += 1;
+			
         	const elm = tmpl_item.duplicate();
 			elm.element.dataset.id = record.sid;
 
@@ -111,7 +111,7 @@
 		// for ( var i = 2, j = 1; j < 10; i == 9 ? i = (++j/j) + 1 : i++) {
         //     console.log("%d*%d=%d %c", i, j, i * j, i == 9 ? '\n' : ' ');
 		// }
-
+		count += 1;
     }
 
 
