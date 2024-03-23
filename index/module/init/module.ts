@@ -240,8 +240,8 @@
                 Register_input_Data[key] = accessor[key].value;
             }
         };
-        console.log("check02");
-		console.log(Register_input_Data);
+        // console.log("check02");
+		// console.log(Register_input_Data);
         try {
 			
             var result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
@@ -309,9 +309,9 @@
         view.btn_user_name;
         viewport.btn_user_name.innerHTML = '';
         viewport.btn_user_name.innerHTML = user_info.name;
-        console.log(user_info);
-        console.log(view.element);
-        console.log(viewport.element);
+        // console.log(user_info);
+        // console.log(view.element);
+        // console.log(viewport.element);
 
 		const modules: typeof window.modules = window.modules = [];
 		const module_names = [

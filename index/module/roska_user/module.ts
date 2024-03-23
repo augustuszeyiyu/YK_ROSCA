@@ -90,7 +90,7 @@
             // console.log(key);
             // console.log(user_info_inputdata[key]);
             // console.log(user_info[key]);
-            if(user_info[key] === undefined){
+            if( user_info[key] === undefined){
                 continue
             }
             else if(user_info[key] === ''){
@@ -103,10 +103,10 @@
                 view.input_data[key].value = user_info[key].slice(0 , 10);
                 continue;
             }
-            else {
+            else if(view.input_data && view.input_data[key] !== undefined){
                 view.input_data[key].value = user_info[key];
             };
-        }
+        };
 	}
 	// view
 	// .on('register_user',async(_e:any)=>{

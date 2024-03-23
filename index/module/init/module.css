@@ -60,7 +60,9 @@ html,body {margin:0; width:100%; height:100%;}
 	overflow: hidden;
 	/* display: grid; */
 	grid-template-columns:150px 1fr; grid-template-rows:1fr;
-	/* overflow: scroll; scrollbar-gutter:both-edges; */
+	overflow: scroll; 
+	scrollbar-gutter:both-edges;
+	-webkit-overflow-scrolling: touch;
 }
 	/* .main > .navigator { background:#A40202; border:2px solid #000; border-right:0;} */
 	.main > .navigator { color:#FFF; overflow: scroll; scrollbar-gutter:both-edges; }
@@ -68,7 +70,7 @@ html,body {margin:0; width:100%; height:100%;}
 		.main .tabbars > div:first-child { margin-top: 1em; }
 		.main .tabbars > div:last-child { margin-bottom: 1em; }
 		.main .tabbars > div { padding:1em 0; width:100%; text-align:center; cursor: pointer; user-select: none; }
-		.main .tabbars > div > span ,p{pointer-events: none;}
+		.main .tabbars > div > span ,p{pointer-events: none; line-height:1.5rem;}
 		.main .tabbars .active { background: rgb(255, 255, 255, 0.1); }
 
 
@@ -78,7 +80,7 @@ html,body {margin:0; width:100%; height:100%;}
 	.main .nav-head .top-banner{ background-color: #1c79c5; height: 2rem; width: 100%; display: inline-flex; justify-content: space-between;  cursor: pointer; user-select: none;}
 		.main .nav-head .top-banner> div > span ,p{pointer-events: none;}
 	
-	.main > .viewport { border:1px solid #000; width: 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch;}
+	.main > .viewport { border:1px solid #000; width: 100%; height: 100%; overflow-y: auto; }
 
 
 	.inner_module{
@@ -87,7 +89,11 @@ html,body {margin:0; width:100%; height:100%;}
 		justify-content: center;
 	}
 
-@media screen and (max-width:960px){}
+@media screen and (max-width:768px){
+	.main > .navigator.home_view_layout > div{
+		margin: 1rem 10%;
+	}
+}
 
 	.main > .navigator.home_view_layout {
 		background:#f8f3e8;
@@ -120,7 +126,10 @@ html,body {margin:0; width:100%; height:100%;}
 		background-color: #2B5CE2 ;
 	}
 
-		.main > .navigator.home_view_layout .more-info { font-size: 12px; }
+		.main > .navigator.home_view_layout .more-info { display: none; font-size: 12px; }
+		@media screen and (min-width:768px){
+		.main > .navigator.home_view_layout .more-info { display: block; }
+		}
 
 .overlay {
 	position: fixed;
@@ -214,9 +223,7 @@ html,body {margin:0; width:100%; height:100%;}
 	@media screen and (max-width:960px){
 		.Card-region .Card{width:calc(100% - 2rem); margin: 1rem;}	
 	}
-	/* .Card-region .Card.new_serial:hover::after{ left: 0; width: 100%; color: red; font-weight: 800; content: '我要下標';} */
-	.Card-region .Card:hover .Mask{ background: #c3c4c7; opacity:1;}
-	.Card-region .Card:hover .Mask p{ display:inline-flex;}
+
 	.Card-region .Card .Mask p{ display: none; color: red; font-weight: 800; margin-top: 2rem;}
 	.Card-region .Card > div ,p ,span { pointer-events: none;}
 		.Card-region .Card .Mask{ width: 100%; height: 211px; left: 0px; top: 0px; position: absolute; background: #FAF9F6; border-radius: 9px; transition:all 1s; display: flex; justify-content: center;}

@@ -1,0 +1,3 @@
+	/* .Card-region .Card.new_serial:hover::after{ left: 0; width: 100%; color: red; font-weight: 800; content: '我要下標';} */
+	.Card-region .Card.new_serial:hover .Mask{ background: #c3c4c7; opacity:1;}
+	.Card-region .Card.new_serial:hover .Mask p{ display:inline-flex;}

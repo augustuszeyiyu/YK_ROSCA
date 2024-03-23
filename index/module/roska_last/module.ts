@@ -96,13 +96,13 @@
 
 	
     async function list_new_group_serial() {
-        console.log('123');
+        // console.log('123');
         const list_data = await ROSKA_FORM.Get_new_list();
         // const { region_list: list, total_records,tmpl_item  } = view.list_container;
         const region_list = view.list_container.region_card_list;
         const tmpl_item = view.list_container.tmpl_card;
         var count = 1;
-        console.log(list_data[0]);
+        // console.log(list_data[0]);
         const records = list_data;
         for(const record of records) {
 			count += 1;

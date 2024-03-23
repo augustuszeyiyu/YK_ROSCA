@@ -21,13 +21,13 @@
 	<body>
 		<div elm-export="viewport" elm-export-accessor class="main hide">
 			<div class="nav-head">
-				<div class="top-banner">	
-					<div style="padding: 0 2rem;"><p style=" margin: 0; line-height: 2rem; font-weight: bold;">永康合會</p></div>	
-					<div elm-bind-event="click::change-page" data-page="roska_user_view" style="align-items: center; display: flex; padding: 0 2rem;">
+				<div class="top-banner">						
+					<div elm-bind-event="click::change-page" data-page="roska_user_view" style="align-items: center; display: flex; padding: 0 1rem;">
 						<samp class="glyph-fontawesome-user" style="pointer-events: none;"></samp>
 						<div elm-export="btn_user_name" style="pointer-events: none; margin-left: 0.5rem;">余則易</div>	
 					</div>
-					<div elm-export="btn_logout" elm-bind-event="bubble::click::logout" elm-export-accessor style="align-items: center; display: flex; padding: 0 2rem;">
+					<div style="padding: 0 1rem;"><a href="index.html" style="color: inherit;  text-decoration: none; "><p style=" margin: 0; line-height: 2rem; font-weight: bold;">永康合會</p></a></div>
+					<div elm-export="btn_logout" elm-bind-event="bubble::click::logout" elm-export-accessor style="align-items: center; display: flex; padding: 0 1rem;">
 						登出<samp class="glyph-fontawesome-sign-out"></samp>
 					</div>
 				</div>										
@@ -42,22 +42,22 @@
 					<p class="more-info">更多資訊>></p>			
 				</div> -->
 				<div elm-bind-event="click::change-page" data-page="roska_pay_view">
-					<span class="glyph-fontawesome-gear"></span>
+					<span class="glyph-fontawesome-credit-card"></span>
 					<p>本期應繳金額</p>
 					<p class="more-info">更多資訊>></p>
 				</div>
 				<div elm-bind-event="click::change-page" data-page="roska_last_view">
-					<span class="glyph-fontawesome-gear"></span>
+					<span class="glyph-fontawesome-tags"></span>
 					<p>最近一期得標會組</p>
 					<p class="more-info">更多資訊>></p>
 				</div>
 				<div elm-bind-event="click::change-page" data-page="roska_remain_view">
-					<span class="glyph-fontawesome-gear"></span>
+					<span class="glyph-fontawesome-gavel"></span>
 					<p>我要下標-進行中的會組</p>
 					<p class="more-info">更多資訊>></p>
 				</div>
 				<div elm-bind-event="click::change-page" data-page="roska_new_view">
-					<span class="glyph-fontawesome-gear"></span>
+					<span class="glyph-fontawesome-edit"></span>
 					<p>我要跟會-新會組</p>
 					<p class="more-info">更多資訊>></p>
 				</div>
