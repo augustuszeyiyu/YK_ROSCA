@@ -12,16 +12,8 @@
 	};
 
 	// type User =  typeof ROSKA_FORM.DataType;;
-
-	// const testtest={} as User 
-	// const Register_input_Data = {} as ROSKA_FORM.DataType.Rigister_UserInfo;
-
-	// type Register_input_Data_type = {[key:string]:{type:'M'|'F'|'number'|'string'|uniqid}};
-	// const Register_input_Data= {} as User;
-
-	// const Register_input_Data:Interface ,UserInfo = {};
-
-
+	const { resolve, promise } = ROSKA_FORM.Tools.FlattenPromise<void>();
+	const user_info  = ROSKA_FORM.Session.getUserInfo();
 
 	const modules = window.modules;
 	const viewport = window.viewport;	
@@ -47,6 +39,7 @@
 		if (e.state !== "show")
 			return;
 		loading_overlay.Show();
+		update_user_info();
 		list_new_group_serial()
 			.catch((e:any) => {
 			console.error(e);
@@ -57,24 +50,36 @@
 			loading_overlay.Hide();
 			});
 		ResetPage();
+	})
+	.on('click', async (e:any) => {
+        const trigger = e.target;
+        const Card = trigger.closest('.Card');
+        var trigger_sid = Card.dataset.id
+        if (!Card){ return; }
+        switch (Card.dataset.role) {
+            case  "join_in_group" : {
+                join_in_group(trigger_sid);
+            }
+        }
+	})
+	.on('join_in_group', async (e:any) => {
+		console.log('為什麼沒反應');
 	});
 
-
+	// join_in_group
 	
     async function list_new_group_serial() {
-        console.log('123');
         const list_data = await ROSKA_FORM.Get_new_list();
         // const { region_list: list, total_records,tmpl_item  } = view.list_container;
         const region_list = view.list_container.region_card_list;
         const tmpl_item = view.list_container.tmpl_card;
         var count = 0;
-        console.log(list_data[0]);
         const records = list_data;
         for(const record of records) {
 			
         	const elm = tmpl_item.duplicate();
 			elm.element.dataset.id = record.sid;
-
+			elm.element.dataset.role = "join_in_group";
 			// elm.top_left_text.textContent
 
             elm.gruou_sid.textContent = record.sid;
@@ -109,8 +114,25 @@
 		// }
 		count += 1;
     }
+	async function update_user_info(){
+		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
+		var next_bid_date = new Date(2024, 3, 10);
+        view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0,3)+" 2024 4月 10日";
+	}
 
-
+	async function join_in_group(trigger_sid:any) {
+		try{ 
+			console.log("西瓜太郎");
+			await ROSKA_FORM.join_in_groups(trigger_sid);
+			resolve();
+		}
+		catch(e:any){
+			console.error(`[${TAG}]`, e);
+		}
+		finally{
+			alert("sucess_join_new_groups!");
+		}
+	}
 	function ResetPage(){
 		STATE.cursor = null;
 		STATE.query = {};

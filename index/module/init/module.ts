@@ -306,9 +306,11 @@
 		await window.WaitAuthorization();
 
         const user_info = await ROSKA_FORM.Get_user_info();
+        ROSKA_FORM.Session.setUserInfo(user_info);
         view.btn_user_name;
         viewport.btn_user_name.innerHTML = '';
         viewport.btn_user_name.innerHTML = user_info.name;
+
         // console.log(user_info);
         // console.log(view.element);
         // console.log(viewport.element);

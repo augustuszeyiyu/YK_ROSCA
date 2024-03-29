@@ -1,67 +1,51 @@
 <div class="inner_module" style="overflow:hidden;">
 
-	<div style="display: flex; flex-direction: column ; width: 428px; height: 926px; position: relative; background: #F0F0EF ; overflow: scroll;">
-
-		<!--  Contain Head-->
-		<div class="Head_container">
-			<!-- <div class="Mask" style="width: 428px; height: 394px; left: 0px; top: 0px; position: absolute; background: linear-gradient(208deg, #D4467F 0%, #5B0619 100%)"></div> -->
-		 	<div class="Mask"></div>
-		  	<div class="Base"></div>
-			<!-- <div class="Route" style="width: 262px; height: 63.75px; left: 91px; top: 148.25px; position: absolute">
-				<div class="Vector3134" style="width: 244px; height: 35.75px; left: 13.50px; top: 0px; position: absolute; border: 4px #D4467F solid"></div>
-					<div class="Frame14" style="height: 28px; padding: 4px; left: 0px; top: 17.75px; position: absolute; background: rgba(255, 255, 255, 0.10); border-radius: 100px; border: 1px #D4467F solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-						<div style="text-align: center; color: white; font-size: 12px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 19.20px; word-wrap: break-word">儲蓄</div>
-					</div>
-					<div class="Frame15" style="width: 28px; height: 28px; padding: 4px; left: 234px; top: 35.75px; position: absolute; background: rgba(255, 255, 255, 0.10); border-radius: 100px; border: 1px #D4467F solid; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-						<div style="text-align: center; color: white; font-size: 12px; font-family: Plus Jakarta Sans; font-weight: 700; line-height: 19.20px; word-wrap: break-word">理財</div>
-					</div>
-		  		</div>
-			</div> -->
-			<div class="Head_Title" style="height: 2rem; width: 100%; z-index: 2; padding-top: 0.5rem;">
-				<p style=" margin: 0; line-height: 2rem; color: white; text-align: center; font-weight: 600;">永康合會</p>
-			</div>
-
-			<div class="Head_Card">
-				
-				<div class="Head_Card_User_Info">
-					<div class="Info_Start">
-						<div class="Info_User">會員:A0001-余則易 </div>
-						<div class="Roska_Group">
-							<div class ="Group_Rank">一般會員</div>
-							<div class="Ellipse"></div>
-							<div class="Roska_Group_name">永康會員</div>
-						</div>
-					</div>
-					<div class="IconInterface">
-						<span class="glyph-fontawesome-user" style="color: white; font-size: 24px;"></span>
+	<div class="mobil_container">
+		<div class="Head-Card-Background"  >
+			<div class="Mask"></div>
+			<div class="Base"></div>
+		<div class="Head_Card" elm-export="Head_Card" elm-export-accessor>
+			
+			<div class="Frame_top">
+				<div class="top_left">
+					<div class="member_name" elm-export="member_name">會員:A0001-余則易 </div>
+					<div class="Frame115">
+						<div class="member_role" elm-export="member_role">一般會員</div>
+						<div class="Ellipse1247"></div>
+						<div class="member_group" elm-export="member_group">永康會員</div>
 					</div>
 				</div>
-
-				<div class="Head_Card_divider"></div>
-
-				<div class="Head_Card_Bid_Info">
-						<div class="Info_Start">
-							<div class="bid_date_note">下次開標日期</div>
-							<div class="next_date">Sunday, 10 Sep 2023</div>
-						</div>
-						<div class="Info_end" style="justify-content:center; align-items: center; gap: 8px; display: flex">
-							<div><span class="glyph-fontawesome-chevron-left" style="color: wheat; font-size: 0.6rem;"></div>
-							<div class="Rectangle1130" style="width: 1px; height: 20px; background: rgba(255, 255, 255, 0.20)"></div>
-							<div><span class="glyph-fontawesome-chevron-right" style="color: wheat; font-size: 0.6rem;"></div>
-						</div>
-				</div>
-
-			</div>
-
-			<div class="Head_NavigationBar">
-				<div class="Control">
-					<div class="Bar_Title">本期應繳費用</div>
-					<!-- <div style="color: white;"><p>進行中的會組</p></div> -->
+				<div class="IconInterfaceSolidEditRectangle">
+					<span class="glyph-fontawesome-pencil-square" style="color: white; font-size: 24px;"></span>
 				</div>
 			</div>
 
+			<div class="Rectangle"></div>
 
+			<div class="Frame_bottom">
+				<div class="Frame-contain" >
+					<div class="Frame-left">
+						<div class="frame-date-title" elm-export="frame_date_title">下次開標日期</div>
+						<div class="frame-date" elm-export="frame_date">Sunday, 10 Sep 2023</div>
+					</div>
+					<div class="Frame-right">
+						<!-- <div><span class="glyph-fontawesome-chevron-left" style="color: wheat; font-size: 0.6rem;"></div>
+						<div class="Rectangle1130" style="width: 1px; height: 20px; background: rgba(255, 255, 255, 0.20)"></div>
+						<div><span class="glyph-fontawesome-chevron-right" style="color: wheat; font-size: 0.6rem;"></div> -->
+					</div>
+				</div>
+			</div>
 		</div>
+
+				<div class="NavigationBar">
+					<div class="Control">
+						<div class="Control-left">本期應繳費用</div>
+						<!-- <div class="Control-right"><p>新會組</p></div> -->
+					</div>
+				</div>
+
+
+			</div>
 
 
 		<!-- Card -->
@@ -80,10 +64,10 @@
 
 
 			<div class="pay_info_region">
-				<div class="bided_date">2023/08/23</div>
-				<div class="Container">
+				<div class="bided_date">2024/03/08</div>
+				<div class="Container" elm-export="pay_container" elm-export-accessor>
 					<div class="title">會組統計</div>
-					<div class="pay_list">
+					<div class="pay_list" elm-export="pay_list">
 						<div>5000&times;5 = ${`pay_amount`}*${`group_sum`}</div>
 						<div>5000&times;5 = ${5*5000}</div>
 						<div>5000&times;5 = ${5*5000}</div>

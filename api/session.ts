@@ -27,6 +27,7 @@ const _RUNTIME:RuntimeStorage = {
 	endpoint_url:''
 };
 
+
 export default class SessionControl {
 	static get endpoint_url():string { return _RUNTIME.endpoint_url; }
 	static get auth_token():string {
@@ -180,4 +181,39 @@ export default class SessionControl {
 		.then(ProcRemoteResponse).then(()=>false)
 		.finally(async()=>_RUNTIME.session_info = null);
 	}
+
+	// interface _user_info {
+	// 	user_name:string;
+	// 	next_bid_date:string;
+	// }
+
+	static _user_info = {
+        	nid: '',
+            name: '',
+            gender: 'M',
+            birth_date: '',
+            address: '',
+            line_id: '',
+            contact_home_number: '',
+            contact_mobile_number: '',
+            bank_code: '',
+            branch_code: '',
+            bank_account_name: '',
+            bank_account_number: '',
+            emergency_nid: '',
+            emergency_contact: '',
+            emergency_contact_number: '',
+            emergency_contact_relation: '',
+			password: '',
+            referrer_mobile_number: undefined,
+            volunteer_mobile_number: undefined,
+    };
+
+	static setUserInfo(userInfo:any) {
+        Object.assign(SessionControl._user_info, userInfo);
+    }
+
+    static getUserInfo() {
+        return SessionControl._user_info;
+    }
 }

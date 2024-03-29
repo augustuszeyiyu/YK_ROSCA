@@ -1,43 +1,41 @@
 (async () => {
-	// console.log(register);
-	
 	// Rrgion for TypeScript
-	type User = {
-		uid?: uniqid,
-		nid: string,
-		name: string,
-		gender?: 'M'|'F',
-		birth_date: string,
-		address: string,
-		line_id?: string,
-		contact_home_number: string,
-		contact_mobile_number: string,
-		role?: number,
-		bank_code: string,
-		branch_code: string,
-		bank_account_name: string,
-		bank_account_number: string,
-		emergency_nid: uniqid,
-		emergency_contact: string,
-		emergency_contact_number: string,
-		emergency_contact_relation: string,
-		relative_path?: string,
-		referrer_uid?: uniqid,
-		referrer_path?: string,
-		volunteer_uid?: uniqid,
-		volunteer_path?: string,
-		revoked?: boolean,
-		password: string,
-		update_time?: number,
-		create_time?: number,
-		[key:string]:any,
-	};
+	// type User = {
+	// 	uid?: uniqid,
+	// 	nid: string,
+	// 	name: string,
+	// 	gender?: 'M'|'F',
+	// 	birth_date: string,
+	// 	address: string,
+	// 	line_id?: string,
+	// 	contact_home_number: string,
+	// 	contact_mobile_number: string,
+	// 	role?: number,
+	// 	bank_code: string,
+	// 	branch_code: string,
+	// 	bank_account_name: string,
+	// 	bank_account_number: string,
+	// 	emergency_nid: uniqid,
+	// 	emergency_contact: string,
+	// 	emergency_contact_number: string,
+	// 	emergency_contact_relation: string,
+	// 	relative_path?: string,
+	// 	referrer_uid?: uniqid,
+	// 	referrer_path?: string,
+	// 	volunteer_uid?: uniqid,
+	// 	volunteer_path?: string,
+	// 	revoked?: boolean,
+	// 	password: string,
+	// 	update_time?: number,
+	// 	create_time?: number,
+	// 	[key:string]:any,
+	// };
 	
-	// Rrgion for TypeScript
 	const TAG = 'roska_last';
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
+	const user_info  = ROSKA_FORM.Session.getUserInfo();
 	const STATE:{
 		query:QueryParam;
 		cursor:PagingCursor|null;
@@ -45,19 +43,6 @@
 		query:{},
 		cursor:null
 	};
-
-	// type User =  typeof ROSKA_FORM.DataType;;
-
-	// const testtest={} as User 
-	// const Register_input_Data = {} as ROSKA_FORM.DataType.Rigister_UserInfo;
-
-	// type Register_input_Data_type = {[key:string]:{type:'M'|'F'|'number'|'string'|uniqid}};
-	// const Register_input_Data= {} as User;
-
-	// const Register_input_Data:Interface ,UserInfo = {};
-
-
-
 	const modules = window.modules;
 	const viewport = window.viewport;	
 	const view = viewport.roska_last_view;
@@ -81,7 +66,9 @@
 		if (e.state !== "show")
 			return;
 		loading_overlay.Show();
-		list_new_group_serial()
+		// personal_bid_info();
+		update_user_info();
+		list_settlement_list()
 			.catch((e:any) => {
 			console.error(e);
 			// alert(`載入失敗！(${e.message})`);
@@ -93,16 +80,23 @@
 		ResetPage();
 	});
 
-
+	async function personal_bid_info() {
+		const user_info = await ROSKA_FORM.Get_user_info();
+	}
 	
-    async function list_new_group_serial() {
+	async function update_user_info(){
+		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
+		var next_bid_date = new Date(2024, 3, 10);
+        view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0,3)+" 2024 4月 10日";
+	}
+    async function list_settlement_list() {
         // console.log('123');
-        const list_data = await ROSKA_FORM.Get_new_list();
+        const list_data = await ROSKA_FORM.Get_settlement_list();
         // const { region_list: list, total_records,tmpl_item  } = view.list_container;
         const region_list = view.list_container.region_card_list;
         const tmpl_item = view.list_container.tmpl_card;
         var count = 0;
-        // console.log(list_data[0]);
+        console.log(list_data[0]);
         const records = list_data;
         for(const record of records) {
 			

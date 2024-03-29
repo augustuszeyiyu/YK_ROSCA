@@ -3,6 +3,7 @@
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
+	const user_info  = ROSKA_FORM.Session.getUserInfo();
 	const STATE:{
 		query:QueryParam;
 		cursor:PagingCursor|null;
@@ -10,18 +11,6 @@
 		query:{},
 		cursor:null
 	};
-
-	// type User =  typeof ROSKA_FORM.DataType;;
-
-	// const testtest={} as User 
-	// const Register_input_Data = {} as ROSKA_FORM.DataType.Rigister_UserInfo;
-
-	// type Register_input_Data_type = {[key:string]:{type:'M'|'F'|'number'|'string'|uniqid}};
-	// const Register_input_Data= {} as User;
-
-	// const Register_input_Data:Interface ,UserInfo = {};
-
-
 
 	const modules = window.modules;
 	const viewport = window.viewport;	
@@ -48,6 +37,7 @@
 			return;
 		loading_overlay.Show();
 		ResetPage();
+		update_user_info();
 		list_new_group_serial()
 			.catch((e:any) => {
 			console.error(e);
@@ -63,48 +53,37 @@
 
 	
     async function list_new_group_serial() {
-        // console.log('123');
         const list_data = await ROSKA_FORM.Get_on_list();
         // const { region_list: list, total_records,tmpl_item  } = view.list_container;
         const region_list = view.list_container.region_card_list;
         const tmpl_item = view.list_container.tmpl_card;
         var count = 0;
-        // console.log(list_data[0]);
         const records = list_data;
+		console.log(list_data[0]);
         for(const record of records) {
-			
-        	const elm = tmpl_item.duplicate();
-			elm.element.dataset.id = record.sid;
-
+			const elm = tmpl_item.duplicate();
+            elm.element.dataset.id = record.sid;
             elm.gruou_sid.textContent = record.sid;
+            elm.gruou_sid.style = "color:green; font-size:1rem;";
             elm.period.textContent = "共" + record.cycles + "期";
-            elm.bid_status.textContent = '開標日期';
-            elm.bid_status.style = "color:green;";
+            elm.bid_status.textContent = '起標日期';
+            elm.bid_status.style = "color:#3c434a;";
             elm.period_date.textContent = record.bid_start_time.slice(0, 10);
-
-            elm.des_g_name.innerHTML = "會組內名稱";
-            elm.name_in_group.textContent = record.mid;
-			if(!record.mid){
-				elm.name_in_group.style = "color:green; font-weight:600;";
-			}
-			else{
-				elm.name_in_group.style = "color:green; font-weight:600;";
-			}
-
-            
-            elm.count_in_group.innerHTML = "NT 5000";
-
-			elm.period_01.innerHTML = "&emsp;";
+            elm.des_g_name.innerHTML = "會組序號";
+            elm.name_in_group.textContent = record.mid.slice(-2);
+            if (!record.mid) {
+                elm.name_in_group.style = "color:green; font-weight:600;";
+            }
+            else {
+                elm.name_in_group.style = "color:green; font-weight:600;";
+            }
+            elm.count_in_group.innerHTML = "NT "+record.basic_unit_amount;
+            elm.period_01.innerHTML = "&emsp;";
             elm.duration.textContent = "共" + record.cycles + "期";
-
-
-			elm.bid_amount.innerHTML = "NT 1,000";
-			elm.max_bid_amount.innerHTML ="最高標金";
-
+            elm.bid_amount.innerHTML = "NT 1,000";
+            elm.max_bid_amount.innerHTML = "最高標金";
         // 	elm.create_time.textContent = record.create_time.slice(0 , 10)+" "+record.create_time.slice(11 , -5);
-        // 	elm.count.textContent = count;
-        
-        // 	elm.sid.textContent= record.sid;
+        // 	elm.count.textContent = count;      
       		region_list.appendChild(elm.element);
         }
 
@@ -113,7 +92,11 @@
 		// }
 		count += 1;
     }
-
+	async function update_user_info(){
+		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
+		var next_bid_date=new Date(2024, 3, 10);
+		view.Head_Card.frame_date.innerHTML= next_bid_date.toDateString();
+	}
 
 	function ResetPage(){
 		STATE.cursor = null;
