@@ -96,7 +96,8 @@ html,body {margin:0; width:100%; height:100%;}
 }
 
 	.main > .navigator.home_view_layout {
-		background:#f8f3e8;
+		background-image:url(../../external/img/shut01.jpg); background-position: 90% 50%; background-size: cover;;
+		/* background:#f8f3e8; */
 		/* background:#28aab3; */
 		/* padding: 2rem; background: linear-gradient(208deg, #D4467F 0%, #5B0619 100%); */
 		height: 100%;

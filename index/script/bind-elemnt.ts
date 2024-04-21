@@ -3,9 +3,11 @@
 	const head_accessor = WhelmJS(document.head);
 	const main_accessor = WhelmJS(document.body);
 	const viewport = main_accessor.viewport;
+	const modal_view = main_accessor.modal_view;
 
 	window.head 	= head_accessor;
 	window.viewport = viewport;
+	window.modal_view = modal_view;
 	window.login_overlay = main_accessor.login_overlay;
 	window.register_overlay = main_accessor.register_overlay;
 	window.loading_overlay = new ROSKA_FORM.PageController({viewport: main_accessor.loading_overlay});

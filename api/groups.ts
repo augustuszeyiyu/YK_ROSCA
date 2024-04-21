@@ -35,7 +35,7 @@ export async function Get_on_list() {
 // POST
 // /api/group/member/{sid}
 /**加入會組**/
-export async function join_in_groups(query_data?:RoskaSerials){
+export async function Join_in_groups(query_data?:RoskaSerials){
 	SessionControl.CheckLogin();
 	return fetch(`${SessionControl.endpoint_url}/api/group/member/`+query_data, {
 		method:'POST',
@@ -43,6 +43,17 @@ export async function join_in_groups(query_data?:RoskaSerials){
 		body: JSON.stringify(query_data)
 	}).then(ProcRemoteResponse).then((resp)=>resp.json());
 }
+//GET
+// /api/group/member/{sid}
+/**搜尋該團下的成員**/
+export async function Get_in_groups(query_data?:RoskaSerials){
+	SessionControl.CheckLogin();
+	return fetch(`${SessionControl.endpoint_url}/api/group/member/`+query_data, {
+		method:'GET',
+		headers: {"Authorization": SessionControl.auth_token},		
+	}).then(ProcRemoteResponse).then((resp)=>resp.json());
+}
+
 
 //GET
 // /api/group/group/settlement-list

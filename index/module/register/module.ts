@@ -133,7 +133,7 @@
             gender: 'M',
             birth_date: '',
             address: '',
-            line_id: '',
+            // line_id: '',
             contact_home_number: '',
             contact_mobile_number: '',
             bank_code: '',
@@ -153,7 +153,9 @@
                 Register_input_Data[key]=accessor[key].value;
 			}
         };
-		console.log("check02",Register_input_Data);
+		await new Promise((resolve, reject) => {
+			console.log("check02", Register_input_Data);
+		  });
 		try{
 			let result = await ROSKA_FORM.Do_Register_User_Info(Register_input_Data);
 		}catch (e: any) {

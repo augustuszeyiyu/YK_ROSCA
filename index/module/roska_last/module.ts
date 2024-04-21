@@ -90,52 +90,54 @@
         view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0,3)+" 2024 4月 10日";
 	}
     async function list_settlement_list() {
-        // console.log('123');
-        const list_data = await ROSKA_FORM.Get_settlement_list();
-        // const { region_list: list, total_records,tmpl_item  } = view.list_container;
-        const region_list = view.list_container.region_card_list;
-        const tmpl_item = view.list_container.tmpl_card;
-        var count = 0;
-        console.log(list_data[0]);
-        const records = list_data;
-        for(const record of records) {
+        // const list_data = await ROSKA_FORM.Get_settlement_list();
+        // // const { region_list: list, total_records,tmpl_item  } = view.list_container;
+        // const region_list = view.list_container.region_card_list;
+        // const tmpl_item = view.list_container.tmpl_card;
+        // var count = 0;
+        // console.log(list_data[0]);
+        // const records = list_data;
+        // for(const record of records) {
 			
-        	const elm = tmpl_item.duplicate();
-			elm.element.dataset.id = record.sid;
+        // 	const elm = tmpl_item.duplicate();
+		// 	elm.element.dataset.id = record.sid;
 
-            elm.gruou_sid.textContent = record.sid;
-            elm.period.textContent = "共" + record.cycles + "期";
-            elm.bid_status.textContent = '開標日期';
-            elm.bid_status.style = "color:green;";
-            elm.period_date.textContent = record.bid_start_time.slice(0, 10);
+        //     elm.gruou_sid.textContent = record.sid;
+        //     elm.period.textContent = "共" + record.cycles + "期";
+        //     elm.bid_status.textContent = '開標日期';
+        //     elm.bid_status.style = "color:green;";
+        //     elm.period_date.textContent = record.bid_start_time.slice(0, 10);
 
-            elm.des_g_name.innerHTML = "基本會款";
-            elm.name_in_group.textContent = '新會組';
-            elm.name_in_group.style = "color:green; font-weight:600;";
-            elm.count_in_group.innerHTML = "NT 5000";
+        //     elm.des_g_name.innerHTML = "基本會款";
+        //     elm.name_in_group.textContent = '新會組';
+        //     elm.name_in_group.style = "color:green; font-weight:600;";
+        //     elm.count_in_group.innerHTML = "NT 5000";
 
-			elm.period_01.innerHTML = "&emsp;";
-            elm.duration.textContent = "共" + record.cycles + "期";
+		// 	elm.period_01.innerHTML = "&emsp;";
+        //     elm.duration.textContent = "共" + record.cycles + "期";
 
-			elm.bid_amount.textContent = '新會組';
-			elm.name_in_group.textContent = '新會組';
+		// 	elm.bid_amount.textContent = '新會組';
+		// 	elm.name_in_group.textContent = '新會組';
 
-			elm.bid_amount.innerHTML = "NT 1,000";
-			elm.max_bid_amount.innerHTML ="最高標金";
+		// 	elm.bid_amount.innerHTML = "NT 1,000";
+		// 	elm.max_bid_amount.innerHTML ="最高標金";
 
-        // 	elm.create_time.textContent = record.create_time.slice(0 , 10)+" "+record.create_time.slice(11 , -5);
-        // 	elm.count.textContent = count;
+        // // 	elm.create_time.textContent = record.create_time.slice(0 , 10)+" "+record.create_time.slice(11 , -5);
+        // // 	elm.count.textContent = count;
         
-        // 	elm.sid.textContent= record.sid;
-      		region_list.appendChild(elm.element);
-        }
+        // // 	elm.sid.textContent= record.sid;
+      	// 	region_list.appendChild(elm.element);
+		// 	count += 1;
+        // }
 
-		// for ( var i = 2, j = 1; j < 10; i == 9 ? i = (++j/j) + 1 : i++) {
-        //     console.log("%d*%d=%d %c", i, j, i * j, i == 9 ? '\n' : ' ');
-		// }
-		count += 1;
+
     }
+	async function _nini(){
+			// for ( var i = 2, j = 1; j < 10; i == 9 ? i = (++j/j) + 1 : i++) {
+			//     console.log("%d*%d=%d %c", i, j, i * j, i == 9 ? '\n' : ' ');
+			// }
 
+	}
 
 	function ResetPage(){
 		STATE.cursor = null;

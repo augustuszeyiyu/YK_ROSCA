@@ -121,9 +121,10 @@
 	}
 
 	async function join_in_group(trigger_sid:any) {
+		var joinornot = confirm("確定要加入會組 : "+trigger_sid+"嗎?")
+		if(!joinornot){return;}
 		try{ 
-			console.log("西瓜太郎");
-			await ROSKA_FORM.join_in_groups(trigger_sid);
+			await ROSKA_FORM.Join_in_groups(trigger_sid);
 			resolve();
 		}
 		catch(e:any){

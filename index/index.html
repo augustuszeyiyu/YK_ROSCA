@@ -19,6 +19,10 @@
 		<script src="./script.js"></script>
 	</head>
 	<body>
+		<div elm-export="modal_view" class="main hide" elm-export-accessor>
+			<div elm-export="group_view" elm-export-accessor class="dashboard-view hide"></div>
+			<!-- <div elm-export="home_view" elm-export-accessor class="dashboard-view"></div> -->
+		</div>
 		<div elm-export="viewport" elm-export-accessor class="main hide">
 			<div class="nav-head">
 				<div class="top-banner">						
@@ -84,7 +88,7 @@
 			<div elm-export="message" class="message-box">處理中</div>
 		</div>
 		<script>(()=>{ window.WEBSITE_URL = 'http://127.0.0.1:33688'; })();</script>
-		<!-- <script>(()=>{ window.WEBSITE_URL = 'https://app.yaresg.com/'; })();</script> -->
+		<!-- <script>(()=>{ window.WEBSITE_URL = 'https://app.yaresg.com'; })();</script> -->
 		<script src="./script/bind-elemnt.js"></script>
 		<script src="./module/init/module.js"></script>
 	</body>

@@ -13,6 +13,7 @@
 	};
 
 	const modules = window.modules;
+	const modal_view = window.modal_view;	
 	const viewport = window.viewport;	
 	const view = viewport.roska_remain_view;
 	const loading_overlay = window.loading_overlay;
@@ -48,7 +49,51 @@
 			loading_overlay.Hide();
 			});
 		ResetPage();
-	});
+	})
+	.on('click', async(e:any)=>{
+		const trigger = e.target;
+		const card = trigger.closest('.Card');
+		
+		if ( !card) return;
+		
+		switch(card.dataset.role) {
+			// case APPLICATION_TYPE.UPGRADE_ADVANCED:
+			// case APPLICATION_TYPE.UPGRADE_BUSINESS:
+			// case APPLICATION_TYPE.BUY_ADVERT_POINT:
+			// case APPLICATION_TYPE.WITHDRAW: {
+			//     window.location.href = "/admin/member/approval/" + button.dataset.relId;
+			//     break;
+			// }
+			
+			// case APPLICATION_TYPE.PROFILE_VERIFICATION: {
+			//     window.location.href = "/admin/member/info-approval/" + button.dataset.relId;
+			//     break;
+			// }
+			// case APPLICATION_TYPE.PROFILE_VERIFICATION: {
+			// 	window.open("/admin/member/info-approval/" + button.dataset.relId,innerHeight=500,innerWidth=500);
+			// 	break;
+			// }
+			case "bid": {
+				// window.location.href = "/admin/member/info/" + row.dataset.relId;
+				window.open("./"+'?'+ 'sid='+card.dataset.relId , 'innerHeight=1600' ,'innerWidth=800',);
+				// window.open("./module/roska_new_view/modals.html" + button.dataset.relId, innerHeight=1600,innerWidth=800,);
+				break;
+				
+			}
+			case "view_group": {
+				// window.location.href = "/admin/member/info/" + row.dataset.relId;
+				window.open("./"+'?'+ 'sid='+card.dataset.sid +'&'+'modal=group_view', 'innerHeight=800' ,'innerWidth=800',);
+				// window.open("./module/roska_new_view/modals.html" + button.dataset.relId, innerHeight=1600,innerWidth=800,);
+				break;
+				
+			}
+			
+			default:
+				alert("您沒有權限使用該功能！\\n請使用更高權限等級的帳號執行此操作！");
+				return;
+		}
+	})
+	;
 
 
 	
@@ -62,7 +107,9 @@
 		console.log(list_data[0]);
         for(const record of records) {
 			const elm = tmpl_item.duplicate();
-            elm.element.dataset.id = record.sid;
+            elm.element.dataset.sid = record.sid;
+			elm.element.dataset.role = 'view_group';
+
             elm.gruou_sid.textContent = record.sid;
             elm.gruou_sid.style = "color:green; font-size:1rem;";
             elm.period.textContent = "共" + record.cycles + "期";

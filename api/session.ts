@@ -52,6 +52,20 @@ export default class SessionControl {
 			msg:	"You're not logged in!",
 		});
 	}
+
+
+//GET
+//	/api/auth/session
+/**取得網頁 cookie, 判斷 cookie 是否過期，如果過期，就需要回傳新的 cookie**/
+//GET
+// /api/auth/login
+/**取得驗證碼**/
+//POST
+//	/api/auth/login
+/**使用手機號碼和密碼登入**/
+//GET
+//	/api/auth/logout
+/**登出**/
 	static async GetCaptcha() {
 		return fetch(`${SessionControl.endpoint_url}/api/auth/login`, {
 			method:'GET',  
