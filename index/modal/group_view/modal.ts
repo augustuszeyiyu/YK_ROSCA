@@ -8,6 +8,9 @@
         query: {},
         cursor: null
     };
+
+	const { resolve, promise } = ROSKA_FORM.Tools.FlattenPromise<void>();
+
     const modals = window.modals;
     const loading_overlay = window.loading_overlay;
     const view = window.modal_view;
@@ -45,21 +48,12 @@
         })
         .on('click', async(e:any)=>{
             const trigger = e.target;
-            const card = trigger.closest('.Card');       
-            if ( !card) return;         
-            switch(card.dataset.role) {
-                case "bid": {
-                    // window.location.href = "/admin/member/info/" + row.dataset.relId;
-                    window.open("./"+'?'+ 'sid='+card.dataset.relId , 'innerHeight=1600' ,'innerWidth=800',);
-                    // window.open("./module/roska_new_view/modals.html" + button.dataset.relId, innerHeight=1600,innerWidth=800,);
-                    break;
-                    
-                }
-                case "view_group": {
-                    // window.location.href = "/admin/member/info/" + row.dataset.relId;
-                    console.log('test');
-                    window.open("./"+'?'+ 'sid='+card.dataset.sid +'&'+'modal=group_view', 'innerHeight=800' ,'innerWidth=800',);
-                    // window.open("./module/roska_new_view/modals.html" + button.dataset.relId, innerHeight=1600,innerWidth=800,);
+            const trigger_btn = trigger.closest('.btn');
+            if (!trigger_btn)
+                return;
+            switch (trigger_btn.dataset.role) {
+                case "join_bid": {
+                    join_bid(trigger_btn.dataset.relId);
                     break;
                     
                 }
@@ -101,14 +95,28 @@
                 region_list.appendChild(elm.element);
             })
             const button_group_bid = document.createElement("button");
-                button_group_bid.classList.add("btn-green");
+                button_group_bid.classList.add("btn-green", "btn");
                 button_group_bid.textContent = "我要下標";
-                button_group_bid.dataset.role = 'bid';
+                button_group_bid.dataset.role = 'join_bid';
                 button_group_bid.dataset.relId = searchParams['sid'];
 
             modal_view.list_container.button_region.appendChild(button_group_bid);
         }
     };
+    async function join_bid(trigger_sid:any) {
+		var joinornot = confirm("確定要加入會組 : "+trigger_sid+"嗎?")
+		if(!joinornot){return;}
+		try{ 
+			await ROSKA_FORM.Join_in_groups(trigger_sid);
+			resolve();
+		}
+		catch(e:any){
+			console.error(`[${TAG}]`, e);
+		}
+		finally{
+			alert("sucess_join_new_groups!");
+		}
+	};
     function ResetPage() {
         STATE.cursor = null;
         STATE.query = {};
