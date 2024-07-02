@@ -99,7 +99,7 @@
             else if(user_info[key] ==" "){
                 continue;
             }
-            else if( key=='birth_date'){
+            else if( user_info[key]=='birth_date'){
                 view.input_data[key].value = user_info[key].slice(0 , 10);
                 continue;
             }

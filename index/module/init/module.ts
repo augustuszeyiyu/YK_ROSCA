@@ -332,6 +332,7 @@
 		];
         const modal_names = [
 			'group_view',
+            'pay_group_view'
 		];
 		const modalsPath:{
 			path: string;

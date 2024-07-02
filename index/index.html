@@ -19,7 +19,8 @@
 		<script src="./script.js"></script>
 	</head>
 	<body>
-		<div elm-export="modal_view" class="main hide" elm-export-accessor>
+		<div elm-export="modal_view" class="main hide" elm-export-accessor>		
+			<div elm-export="pay_group_view" elm-export-accessor class="dashboard-view hide"></div>
 			<div elm-export="group_view" elm-export-accessor class="dashboard-view hide"></div>
 			<!-- <div elm-export="home_view" elm-export-accessor class="dashboard-view"></div> -->
 		</div>
@@ -45,30 +46,35 @@
 					<p>註冊</p>	
 					<p class="more-info">更多資訊>></p>			
 				</div> -->
-				<div elm-bind-event="click::change-page" data-page="roska_pay_view">
+				<div class="main-card" elm-bind-event="click::change-page" data-page="roska_pay_view">
 					<span class="glyph-fontawesome-credit-card"></span>
 					<p>本期應繳金額</p>
 					<p class="more-info">更多資訊>></p>
+					<div class="courdinate-pay"></div>
 				</div>
-				<div elm-bind-event="click::change-page" data-page="roska_last_view">
+				<div class="main-card" elm-bind-event="click::change-page" data-page="roska_last_view">
 					<span class="glyph-fontawesome-tags"></span>
 					<p>最近一期得標會組</p>
 					<p class="more-info">更多資訊>></p>
+					<div class="courdinate-last"></div>
 				</div>
-				<div elm-bind-event="click::change-page" data-page="roska_remain_view">
+				<div class="main-card" elm-bind-event="click::change-page" data-page="roska_remain_view">
 					<span class="glyph-fontawesome-gavel"></span>
 					<p>我要下標-進行中的會組</p>
 					<p class="more-info">更多資訊>></p>
+					<div class="courdinate-remain"></div>
 				</div>
-				<div elm-bind-event="click::change-page" data-page="roska_new_view">
+				<div class="main-card" elm-bind-event="click::change-page" data-page="roska_new_view">
 					<span class="glyph-fontawesome-edit"></span>
 					<p>我要跟會-新會組</p>
 					<p class="more-info">更多資訊>></p>
+					<div class="courdinate-new"></div>
 				</div>
-				<div elm-bind-event="click::change-page" data-page="roska_user_view" class="hide">
+				<div class="main-card" elm-bind-event="click::change-page" data-page="roska_user_view" class="hide">
 					<span class="glyph-fontawesome-gear"></span>
 					<p>我的資訊</p>
 					<p class="more-info">更多資訊>></p>
+					<div class="courdinate-user"></div>
 				</div>
 			</div>
 
