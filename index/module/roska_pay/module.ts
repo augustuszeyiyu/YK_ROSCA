@@ -149,8 +149,8 @@
 	}
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		var next_bid_date = new Date(2024, 3, 10);
-        view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0,3)+" 2024 4月 10日";
+		var next_bid_date = new Date(2024, 7, 10);
+        view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0,3)+" 2024 7月 10日";
 	}
 
 	function ResetPage(){

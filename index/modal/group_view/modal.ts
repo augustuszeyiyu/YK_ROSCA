@@ -104,7 +104,7 @@
         }
     };
     async function join_bid(trigger_sid:any) {
-		var joinornot = confirm("確定要加入會組 : "+trigger_sid+"嗎?")
+		var joinornot = confirm("確定要參與 : "+trigger_sid+"的下標嗎?")
 		if(!joinornot){return;}
 		try{ 
 			await ROSKA_FORM.Join_in_groups(trigger_sid);
