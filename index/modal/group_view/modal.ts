@@ -89,9 +89,10 @@
                 const elm = tmpl_item.duplicate();
                 elm.numb.textContent = count;
                 count +=1;
-                elm.mid.textContent = record.mid;
-                elm.name.textContent = record.name;
-                elm.gid.textContent = record.gid;
+                elm.mid.textContent = record.mid||"";
+                elm.name.textContent = record.name||"";
+                elm.gid.textContent = record.gid||"";
+                elm.win_amount.textContent = record.win_amount||"";
                 region_list.appendChild(elm.element);
             })
             const button_group_bid = document.createElement("button");

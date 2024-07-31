@@ -105,6 +105,49 @@
 		}
 	});
 	async function list_settlement_serial() {
+
+		// interface GroupInfo {
+		// 	gid: string;
+		// 	win_amount: number;
+		// }
+		
+		// interface Record {
+		// 	sid: string;
+		// 	group_info: GroupInfo[];
+		// }
+		
+		// interface WinAccount {
+		// 	gids
+		// 	win_amount: number;
+		// }
+		
+		// interface SettlementData {
+		// 	alive_account: number;
+		// 	death_account: number;
+		// 	win_account: WinAccount;
+		// }
+		interface GroupInfo {
+			gid: string;
+			win_amount: number;
+		}
+
+		const settlement_data:{
+			alive_account:number,
+			deth_account:number,
+			win_account:{
+				gids:GroupInfo[],
+				win_amount:number,
+			},
+
+		} = {
+			alive_account:0,
+			deth_account:0,
+			win_account:{
+				gids:[],
+				win_amount:0,
+			},
+		}
+
 		try {
 			const list_data = await ROSKA_FORM.Get_settlement_list();
 			view.region_list.textContent = " ";
@@ -112,6 +155,8 @@
 			const tmpl_item = view.tmpl_item;
 			console.log("list_data");
 			console.log(list_data);
+
+			const pay_over_view = [];
 			var count = 1;
 			// const { total_records } = view.continue_list_container.list_container;	
 			// total_records.textContent =list_data.meta.total_records;	
@@ -119,24 +164,53 @@
 			const records = list_data;
 			for(const record of records) {
 				const elm = tmpl_item.duplicate();
-
 				elm.count.textContent = ROSKA_FORM.Tools.pad_zero(count ,3);
 				count += 1;
 				elm.sid.textContent= record.sid.slice(0, 6);
-				// elm.pay_amount.textContent = record.prev_gid.mid;
-				elm.pay_amount.textContent = "pay_amount";
-				elm.memebr_mid.textContent = record.sid.slice(0, 6);
+				// console.log(record.group_info.at(-1));
+				const lastGroupInfo = record.group_info.at(-1);
+				const winAmount = parseInt(lastGroupInfo.win_amount, 10);
+				switch(record.group_info.at(-1).win_amount){
+					case -4000:{
+						settlement_data.alive_account +=1;
+						break;
+					}
+					case -5000:{
+						settlement_data.deth_account +=1;
+						break;
+					}
+					default : {
+						settlement_data.win_account.gids.push(lastGroupInfo);
+						settlement_data.win_account.win_amount += winAmount;
+					}
+				}
+				elm.pay_amount.textContent = record.group_info.at(-1).win_amount||"pay_amount";
+				// elm.memebr_mid.textContent = record.mid.slice(0, 6)+record.mid.slice(-1, 2);
 				
+				elm.memebr_mid.textContent = record.mid.slice(-2);
+
 				elm.view_group.dataset.role = 'view_group';
 				elm.view_group.dataset.relSid = record.sid;
 				const button_group_detail =  document.createElement("samp")
 				button_group_detail.classList.add("glyph-fontawesome-search");
 				elm.view_group_icon.appendChild(button_group_detail);
 
-				
-
 				region_list.appendChild(elm.element);
 			}
+			const pay_list = view.pay_list;
+
+            pay_list.alive_account.textContent = "活會數 : " + settlement_data.alive_account + " 。" + " 活會款總計" + settlement_data.alive_account * -4000;
+            pay_list.death_account.textContent = "死會數 : " + settlement_data.deth_account + " 。" + " 死會款總計" + settlement_data.alive_account * -5000;
+			var new_win_section = document.createElement("p");
+			new_win_section.textContent = "得標會組數 : " + settlement_data.win_account.gids.length + " 。" + " 得標會款總計" + settlement_data.win_account.win_amount;
+			pay_list.win_account.textContent = "";
+			pay_list.win_account.appendChild(new_win_section);
+			// console.log(settlement_data.win_account);
+			for(let record of settlement_data.win_account.gids){
+				var result = document.createElement("p");
+				result.textContent = "得標會組"+ (record.gid||'會組名') +" 得標金 " + record.win_amount;
+				pay_list.win_account.appendChild(result);
+			};
 		}
 		catch(e:any) {
 			console.error(e);
