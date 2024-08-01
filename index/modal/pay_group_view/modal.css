@@ -19,7 +19,7 @@
 					grid-template-columns:0.5fr 1.5fr 1fr 1fr 1fr 1fr;
 				}
 		.table .t-row > div{ display: flex; justify-content: center;}
-		.table .t-row, .table .t-head { grid-template-columns:0.5fr 1.5fr 1fr 1fr 1fr 1fr}
+		.table .t-row, .table .t-head { grid-template-columns:0.5fr 1.5fr 1fr 1fr 0.25fr 1fr}
 			.table .t-column { box-sizing:border-box; }
 	
 			/* 編號 */
@@ -45,3 +45,23 @@
 					padding:1rem!important; font-size:1.1em; font-weight:bolder;
 				}
 				.table button[data-role="forbidden"] { background:#990000; color:#FFF; }
+
+
+
+
+	.grid.grid_group_view{
+		padding: 0 15%;
+	}
+	@media screen and (max-width:768px){
+		.grid.grid_group_view{
+			padding: 0 10%;
+		}
+	}
+	@media screen and (max-width:576px){
+		.grid.grid_group_view{
+			padding: 0;
+		}
+		.grid.grid_group_view .table.continue_table{
+			width: 540px;
+		}
+	}

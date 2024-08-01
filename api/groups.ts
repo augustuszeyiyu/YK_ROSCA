@@ -67,3 +67,16 @@ export async function Get_settlement_list() {
 		headers: {"Authorization": SessionControl.auth_token},
 	}).then(ProcRemoteResponse).then((resp)=>resp.json());
 }
+
+// GET
+// /api/file/member-pay-record
+// 會員開標付款紀錄表
+
+export async function export_record() {
+	SessionControl.CheckLogin();
+	
+	return fetch(`${SessionControl.endpoint_url}/api/file/member-pay-record`, {
+		method:'GET',
+		headers: {"Authorization": SessionControl.auth_token},
+	}).then(ProcRemoteResponse).then((resp)=>resp.json());
+}

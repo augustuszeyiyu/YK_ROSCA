@@ -81,6 +81,7 @@
             modal_view.list_container.sid.textContent = '會組編號 : '+searchParams['sid'];
             modal_view.list_container.group_leader.textContent = '會首 : '+list_data[0].name;
             modal_view.list_container.address.textContent = '合會地址 : '+'永康合會';
+            modal_view.list_container.first_bid_date.textContent = '首次開標日期 : ';
             modal_view.list_container.next_bid_date.textContent = '下次開標日期 : ';
             const list_datas = list_data.slice(1);
 
@@ -100,7 +101,7 @@
                 button_group_bid.textContent = "我要下標";
                 button_group_bid.dataset.role = 'join_bid';
                 button_group_bid.dataset.relId = searchParams['sid'];
-
+            console.log(modal_view.list_container.button_region);
             modal_view.list_container.button_region.appendChild(button_group_bid);
         }
     };

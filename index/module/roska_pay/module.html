@@ -71,6 +71,7 @@
 						<!-- <div>5000&times;5 = ${`pay_amount`}*${`group_sum`}</div>
 						<div>5000&times;5 = ${5*5000}</div>
 						<div>5000&times;5 = ${5*5000}</div> -->
+						<div elm-export="should_pay"></div>
 						<div elm-export="alive_account"></div>
 						<div elm-export="death_account"></div>
 						<div elm-export="win_account"></div>
@@ -131,6 +132,22 @@
 						</div>
 					</div> -->
 
+				</div>
+			</div>
+
+
+			<div style="justify-content: center; display: flex; padding-bottom: 1rem;" class="pay_recod_region" elm-export="pay_recod_region" elm-export-accessor>
+				<div >
+					<div style="padding: 0.5rem 0;">輸出本期應繳會費統計資料</div>
+					<div style="justify-content: center; display: flex; padding: 0.5rem 0;">
+						<button class="btn" data-role="export_record" elm-export="export_record" herf="www.google.com" download>會組統計下載
+						</button>
+					</div>	
+					<!-- <div style="justify-content: center; display: flex;">
+						<a elm-export="export_link" href="www.google.com" download>
+							<span  class="glyph-fontawesome-home" style="font-size: 2rem; color: #797979"></span>
+						</a>
+					</div>				 -->
 				</div>
 			</div>
 		</div>
