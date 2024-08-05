@@ -117,7 +117,7 @@
             elm.bid_status.style = "color:#3c434a;";
             elm.period_date.textContent = record.bid_start_time.slice(0, 10);
             elm.des_g_name.innerHTML = "會組序號";
-            elm.name_in_group.textContent = record.mid.slice(-2);
+            // elm.name_in_group.textContent = record.mid.slice(-2);
             if (!record.mid) {
                 elm.name_in_group.style = "color:green; font-weight:600;";
             }
