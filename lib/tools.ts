@@ -172,17 +172,17 @@ export function calculateMonthlyBitStartTime(bid_start_time:Date, index:number) 
 	let newDate = new Date(newYear, monthInYear, 10);
 	// console.log({newYear, newDate});
 		// Check if the calculated date is a weekend
-		if (isWeekend(bid_start_time) === true) {
-			if (bid_start_time.getDay() === 0) { // If it's Sunday
+		if (isWeekend(newDate) === true) {
+			if (newDate.getDay() === 0) { // If it's Sunday
 				// Subtract 2 days to schedule it on the previous Friday.
-				bid_start_time.setDate(bid_start_time.getDate() - 2);
-			} else if (bid_start_time.getDay() === 6) { // If it's Saturday
+				newDate.setDate(newDate.getDate() - 2);
+			} else if (newDate.getDay() === 6) { // If it's Saturday
 				// Subtract 1 day to schedule it on the previous Friday.
-				bid_start_time.setDate(bid_start_time.getDate() - 1);
+				newDate.setDate(newDate.getDate() - 1);
 			}
 		}
 
-  
+	console.log(newDate);
 	return newDate; // Return the adjusted bid_start_time
 }
 export function calculateBiWeeklyBitStartTime(bid_start_time:Date, index:number) {

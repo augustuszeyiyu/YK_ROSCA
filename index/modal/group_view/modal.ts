@@ -81,6 +81,7 @@
             modal_view.list_container.sid.textContent = '會組編號 : '+searchParams['sid'];
             modal_view.list_container.group_leader.textContent = '會首 : '+list_data[0].name;
             modal_view.list_container.address.textContent = '合會地址 : '+'永康合會';
+            console.log(modal_view.list_container.first_bid_date);
             modal_view.list_container.first_bid_date.textContent = '首次開標日期 : ';
             modal_view.list_container.next_bid_date.textContent = '下次開標日期 : ';
             const list_datas = list_data.slice(1);

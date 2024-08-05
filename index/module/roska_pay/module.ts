@@ -56,6 +56,7 @@
 
 	var pre_date = new Date();
 	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, -1);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
 	console.log(pre_bid_date);
 
 	modules.push({
@@ -140,7 +141,6 @@
 				gids:GroupInfo[],
 				win_amount:number,
 			},
-
 		} = {
 			alive_account:0,
 			deth_account:0,
@@ -235,7 +235,7 @@
 	};
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		view.Head_Card.frame_date.innerHTML = pre_bid_date.toString().slice(0, 3) + " " + pre_bid_date.toString().slice(4, 15);
+		view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
 		// view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0, 3) +" "+ 
 		// 	next_bid_date.getFullYear()+" "+ (next_bid_date.getMonth()+1) +" "+ next_bid_date.getDate();
 	};
