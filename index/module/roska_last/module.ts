@@ -1,41 +1,14 @@
 (async () => {
-	// Rrgion for TypeScript
-	// type User = {
-	// 	uid?: uniqid,
-	// 	nid: string,
-	// 	name: string,
-	// 	gender?: 'M'|'F',
-	// 	birth_date: string,
-	// 	address: string,
-	// 	line_id?: string,
-	// 	contact_home_number: string,
-	// 	contact_mobile_number: string,
-	// 	role?: number,
-	// 	bank_code: string,
-	// 	branch_code: string,
-	// 	bank_account_name: string,
-	// 	bank_account_number: string,
-	// 	emergency_nid: uniqid,
-	// 	emergency_contact: string,
-	// 	emergency_contact_number: string,
-	// 	emergency_contact_relation: string,
-	// 	relative_path?: string,
-	// 	referrer_uid?: uniqid,
-	// 	referrer_path?: string,
-	// 	volunteer_uid?: uniqid,
-	// 	volunteer_path?: string,
-	// 	revoked?: boolean,
-	// 	password: string,
-	// 	update_time?: number,
-	// 	create_time?: number,
-	// 	[key:string]:any,
-	// };
-	
 	const TAG = 'roska_last';
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
 	const user_info  = ROSKA_FORM.Session.getUserInfo();
+
+	var pre_date = new Date();
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, -1);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
+
 	const STATE:{
 		query:QueryParam;
 		cursor:PagingCursor|null;
@@ -86,50 +59,105 @@
 	
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		var next_bid_date = new Date(2024, 3, 10);
-        view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0,3)+" 2024 4月 10日";
+		view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
 	}
     async function list_settlement_list() {
-        // const list_data = await ROSKA_FORM.Get_settlement_list();
-        // // const { region_list: list, total_records,tmpl_item  } = view.list_container;
-        // const region_list = view.list_container.region_card_list;
-        // const tmpl_item = view.list_container.tmpl_card;
-        // var count = 0;
-        // console.log(list_data[0]);
-        // const records = list_data;
-        // for(const record of records) {
-			
-        // 	const elm = tmpl_item.duplicate();
-		// 	elm.element.dataset.id = record.sid;
+ 
+		interface GroupInfo {
+			gid: string;
+			win_amount: number;
+		}
 
-        //     elm.gruou_sid.textContent = record.sid;
-        //     elm.period.textContent = "共" + record.cycles + "期";
-        //     elm.bid_status.textContent = '開標日期';
-        //     elm.bid_status.style = "color:green;";
-        //     elm.period_date.textContent = record.bid_start_time.slice(0, 10);
+		const settlement_data:{
+			alive_account:number,
+			deth_account:number,
+			win_account:{
+				gids:GroupInfo[],
+				win_amount:number,
+			},
+		} = {
+			alive_account:0,
+			deth_account:0,
+			win_account:{
+				gids:[],
+				win_amount:0,
+			},
+		}
 
-        //     elm.des_g_name.innerHTML = "基本會款";
-        //     elm.name_in_group.textContent = '新會組';
-        //     elm.name_in_group.style = "color:green; font-weight:600;";
-        //     elm.count_in_group.innerHTML = "NT 5000";
+		try {
+			const list_data = await ROSKA_FORM.Get_settlement_list();
+			view.region_list.textContent = " ";
+			const region_list = view.region_list;
+			const tmpl_item = view.tmpl_item;
+			// console.log("list_data");
+			// console.log(list_data);
 
-		// 	elm.period_01.innerHTML = "&emsp;";
-        //     elm.duration.textContent = "共" + record.cycles + "期";
+            view.bided_date.innerHTML = "前次開標日期 : "+ pre_bid_date.toString().slice(0, 3) + " " + pre_bid_date.toString().slice(4, 15);
+			const pay_over_view = [];
+			var count = 1;
+		
+			const records = list_data;
+			// console.log(records);
+			for(const record of records) {
+				var che = record.group_info.at(-1);
+				// console.log(che);
+				if( Number(che.win_amount) === 0 ){
+					continue;
+				};
+				// console.log(record);
+				const elm = tmpl_item.duplicate();
 
-		// 	elm.bid_amount.textContent = '新會組';
-		// 	elm.name_in_group.textContent = '新會組';
+				// console.log(record.group_info.at(-1));
+				const lastGroupInfo = record.group_info.at(-1);
+				const winAmount = parseInt(lastGroupInfo.win_amount, 10);
+				switch(record.group_info.at(-1).win_amount){
+					case -4000:{
+						settlement_data.alive_account +=1;
+						break;
+					}
+					case -5000:{
+						settlement_data.deth_account +=1;
+						break;
+					}
+					default : {
+						settlement_data.win_account.gids.push(lastGroupInfo);
+						settlement_data.win_account.win_amount += winAmount;
+						
+						elm.count.textContent = ROSKA_FORM.Tools.pad_zero(count ,3);
+						count += 1;
+						elm.sid.textContent= record.sid.slice(0, 6);
 
-		// 	elm.bid_amount.innerHTML = "NT 1,000";
-		// 	elm.max_bid_amount.innerHTML ="最高標金";
+						elm.pay_amount.textContent = record.group_info.at(-1).win_amount||"pay_amount";
+						// elm.memebr_mid.textContent = record.mid.slice(0, 6)+record.mid.slice(-1, 2);
+						
+						elm.memebr_mid.textContent = record.mid.slice(-2);
+		
+						elm.view_group.dataset.role = 'view_group';
+						elm.view_group.dataset.relSid = record.sid;
+						const button_group_detail =  document.createElement("samp")
+						button_group_detail.classList.add("glyph-fontawesome-search");
+						elm.view_group_icon.appendChild(button_group_detail);
+		
+						region_list.appendChild(elm.element);
+					}
+				}
 
-        // // 	elm.create_time.textContent = record.create_time.slice(0 , 10)+" "+record.create_time.slice(11 , -5);
-        // // 	elm.count.textContent = count;
-        
-        // // 	elm.sid.textContent= record.sid;
-      	// 	region_list.appendChild(elm.element);
-		// 	count += 1;
-        // }
-
+			}
+			const pay_list = view.pay_list;
+			for(let record of settlement_data.win_account.gids){
+				var result = document.createElement("p");
+				result.innerHTML = "得標會組"+ (record.gid||'會組名') +" 得標金 " + ROSKA_FORM.Tools.pad_space(record.win_amount,6);
+				pay_list.win_account.appendChild(result);
+			};
+		}
+		catch(e:any) {
+			console.error(e);
+			alert(`載入失敗！無法取得各會期結算列表！(${e.message})`);
+			window.HandleUnauthorizedAccess(e);
+		}
+		finally{
+			loading_overlay.Hide();
+		}
 
     }
 	async function _nini(){

@@ -4,6 +4,10 @@
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
 	const user_info  = ROSKA_FORM.Session.getUserInfo();
+	var pre_date = new Date();
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, -1);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
+
 	const STATE:{
 		query:QueryParam;
 		cursor:PagingCursor|null;
@@ -17,6 +21,8 @@
 	const viewport = window.viewport;	
 	const view = viewport.roska_remain_view;
 	const loading_overlay = window.loading_overlay;
+
+
 
 	modules.push({
 		init: async function(){
@@ -117,7 +123,7 @@
             elm.bid_status.style = "color:#3c434a;";
             elm.period_date.textContent = record.bid_start_time.slice(0, 10);
             elm.des_g_name.innerHTML = "會組序號";
-            elm.name_in_group.textContent = record.mid.slice(-2);
+            elm.name_in_group.innerHTML = record.mid.slice(-2);
             if (!record.mid) {
                 elm.name_in_group.style = "color:green; font-weight:600;";
             }
@@ -141,8 +147,7 @@
     }
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		var next_bid_date=new Date(2024, 3, 10);
-		view.Head_Card.frame_date.innerHTML= next_bid_date.toDateString();
+		view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
 	}
 
 	function ResetPage(){

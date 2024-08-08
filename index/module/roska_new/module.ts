@@ -3,6 +3,14 @@
     const LANG_NAME_MAP = {en_us:'英文', zh_tw:'繁體中文', zh_cn:'簡體中文'};
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
+	// type User =  typeof ROSKA_FORM.DataType;;
+	const { resolve, promise } = ROSKA_FORM.Tools.FlattenPromise<void>();
+	const user_info  = ROSKA_FORM.Session.getUserInfo();
+
+	var pre_date = new Date();
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, -1);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
+
 	const STATE:{
 		query:QueryParam;
 		cursor:PagingCursor|null;
@@ -11,9 +19,7 @@
 		cursor:null
 	};
 
-	// type User =  typeof ROSKA_FORM.DataType;;
-	const { resolve, promise } = ROSKA_FORM.Tools.FlattenPromise<void>();
-	const user_info  = ROSKA_FORM.Session.getUserInfo();
+
 
 	const modules = window.modules;
 	const viewport = window.viewport;	
@@ -116,8 +122,7 @@
     }
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		var next_bid_date = new Date(2024, 3, 10);
-        view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0,3)+" 2024 4月 10日";
+		view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
 	}
 
 	async function join_in_group(trigger_sid:any) {

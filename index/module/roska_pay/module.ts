@@ -41,6 +41,10 @@
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
 	const user_info  = ROSKA_FORM.Session.getUserInfo();
+	var pre_date = new Date();
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, -1);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
+	
 	const STATE:{
 		query:QueryParam;
 		cursor:PagingCursor|null;
@@ -54,10 +58,8 @@
 	const view = viewport.roska_pay_view;
 	const loading_overlay = window.loading_overlay;
 
-	var pre_date = new Date();
-	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, -1);
-	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
-	console.log(pre_bid_date);
+
+
 
 	modules.push({
 		init: async function(){
