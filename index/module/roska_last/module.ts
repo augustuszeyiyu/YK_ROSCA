@@ -40,6 +40,7 @@
 			return;
 		loading_overlay.Show();
 		// personal_bid_info();
+		ResetPage();
 		update_user_info();
 		list_settlement_list()
 			.catch((e:any) => {
@@ -50,7 +51,7 @@
 			.finally(() => {
 			loading_overlay.Hide();
 			});
-		ResetPage();
+		
 	});
 
 	async function personal_bid_info() {
@@ -144,6 +145,7 @@
 
 			}
 			const pay_list = view.pay_list;
+			pay_list.win_account.innerHTML = "";
 			for(let record of settlement_data.win_account.gids){
 				var result = document.createElement("p");
 				result.innerHTML = "得標會組"+ (record.gid||'會組名') +" 得標金 " + ROSKA_FORM.Tools.pad_space(record.win_amount,6);
@@ -171,11 +173,11 @@
 		STATE.cursor = null;
 		STATE.query = {};
 
-		{
-			const accessor = view;
-			accessor.list_container.region_card_list.innerHTML = '';
-			// accessor.region_card_list.innerHTML = '';
-		}
+		// {
+		// 	const accessor = view;
+		// 	accessor.list_container.region_card_list.innerHTML = '';
+		// 	// accessor.region_card_list.innerHTML = '';
+		// }
 
 		// {
 		// 	const accessor = view.region_info;
