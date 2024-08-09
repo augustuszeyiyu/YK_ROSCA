@@ -110,8 +110,9 @@
         const tmpl_item = view.list_container.tmpl_card;
         var count = 0;
         const records = list_data;
-		console.log(list_data[0]);
+		console.log(records);
         for(const record of records) {
+			console.log(record);
 			const elm = tmpl_item.duplicate();
             elm.element.dataset.sid = record.sid;
 			elm.element.dataset.role = 'view_group';

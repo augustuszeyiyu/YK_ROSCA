@@ -43,6 +43,18 @@ export async function Join_in_groups(query_data?:RoskaSerials){
 		body: JSON.stringify(query_data)
 	}).then(ProcRemoteResponse).then((resp)=>resp.json());
 }
+// POST
+// /api/group/bid
+// 下標
+export async function Join_bids(query_data?:any){
+	SessionControl.CheckLogin();
+	return fetch(`${SessionControl.endpoint_url}/api/group/bid/`+query_data, {
+		method:'POST',
+		headers: {"Authorization": SessionControl.auth_token, "Content-Type": "application/json"},		
+		body: JSON.stringify(query_data)
+	}).then(ProcRemoteResponse).then((resp)=>resp.json());
+}
+
 //GET
 // /api/group/member/{sid}
 /**搜尋該團下的成員**/

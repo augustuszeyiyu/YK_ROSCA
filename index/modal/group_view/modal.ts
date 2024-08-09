@@ -53,7 +53,15 @@
                 return;
             switch (trigger_btn.dataset.role) {
                 case "join_bid": {
-                    join_bid(trigger_btn.dataset.relId);
+                    var req:{
+                        gid:String,
+                        bid_amount:number
+                    } = {
+                        gid : trigger_btn.dataset.relGid,
+                        bid_amount : Number(trigger_btn.dataset.relBid_amount),
+                    }
+
+                    join_bid(req);
                     break;
                     
                 }
@@ -77,15 +85,19 @@
         const list_data = await ROSKA_FORM.Get_in_groups(searchParams['sid']);
         const { total_records, tmpl_item  } = modal_view.list_container;		
         const region_list = modal_view.list_container.region_list;
+
+        var last_gid :any = "";
+        console.log(list_data);
         if (list_data) {
             modal_view.list_container.sid.textContent = '會組編號 : '+searchParams['sid'];
             modal_view.list_container.group_leader.textContent = '會首 : '+list_data[0].name;
             modal_view.list_container.address.textContent = '合會地址 : '+'永康合會';
             console.log(modal_view.list_container.first_bid_date);
-            modal_view.list_container.first_bid_date.textContent = '首次開標日期 : ';
-            modal_view.list_container.next_bid_date.textContent = '下次開標日期 : ';
-            const list_datas = list_data.slice(1);
+            // modal_view.list_container.first_bid_date.textContent = '首次開標日期 : ';
 
+            const list_datas = list_data.slice(1);
+            console.log("list_datas}");
+            console.log(list_datas);
             var count = 1;
             list_datas.forEach(function(record:any){
                 const elm = tmpl_item.duplicate();
@@ -94,23 +106,32 @@
                 elm.mid.textContent = record.mid||"";
                 elm.name.textContent = record.name||"";
                 elm.gid.textContent = record.gid||"";
+                if(record.gid){
+                    if(Number(record.gid.slice(-2))>Number((last_gid).slice(-2))){
+                        last_gid = record.gid;
+                    }
+                }
                 elm.win_amount.textContent = record.win_amount||"";
                 region_list.appendChild(elm.element);
             })
+
             const button_group_bid = document.createElement("button");
                 button_group_bid.classList.add("btn-green", "btn");
                 button_group_bid.textContent = "我要下標";
                 button_group_bid.dataset.role = 'join_bid';
-                button_group_bid.dataset.relId = searchParams['sid'];
+                button_group_bid.dataset.relGid = last_gid.slice(0,-2)+String(  ROSKA_FORM.Tools.pad_zero( Number(last_gid.slice(-2))+1  ,2));
+                modal_view.list_container.next_bid_date.textContent = '下次開標日期 : '+button_group_bid.dataset.relGid;
+                console.log(button_group_bid.dataset.relGid);
+                button_group_bid.dataset.relBid_amount = "1000";
             console.log(modal_view.list_container.button_region);
             modal_view.list_container.button_region.appendChild(button_group_bid);
         }
     };
-    async function join_bid(trigger_sid:any) {
-		var joinornot = confirm("確定要參與 : "+trigger_sid+"的下標嗎?")
+    async function join_bid(req:any) {
+		var joinornot = confirm("確定要參與 : "+req.gid+"的下標嗎?")
 		if(!joinornot){return;}
 		try{ 
-			await ROSKA_FORM.Join_in_groups(trigger_sid);
+			await ROSKA_FORM.Join_bids(req);
 			resolve();
 		}
 		catch(e:any){
