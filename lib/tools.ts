@@ -182,8 +182,8 @@ export function calculateMonthlyBitStartTime(bid_start_time:Date, index:number) 
 			}
 		}
 
-	console.log("calculateMonthlyBitStartTime");
-	console.log(newDate);
+	// console.log("calculateMonthlyBitStartTime");
+	// console.log(newDate);
 	return newDate; // Return the adjusted bid_start_time
 }
 export function calculateBiWeeklyBitStartTime(bid_start_time:Date, index:number) {

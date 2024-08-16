@@ -151,7 +151,7 @@
 				win_amount:0,
 			},
 		}
-
+		// console.log(settlement_data.win_account.gids);
 		try {
 			const list_data = await ROSKA_FORM.Get_settlement_list();
 			view.region_list.textContent = " ";
@@ -169,18 +169,20 @@
 			for(const record of records) {
 				var che = record.group_info.at(-1);
 				// console.log(che);
-				if( Number(che.win_amount) === 0 ){
-					console.log("break point 1");
-					continue;
-				};
 
-					console.log(record.group_info.at(-1).gid);
-					console.log(record.group_info.at(-1).bid_end_time);
+
+				// if( Number(che.win_amount) === 0 ){
+				// 	console.log("break point 1");
+				// 	continue;
+				// };
+
+					// console.log(record.group_info.at(-1).gid);
+					// console.log(record.group_info.at(-1).bid_end_time);
 					var record_pre_bid_end_time = new Date(record.group_info.at(-1).bid_end_time);
 					var today_this = new Date();
 					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
 					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
-					console.log( {inteval,this_bid_date,record_pre_bid_end_time});
+					// console.log( {inteval,this_bid_date,record_pre_bid_end_time});
 				if(inteval > 0){
 					console.log("break point 2");
 					continue;
@@ -194,20 +196,28 @@
 				const lastGroupInfo = record.group_info.at(-1);
 				const winAmount = parseInt(lastGroupInfo.win_amount, 10);
 				switch(record.group_info.at(-1).win_amount){
+					case 0:{
+						// console.log(record.group_info.at(-1).win_amount);
+						elm.pay_amount.innerHTML = record.group_info.at(-1).win_amount||"轉讓";
+						break;
+					}
 					case -4000:{
 						settlement_data.alive_account +=1;
+						elm.pay_amount.textContent = record.group_info.at(-1).win_amount||"pay_amount";
 						break;
 					}
 					case -5000:{
 						settlement_data.deth_account +=1;
+						elm.pay_amount.textContent = record.group_info.at(-1).win_amount||"pay_amount";
 						break;
 					}
 					default : {
 						settlement_data.win_account.gids.push(lastGroupInfo);
 						settlement_data.win_account.win_amount += winAmount;
+						elm.pay_amount.textContent = record.group_info.at(-1).win_amount||"pay_amount";
 					}
 				}
-				elm.pay_amount.textContent = record.group_info.at(-1).win_amount||"pay_amount";
+				// elm.pay_amount.textContent = record.group_info.at(-1).win_amount||"pay_amount";
 				// elm.memebr_mid.textContent = record.mid.slice(0, 6)+record.mid.slice(-1, 2);
 				
 				elm.memebr_mid.textContent = record.mid.slice(-2);
