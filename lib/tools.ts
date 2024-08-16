@@ -152,7 +152,7 @@ export function isWeekend(date:Date) {
 	return date.getDay() === 0 || date.getDay() === 6;
 }
 export function calculateMonthlyBitStartTime(bid_start_time:Date, index:number) {
-	console.log(bid_start_time);
+	// console.log(bid_start_time);
         
 	// Calculate Start Time with month and year rollover and weekend avoidance
 	const newMonth = bid_start_time.getMonth() + index;
@@ -182,6 +182,7 @@ export function calculateMonthlyBitStartTime(bid_start_time:Date, index:number) 
 			}
 		}
 
+	console.log("calculateMonthlyBitStartTime");
 	console.log(newDate);
 	return newDate; // Return the adjusted bid_start_time
 }

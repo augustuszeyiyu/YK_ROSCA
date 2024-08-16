@@ -165,14 +165,27 @@
 			var count = 1;
 		
 			const records = list_data;
-			// console.log(records);
+			console.log(records);
 			for(const record of records) {
 				var che = record.group_info.at(-1);
 				// console.log(che);
 				if( Number(che.win_amount) === 0 ){
+					console.log("break point 1");
 					continue;
 				};
-				// console.log(record);
+
+					console.log(record.group_info.at(-1).gid);
+					console.log(record.group_info.at(-1).bid_end_time);
+					var record_pre_bid_end_time = new Date(record.group_info.at(-1).bid_end_time);
+					var today_this = new Date();
+					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
+					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
+					console.log( {inteval,this_bid_date,record_pre_bid_end_time});
+				if(inteval > 0){
+					console.log("break point 2");
+					continue;
+				}
+				console.log(record);
 				const elm = tmpl_item.duplicate();
 				elm.count.textContent = ROSKA_FORM.Tools.pad_zero(count ,3);
 				count += 1;
