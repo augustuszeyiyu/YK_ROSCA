@@ -160,7 +160,8 @@
 			// console.log("list_data");
 			// console.log(list_data);
 
-            view.bided_date.innerHTML = "前次開標日期 : "+ pre_bid_date.toString().slice(0, 3) + " " + pre_bid_date.toString().slice(4, 15);
+            // view.bided_date.innerHTML = "前次開標日期 : "+ pre_bid_date.toString().slice(0, 3) + " " + pre_bid_date.toString().slice(4, 15);
+			view.bided_date.innerHTML = "前次開標日期 : "+ "Sep 09 2024";
 			const pay_over_view = [];
 			var count = 1;
 		
@@ -260,7 +261,10 @@
 	};
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
+		// view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
+		// console.log(next_bid_date);
+
+
 		// view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0, 3) +" "+ 
 		// 	next_bid_date.getFullYear()+" "+ (next_bid_date.getMonth()+1) +" "+ next_bid_date.getDate();
 	};
