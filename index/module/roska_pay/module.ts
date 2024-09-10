@@ -184,7 +184,7 @@
 					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
 					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
 					// console.log( {inteval,this_bid_date,record_pre_bid_end_time});
-				if(inteval > 1){
+				if(inteval > 0){
 					console.log("break point 2");
 					continue;
 				}
@@ -262,7 +262,7 @@
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
 		// view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
-		// console.log(next_bid_date);
+		console.log(next_bid_date);
 
 
 		// view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0, 3) +" "+ 
