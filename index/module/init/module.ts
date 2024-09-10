@@ -42,8 +42,8 @@
 		accessor.captcha_getin.innerHTML= captcha_getin_result.img;
 	}
     // REGION : [ dev helper]
-	accessor.account.value='0966286789';
-    accessor.password.value='A1234567';
+	// accessor.account.value='0966286789';
+    // accessor.password.value='A1234567';
 
     // REGION: [ Login from access_token ]
 
