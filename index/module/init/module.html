@@ -19,10 +19,16 @@
     </div>
     <div class="init_container" style="display: flex; flex-direction: column ;justify-content: center;">
         <div> <input class="Login_account" elm-export="account" type="text" placeholder="請輸入帳號(手機號碼)"></div>
-        <div> <input class="Login_password" elm-export="password" type="password" placeholder="請輸入密碼"></div>
-        <div> <input class="Login_captcha" elm-export="captcha" type="text" placeholder="請輸入認證碼"></div>
-        <div style="display: flex; justify-content: flex-end;" class="Login_captcha_getin" elm-export="captcha_getin" type="img"></div>
-        <div class="init_btn_rigion" style="display: flex; justify-content: space-between;"> 
+        <div> 
+            <!-- <div elm-export="password_view_icon"  style="color: white; text-align: end; padding: 4px 0; font-size: 1.5rem;">
+                <label >顯示密碼</label>
+                <samp class="glyph-fontawesome-eye" style=" padding: 0 0.5rem;"></samp>
+            </div> -->
+            <input class="Login_password" elm-export="password" type="password" placeholder="請輸入密碼">
+        </div>
+        <div> <input class="Login_captcha" elm-export="captcha" type="text" placeholder="請輸入認證碼"></div></div>
+        <div style=" display: flex; justify-content: flex-end;"><div style="background-color: #ffffff;" class="Login_captcha_getin" elm-export="captcha_getin" type="img"></div></div>
+        <div class="init_btn_rigion" style="display: flex; justify-content: space-between; padding-top: 0.5rem;"> 
             <button class="Login_button" elm-export="btn_login">登入</button>
             <button class="register_button" elm-export="btn_register" elm-bind-event="bubble::click::show-register-page">註冊</button>
         </div>
