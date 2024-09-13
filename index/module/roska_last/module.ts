@@ -52,7 +52,21 @@
 			loading_overlay.Hide();
 			});
 		
-	});
+	})
+
+	.on('click', async (e:any) => {
+        const trigger = e.target;
+        switch (trigger.dataset.role) {
+            case "view_group": {
+                window.open("./" + '?' + 'sid=' + trigger.dataset.relSid + '&' + "next_gid=" + trigger.dataset.next_gid + '&' + 'modal=pay_group_view', 'innerHeight=800', 'innerWidth=800');
+                break;
+            }
+            // default:
+            //     alert("您沒有權限使用該功能！\\n請使用更高權限等級的帳號執行此操作！");
+            //     return;
+        }
+    });
+
 
 	async function personal_bid_info() {
 		const user_info = await ROSKA_FORM.Get_user_info();

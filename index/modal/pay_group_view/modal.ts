@@ -10,6 +10,11 @@
     };
 
 	const { resolve, promise } = ROSKA_FORM.Tools.FlattenPromise<void>();
+    var current_date = new Date();
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(current_date, 0);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(current_date, 1);
+    // console.log("pre_bid_date",pre_bid_date);
+    // console.log("next_bid_date",next_bid_date);
 
     const modals = window.modals;
     const loading_overlay = window.loading_overlay;
@@ -81,19 +86,41 @@
             modal_view.list_container.sid.textContent = '會組編號 : '+searchParams['sid'];
             modal_view.list_container.group_leader.textContent = '會首 : '+list_data[0].name;
             modal_view.list_container.address.textContent = '合會名稱 : '+'永康合會';
-            modal_view.list_container.first_bid_date.textContent = '首次開標日期 : ';
-            modal_view.list_container.next_bid_date.textContent = '下次開標日期 : ';
+            modal_view.list_container.first_bid_date.textContent = '首次開標月份 : '+ "20"+searchParams['sid'].slice(7,9)+" 年 "+searchParams['sid'].slice(9,11)+" 月 ";
+            modal_view.list_container.next_bid_date.textContent = '下次開標月份 : '+ next_bid_date.getFullYear().toString()+" 年 "+(next_bid_date.getMonth()+1).toString()+" 月 ";
             const list_datas = list_data.slice(1);
 
             var count = 1;
             list_datas.forEach(function(record:any){
                 const elm = tmpl_item.duplicate();
-                elm.numb.textContent = count;
+                elm.numb.textContent = ROSKA_FORM.Tools.pad_zero(count,2);
                 count +=1;
                 elm.mid.textContent =  (record.mid.slice(0,6)+"-"+record.mid.slice(-2))||"";
                 elm.name.textContent = record.name||"";
                 elm.gid.textContent = (record.gid.slice(0,6)+"-"+record.gid.slice(-3))||"";
                 elm.win_amount.textContent = record.win_amount||"";
+
+                if(record.win_amount!=0){
+                    switch(record.transition){
+                        case 0:{
+                            elm.transition.textContent = "全收";
+                            break;
+                        }
+                        case 1:{
+                            elm.transition.textContent = "轉讓";
+                            break;
+                        }
+                        case 2:{
+                            elm.transition.textContent = "結清";
+                            break;
+                        }
+                        default:{
+                            elm.transition.textContent = "請聯繫工作人員";
+                        }
+                    }
+                }
+
+
                 region_list.appendChild(elm.element);
             })
             // const button_group_bid = document.createElement("button");
