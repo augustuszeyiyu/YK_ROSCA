@@ -161,7 +161,7 @@
 			// console.log(list_data);
 
             // view.bided_date.innerHTML = "前次開標日期 : "+ pre_bid_date.toString().slice(0, 3) + " " + pre_bid_date.toString().slice(4, 15);
-			view.bided_date.innerHTML = "前次開標日期 : "+ "Sep 09 2024";
+			view.bided_date.innerHTML = "本次開標日期 : "+ "Sep 09 2024";
 			const pay_over_view = [];
 			var count = 1;
 		
