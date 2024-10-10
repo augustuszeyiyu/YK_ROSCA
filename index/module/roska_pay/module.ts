@@ -41,9 +41,9 @@
     type QueryParam = {};
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
 	const user_info  = ROSKA_FORM.Session.getUserInfo();
-	var pre_date = new Date();
-	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, -1);
-	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
+	var this_date = new Date();
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, -1);
+	const tbid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
 
 	const STATE:{
 		query:QueryParam;
@@ -160,7 +160,7 @@
 			// console.log("list_data");
 			// console.log(list_data);
 
-            view.bided_date.innerHTML = "本次開標日期 : "+ pre_bid_date.toString().slice(0, 3) + " " + pre_bid_date.toString().slice(4, 15);
+            view.bided_date.innerHTML = "本次開標日期 : "+ tbid_date.toString().slice(0, 3) + " " + tbid_date.toString().slice(4, 15);
 			// view.bided_date.innerHTML = "本次開標日期 : "+ "Oct 09 2024";
 			const pay_over_view = [];
 			var count = 1;
@@ -262,7 +262,7 @@
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
 		// view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
-		console.log(next_bid_date);
+		console.log(tbid_date);
 
 
 		// view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0, 3) +" "+ 
