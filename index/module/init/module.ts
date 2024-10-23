@@ -67,6 +67,11 @@
 	}
 	// ENDREGION
 	// REGION: [ Login from account and password ]
+    // accessor.password_view_icon.onclick = () =>{
+    //     console.log("fuck you yang");
+    //     accessor.password_view_icon.innerHTML="<label>顯示密碼</label>" + "<samp class=\"glyph-fontawesome-eye-slash\" style=\" padding: 0 0.5rem;\"></samp>";
+    // };
+
 	accessor.btn_login.onclick = async () => {
 		const account = accessor.account.value;
 		const password = accessor.password.value;
