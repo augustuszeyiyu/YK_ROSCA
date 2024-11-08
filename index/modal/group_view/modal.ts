@@ -96,7 +96,7 @@
             modal_view.list_container.group_leader.textContent = '會首 : '+list_data[0].name;
             modal_view.list_container.address.textContent = '合會地址 : '+'永康合會';
             // console.log(modal_view.list_container.first_bid_date);
-            modal_view.list_container.first_bid_date.textContent = '首次開標月份 : '+ "20"+searchParams['sid'].slice(7,9)+" 年 "+searchParams['sid'].slice(9,11)+" 月 ";
+            // modal_view.list_container.first_bid_date.textContent = '首次開標月份 : '+ "20"+searchParams['sid'].slice(7,9)+" 年 "+searchParams['sid'].slice(9,11)+" 月 ";
             modal_view.list_container.next_bid_date.textContent = '下次開標月份 : '+ next_bid_date.getFullYear().toString()+" 年 "+(next_bid_date.getMonth()+1).toString()+" 月 ";
 
             const list_datas = list_data.slice(1);
