@@ -184,7 +184,7 @@
 					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
 					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
 					// console.log( {inteval,this_bid_date,record_pre_bid_end_time});
-				if(inteval > 1){
+				if(inteval > 0){
 					console.log("break point 2");
 					continue;
 				}
