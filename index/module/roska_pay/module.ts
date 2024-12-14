@@ -238,7 +238,7 @@
 			// console.log(settlement_data.deth_account * -5000);
 			pay_list.should_pay.innerHTML = "本期應繳會費 : " + ( (settlement_data.alive_account * 4000) + (settlement_data.deth_account * 5000) + -(settlement_data.win_account.win_amount) );
             pay_list.alive_account.innerHTML = "活會數 : <span style=\"color:green;\">" + settlement_data.alive_account + "</span> 。" + " 活會款總計" + -(settlement_data.alive_account * 4000);
-            pay_list.death_account.innerHTML = "死會數 : <span style=\"color:red;\">" + settlement_data.deth_account + "</span> 。" + " 死會款總計" + -(settlement_data.deth_account * 5000);
+            pay_list.death_account.innerHTML = "全收會數 : <span style=\"color:red;\">" + settlement_data.deth_account + "</span> 。" + " 全收會款總計" + -(settlement_data.deth_account * 5000);
             var new_win_section = document.createElement("p");
             new_win_section.innerHTML = "得標會組數 : <span style=\"color:green;\">" + settlement_data.win_account.gids.length + "</span>  。" + " 得標會款總計" + (settlement_data.win_account.win_amount);
 			pay_list.win_account.textContent = "";
