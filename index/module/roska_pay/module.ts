@@ -160,7 +160,7 @@
 			// console.log("list_data");
 			// console.log(list_data);
 
-            view.bided_date.innerHTML = "本次開標日期 : "+ tbid_date.toString().slice(0, 3) + " " + tbid_date.toString().slice(4, 15);
+            view.bided_date.innerHTML = "開標日期 : "+ tbid_date.toString().slice(0, 3) + " " + tbid_date.toString().slice(4, 15);
 			// view.bided_date.innerHTML = "本次開標日期 : "+ "Oct 09 2024";
 			const pay_over_view = [];
 			var count = 1;
@@ -183,8 +183,8 @@
 					var today_this = new Date();
 					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
 					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
-					// console.log( {inteval,this_bid_date,record_pre_bid_end_time});
-				if(inteval > 0){
+					console.log( {inteval,this_bid_date,record_pre_bid_end_time});
+				if( inteval > 0 ||inteval<0){
 					console.log("break point 2");
 					continue;
 				}
