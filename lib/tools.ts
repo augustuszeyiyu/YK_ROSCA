@@ -161,7 +161,10 @@ export function calculateMonthlyBitStartTime(bid_start_time:Date, index:number) 
 	if(newMonth<0){
 		yearOffset = -1;
 	}
-	else{
+	else if(newMonth>11){
+		yearOffset = +1;
+	}
+	else {
 		yearOffset = 0;
 	};
 	const monthInYear = newMonth % 12; // Calculate the month within the year

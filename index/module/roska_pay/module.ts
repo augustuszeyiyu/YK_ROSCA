@@ -183,12 +183,13 @@
 					var today_this = new Date();
 					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
 					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
-					console.log( {inteval,this_bid_date,record_pre_bid_end_time});
-				if( inteval > 0 ||inteval<0){
-					console.log("break point 2");
+					var inteval_year = Number(this_bid_date.getFullYear())-Number(record_pre_bid_end_time.getFullYear());
+					// console.log( {inteval,this_bid_date,record_pre_bid_end_time});
+				if( inteval > 0 ||inteval<0 ||inteval_year>0){
+					console.log(inteval,"break point 2",inteval_year);
 					continue;
 				}
-				console.log(record);
+				// console.log(record);
 				const elm = tmpl_item.duplicate();
 				elm.count.textContent = ROSKA_FORM.Tools.pad_zero(count ,3);
 				count += 1;
