@@ -44,6 +44,7 @@
 	var this_date = new Date();
 	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, -1);
 	const tbid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
 
 	const STATE:{
 		query:QueryParam;
@@ -160,13 +161,13 @@
 			// console.log("list_data");
 			// console.log(list_data);
 
-            view.bided_date.innerHTML = "開標日期 : "+ tbid_date.toString().slice(0, 3) + " " + tbid_date.toString().slice(4, 15);
+            view.bided_date.innerHTML = "開標日期 : "+ pre_bid_date.toString().slice(0, 3) + " " + pre_bid_date.toString().slice(4, 15);
 			// view.bided_date.innerHTML = "本次開標日期 : "+ "Oct 09 2024";
 			const pay_over_view = [];
 			var count = 1;
 		
 			const records = list_data;
-			console.log(records);
+			// console.log(records);
 			for(const record of records) {
 				var che = record.group_info.at(-1);
 				// console.log(che);
@@ -184,17 +185,22 @@
 					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
 					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
 					var inteval_year = Number(this_bid_date.getFullYear())-Number(record_pre_bid_end_time.getFullYear());
-					var inteval_day = Number(this_bid_date.getDate()) > Number(record_pre_bid_end_time.getDate() ?1:0);
-					console.log( {inteval,this_bid_date,record_pre_bid_end_time});
-					console.log(record.mid);
-					console.log(inteval,"break point 2",inteval_year);
-					console.log(inteval_day);
-					if(inteval<0 ||inteval_year>0){
+					var inteval_day = Number(this_bid_date.getDate()) > Number(record_pre_bid_end_time.getDate());
+					// console.log("today this", today_this,this_bid_date);
+					// console.log( {inteval,this_bid_date,record_pre_bid_end_time});
+					// console.log(record.mid);
+					// console.log(inteval,"break point 2",inteval_year);
+					// console.log(inteval_day,Number(today_this.getDate()),Number(this_bid_date.getDate()));
+					if (inteval < 0 || inteval_year > 0) {
 						console.log("A");
 						continue;
 					}
-					if(inteval > 0 && inteval_day==false){
+					if (inteval == 1 && inteval_day !== false) {
 						console.log("B");
+						continue;
+					}
+					if (inteval > 1 ) {
+						console.log("C");
 						continue;
 					}
 				const elm = tmpl_item.duplicate();
@@ -269,7 +275,7 @@
 	};
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		// view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
+		view.Head_Card.frame_date.innerHTML = tbid_date.toString().slice(0, 3) + " " + tbid_date.toString().slice(4, 15);
 		console.log(tbid_date);
 
 

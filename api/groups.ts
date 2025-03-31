@@ -76,6 +76,8 @@ export async function Get_settlement_list() {
 		const testdate = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(new Date() , 0);
 		var year:number = Number(testdate.getFullYear()); 
 		var month:number = Number(testdate.getMonth()+1); 
+		console.log("groups settlement-list");
+		console.log(year ,month);
 	return fetch(`${SessionControl.endpoint_url}/api/group/group/settlement-list`+"/"+year+"/"+month, {
 		method:'GET',
 		headers: {"Authorization": SessionControl.auth_token},

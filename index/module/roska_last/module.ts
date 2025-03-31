@@ -5,9 +5,10 @@
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
 	const user_info  = ROSKA_FORM.Session.getUserInfo();
 
-	var pre_date = new Date();
-	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 0);
-	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(pre_date, 1);
+	var this_date = new Date();
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, -1);
+	const tbid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
 
 	const STATE:{
 		query:QueryParam;
