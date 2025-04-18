@@ -42,9 +42,9 @@
 	type PagingCursor = Awaited<ReturnType<typeof window.ROSKA_FORM.Do_Register_User_Info>>;
 	const user_info  = ROSKA_FORM.Session.getUserInfo();
 	var this_date = new Date();
-	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, -1);
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
 	const tbid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
-	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 1);
 
 	const STATE:{
 		query:QueryParam;
@@ -275,8 +275,8 @@
 	};
 	async function update_user_info(){
 		view.Head_Card.member_name.innerHTML="會員 :"+user_info.name;
-		view.Head_Card.frame_date.innerHTML = tbid_date.toString().slice(0, 3) + " " + tbid_date.toString().slice(4, 15);
-		console.log(tbid_date);
+		view.Head_Card.frame_date.innerHTML = next_bid_date.toString().slice(0, 3) + " " + next_bid_date.toString().slice(4, 15);
+		console.log(next_bid_date);
 
 
 		// view.Head_Card.frame_date.innerHTML = next_bid_date.toDateString().slice(0, 3) +" "+ 

@@ -6,9 +6,9 @@
 	const user_info  = ROSKA_FORM.Session.getUserInfo();
 
 	var this_date = new Date();
-	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, -1);
+	const pre_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
 	const tbid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
-	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 0);
+	const next_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(this_date, 1);
 
 	const STATE:{
 		query:QueryParam;
