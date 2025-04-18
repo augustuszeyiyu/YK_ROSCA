@@ -121,15 +121,25 @@
 					continue;
 				};
 
-				var record_pre_bid_end_time = new Date(record.group_info.at(-1).bid_end_time);
-				var today_this = new Date();
-				var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
-				var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
-				// console.log( {inteval,this_bid_date,record_pre_bid_end_time});
-					if(inteval > 0){
-						console.log("break point 2");
+					var record_pre_bid_end_time = new Date(record.group_info.at(-1).bid_end_time);
+					var today_this = new Date();
+					var this_bid_date = ROSKA_FORM.Tools.calculateMonthlyBitStartTime(today_this,0);					
+					var inteval = Number(this_bid_date.getMonth())-Number(record_pre_bid_end_time.getMonth());
+					var inteval_year = Number(this_bid_date.getFullYear())-Number(record_pre_bid_end_time.getFullYear());
+					var inteval_day = Number(this_bid_date.getDate()) - Number(record_pre_bid_end_time.getDate());
+					if (inteval < 0 || inteval_year > 0) {
+						console.log("A");
 						continue;
 					}
+					if (inteval == 1 && inteval_day <= 0) {
+						console.log("B");
+						continue;
+					}
+					if (inteval > 1 ) {
+						console.log("C");
+						continue;
+					}
+
 
 				// console.log(record);
 				const elm = tmpl_item.duplicate();
