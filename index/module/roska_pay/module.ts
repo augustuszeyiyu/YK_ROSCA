@@ -177,6 +177,8 @@
 				// 	continue;
 				// };
 
+
+				//test test test
 					// console.log(record.group_info.at(-1).gid);
 					// console.log(record.group_info.at(-1).bid_end_time);
 					var record_pre_bid_end_time = new Date(record.group_info.at(-1).bid_end_time);
